@@ -1,0 +1,20 @@
+{
+    "titleDisplay": "Insectos",
+    "backgroundAsset": "/images/caterpillar.png",
+    "videoSelections": [
+        {
+            "titleDisplay": "OrugaXXY",
+            "captionAsset": "/assets/captions/captions-1-es-MX.vtt",
+            "narrationAsset": "/assets/audio/narration-1-es.ogg",
+            "videoAsset": "/assets/videos/video-1.mp4",
+            "thumbnail": "/assets/images/image-1.png"
+        },
+        {
+            "titleDisplay": "Mariquita",
+            "captionAsset": "/assets/captions/captions-2-es-MX.vtt",
+            "narrationAsset": "/assets/audio/narration-2-es.ogg",
+            "videoAsset": "/assets/videos/video-2.mp4",
+            "thumbnail": "/assets/images/image-2.png"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "globalSettings": {
+        "id": "skillsville",
+        "inactivityTimeout": 45
+    },
+    "locales": [
+        {
+            "code": "en-US",
+            "name": "English",
+            "enabled": true,
+            "default": true,
+            "contentFile": "locales/en-US.json"
+        },
+        {
+            "code": "es",
+            "name": "Spanish",
+            "enabled": true,
+            "default": false,
+            "contentFile": "locales/es.json"
+        }
+    ]
+}

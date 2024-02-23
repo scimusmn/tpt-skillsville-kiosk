@@ -1,0 +1,19 @@
+{
+    "titleDisplay": "Bugs",
+    "videoSelections": [
+        {
+            "titleDisplay": "Caterpillar",
+            "captionAsset": "/assets/captions/captions-1-en-US.vtt",
+            "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
+            "videoAsset": "/assets/videos/video-1.mp4",
+            "thumbnail": "/assets/images/image-1.png"
+        },
+        {
+            "titleDisplay": "Ladybug",
+            "captionAsset": "/assets/captions/captions-2-en-US.vtt",
+            "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
+            "videoAsset": "/assets/videos/video-2.mp4",
+            "thumbnail": "/assets/images/image-2.png"
+        }
+    ]
+}

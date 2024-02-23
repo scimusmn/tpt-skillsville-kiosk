@@ -1,9 +1,19 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  // eslint-disable-next-line global-require, import/no-unresolved
-  const jsonData = require('../../static/content.json');
+  const jsonData = require('../../static/main.json');
 
-  // Transform Locales from JSON into Contentful structure
-  jsonData.locales.forEach((locale) => {
+  const { globalSettings, locales } = jsonData;
+  const defaultLocaleCode = locales.find((locale) => locale.default).code;
+
+  const localeData = {};
+  locales.forEach((locale) => {
+    localeData[locale.code] = require(`../../static/${locale.contentFile}`);
+  });
+
+  const defaultData = localeData[defaultLocaleCode];
+
+  const createLocaleNode = (locale) => {
     const transformedData = {
       code: locale.code,
       name: locale.name,
@@ -12,7 +22,6 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
     const node = {
       ...transformedData,
-      // Required fields
       id: createNodeId(transformedData.code),
       internal: {
         type: 'ContentfulLocale',
@@ -21,74 +30,64 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     };
 
     actions.createNode(node);
-  });
+  };
 
-  // Get default locale code
-  const defaultLocale = jsonData.locales.find((locale) => locale.default).code;
+  // Create Contentful locale nodes in data layer
+  locales.forEach(createLocaleNode);
 
-  function getLocalized(fieldValue, localeCode) {
-    // Return the value as-is if it's not a locale object
-    if (typeof fieldValue !== 'object') {
-      return fieldValue;
-    }
-    // If it's an object with locale keys, return the value for requested locale
-    if (fieldValue[localeCode]) {
-      return fieldValue[localeCode];
-    }
-    // If the requested locale doesn't exist, fall back to default locale value
-    if (fieldValue[defaultLocale]) {
-      return fieldValue[defaultLocale];
-    }
-    console.warn(`Unable to localize field value ${localeCode} - ${fieldValue}`);
-    return null;
-  }
-
-  // Transform Video Selectors from JSON into Contentful structure
-  jsonData.videoSelectors.forEach((selector, index) => {
-    // Create one node per locale (to match Contentful's locale structure)
-    // These locale nodes are merged in front-end queries
-    jsonData.locales.forEach((locale) => {
-      const transformedData = {
-        slug: selector.slug || `video-selector-${index + 1}`, // If no slug is provided, use a default
-        node_locale: locale.code,
-        inactivityDelay: selector.inactivityTimeout,
-        titleDisplay: getLocalized(selector.titleDisplay, locale.code),
-        backgroundAsset: {
+  const createVideoSelectorNode = ([code, data]) => {
+    const transformedData = {
+      slug: globalSettings.id || 'video-selector',
+      node_locale: code,
+      inactivityDelay: globalSettings.inactivityTimeout,
+      titleDisplay: data.titleDisplay || defaultData.titleDisplay,
+      backgroundAsset: {
+        localFile: {
+          publicURL: data.backgroundAsset || defaultData.backgroundAsset,
+        },
+      },
+      selections: data.videoSelections.map((selection, index) => ({
+        titleDisplay: selection.titleDisplay
+        || defaultData.videoSelections[index].titleDisplay,
+        captionAsset: {
           localFile: {
-            publicURL: selector.backgroundAsset,
+            publicURL: selection.captionAsset
+            || defaultData.videoSelections[index].captionAsset,
           },
         },
-        selections: selector.selections.map((selection) => ({
-          titleDisplay: getLocalized(selection.titleDisplay, locale.code),
-          captionAsset: {
-            localFile: {
-              publicURL: getLocalized(selection.captionAsset, locale.code),
-            },
+        narrationAsset: {
+          localFile: {
+            publicURL: selection.narrationAsset
+            || defaultData.videoSelections[index].narrationAsset,
           },
-          videoAsset: {
-            localFile: {
-              publicURL: selection.videoAsset,
-            },
-          },
-          thumbnail: {
-            localFile: {
-              publicURL: selection.thumbnail,
-            },
-          },
-        })),
-      };
-
-      const node = {
-        ...transformedData,
-        // Required fields
-        id: createNodeId(`${transformedData.slug}-${locale.code}`),
-        internal: {
-          type: 'ContentfulVideoSelector',
-          contentDigest: createContentDigest(transformedData),
         },
-      };
+        videoAsset: {
+          localFile: {
+            publicURL: selection.videoAsset
+            || defaultData.videoSelections[index].videoAsset,
+          },
+        },
+        thumbnail: {
+          localFile: {
+            publicURL: selection.thumbnail
+            || defaultData.videoSelections[index].thumbnail,
+          },
+        },
+      })),
+    };
 
-      actions.createNode(node);
-    });
-  });
+    const node = {
+      ...transformedData,
+      id: createNodeId(`${transformedData.slug}-${code}`),
+      internal: {
+        type: 'ContentfulVideoSelector',
+        contentDigest: createContentDigest(transformedData),
+      },
+    };
+
+    actions.createNode(node);
+  };
+
+  // Create Contentful video selector nodes in data layer
+  Object.entries(localeData).forEach(createVideoSelectorNode);
 };

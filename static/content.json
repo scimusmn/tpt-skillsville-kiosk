@@ -1,0 +1,86 @@
+{
+    "locales": [
+        {
+            "code": "en-US",
+            "name": "English",
+            "default": true
+        },
+        {
+            "code": "es",
+            "name": "Spanish",
+            "default": false
+        }
+    ],
+    "videoSelectors": [
+        {
+            "slug": "bugs",
+            "inactivityTimeout": 45,
+            "titleDisplay": {
+                "en-US": "Bugs",
+                "es": "Insectos"
+            },
+            "backgroundAsset": "/images/caterpillar.png",
+            "selections": [
+                {
+                    "titleDisplay": {
+                        "en-US": "Caterpillar",
+                        "es": "Oruga"
+                    },
+                    "captionAsset": {
+                        "en-US": "/captions/example-captions-en-US.vtt",
+                        "es": "/captions/example-captions-es-MX.vtt"
+                    },
+                    "videoAsset": "/videos/video-1.mp4",
+                    "thumbnail": "/images/caterpillar.png"
+                },
+                {
+                    "titleDisplay": {
+                        "en-US": "Ladybug",
+                        "es": "Mariquita"
+                    },
+                    "captionAsset": {
+                        "en-US": "/captions/example-captions-en-US.vtt",
+                        "es": "/captions/example-captions-es-MX.vtt"
+                    },
+                    "videoAsset": "/videos/video-1.mp4",
+                    "thumbnail": "/images/ladybug.png"
+                }
+            ]
+        },
+        {
+            "slug": "bonsais",
+            "inactivityTimeout": 60,
+            "titleDisplay": {
+                "en-US": "Trees",
+                "es": "Árboles"
+            },
+            "backgroundAsset": "/images/green.png",
+            "selections": [
+                {
+                    "titleDisplay": {
+                        "en-US": "Red tree",
+                        "es": "Árbol rojo"
+                    },
+                    "captionAsset": {
+                        "en-US": "/captions/example-captions-en-US.vtt",
+                        "es": "/captions/example-captions-es-MX.vtt"
+                    },
+                    "videoAsset": "/videos/video-1.mp4",
+                    "thumbnail": "/images/red.png"
+                },
+                {
+                    "titleDisplay": {
+                        "en-US": "Green tree",
+                        "es": "Árbol verde"
+                    },
+                    "captionAsset": {
+                        "en-US": "/captions/example-captions-en-US.vtt",
+                        "es": "/captions/example-captions-es-MX.vtt"
+                    },
+                    "videoAsset": "/videos/video-1.mp4",
+                    "thumbnail": "/images/green.png"
+                }
+            ]
+        }
+    ]
+}

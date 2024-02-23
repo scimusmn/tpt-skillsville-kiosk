@@ -1,0 +1,486 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "x9tl8f5hxclo"
+          }
+        },
+        "id": "videoWithCaption",
+        "type": "ContentType",
+        "createdAt": "2023-11-14T18:08:44.475Z",
+        "updatedAt": "2023-11-27T19:22:41.423Z",
+        "environment": {
+          "sys": {
+            "id": "cm-content-model",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2023-11-27T19:22:41.423Z",
+        "firstPublishedAt": "2023-11-14T18:08:44.698Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        }
+      },
+      "displayField": "videoName",
+      "name": "Video with caption",
+      "description": "Pairs a video asset with one or more caption files",
+      "fields": [
+        {
+          "id": "videoName",
+          "name": "Video Name",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "titleDisplay",
+          "name": "Title Display",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "videoAsset",
+          "name": "Video Asset",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image",
+                "video"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "captionAsset",
+          "name": "Caption asset",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "thumbnail",
+          "name": "Thumbnail",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "x9tl8f5hxclo"
+          }
+        },
+        "id": "videoSelector",
+        "type": "ContentType",
+        "createdAt": "2023-11-14T18:08:50.148Z",
+        "updatedAt": "2023-11-30T20:11:12.246Z",
+        "environment": {
+          "sys": {
+            "id": "cm-content-model",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2023-11-30T20:11:12.246Z",
+        "firstPublishedAt": "2023-11-14T18:08:50.450Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        }
+      },
+      "displayField": "componentName",
+      "name": "Video Selector",
+      "description": "Creates a video selector kiosk app",
+      "fields": [
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "componentName",
+          "name": "Component Name",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "titleDisplay",
+          "name": "Title Display",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "backgroundAsset",
+          "name": "Background Asset",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkMimetypeGroup": [
+                "image",
+                "video"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "selections",
+          "name": "Selections",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "videoWithCaption"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "inactivityDelay",
+          "name": "Inactivity delay ",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-US": 60
+          },
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "x9tl8f5hxclo",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 11,
+        "createdAt": "2023-11-14T18:08:44.832Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fTc4dEMlnnSVhCFfMWG1d",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-11-27T19:22:42.122Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fTc4dEMlnnSVhCFfMWG1d",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "videoWithCaption",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "cm-content-model",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "videoName",
+          "settings": {
+            "helpText": "Internal use only - not displayed in the app"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "titleDisplay",
+          "settings": {
+            "helpText": "Optional title for selection button"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "videoAsset",
+          "settings": {
+            "helpText": "Video files must be .mp4 format"
+          },
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "captionAsset",
+          "settings": {
+            "helpText": "Must use files in .vtt format"
+          },
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "thumbnail",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "x9tl8f5hxclo",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 15,
+        "createdAt": "2023-11-14T18:08:50.639Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fTc4dEMlnnSVhCFfMWG1d",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-11-30T20:11:13.235Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fTc4dEMlnnSVhCFfMWG1d",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "videoSelector",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "cm-content-model",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "componentName",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "titleDisplay",
+          "settings": {
+            "helpText": "Optional title for selection screen"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "backgroundAsset",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "selections",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "inactivityDelay",
+          "settings": {
+            "helpText": "Delay in seconds before returning to attract screen or initial menu. Defaults to 60 seconds."
+          },
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+  ],
+  "assets": [
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "0BZYbhjGzaErbEikVtriG7",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "x9tl8f5hxclo"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "cm-content-model",
+            "uuid": "76a14f52-d6cf-414a-a959-8bfb02eb5dda"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "createdAt": "2023-11-27T19:05:45Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fTc4dEMlnnSVhCFfMWG1d"
+          }
+        },
+        "updatedAt": "2023-11-27T19:05:45Z"
+      }
+    }
+  ]
+}

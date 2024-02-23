@@ -1,0 +1,37 @@
+{
+  "name": "smm-gatsby-source-contentful-locales",
+  "version": "1.0.3",
+  "main": "index.js",
+  "description": "Get the list of locales from a given space",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joseguerrerov/gatsby-source-contentful-locales.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "contentful",
+    "locales"
+  ],
+  "author": "Jose Guerrero",
+  "license": "MIT",
+  "scripts": {
+    "commit": "npx git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^4.2.5",
+    "semantic-release": "^17.1.1",
+    "semantic-release-slack-bot": "^1.6.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

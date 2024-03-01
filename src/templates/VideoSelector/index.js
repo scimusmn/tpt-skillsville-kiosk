@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useIdleTimer } from 'react-idle-timer/legacy';
 import VideoPlayer from '@components/VideoPlayer';
+import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 
@@ -181,6 +182,7 @@ function VideoSelector(all) {
       </div>
       <div className="selection-container">{selectionItems}</div>
       <VideoPlayer currentSelection={currentSelection} pause={pause} reset={reset} />
+      <AttractScreen pause={pause} reset={reset} />
       {otherLocales.length > 0 && (
         <LanguageSwitcher otherLocales={otherLocales} slug={defaultSelector.slug} />
       )}

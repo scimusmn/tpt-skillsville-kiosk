@@ -8,7 +8,9 @@ import PropTypes from 'prop-types';
 import useCaptions from '../../useCaptions';
 
 function VideoPlayer(props) {
-  const { currentSelection, pause, reset } = props;
+  const {
+    currentSelection, pause, reset, setModalSel,
+  } = props;
   const videoRef = useRef(null);
   const [fillAmount, setFillAmount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,13 +58,17 @@ function VideoPlayer(props) {
     videoRef.current.currentTime = 0;
     videoRef.current.pause();
     videoRef.src = '';
+    setModalSel('');
 
     // Apply styles to show menu and hide list items
     const player = document.getElementById('player-wrapper');
     player.classList.add('hide-player-wrapper');
     player.classList.remove('show-player-wrapper');
     const selections = document.getElementsByClassName('selection-item');
-    Object.keys(selections).forEach((i) => selections[i].classList.remove('hide-selection'));
+    Object.keys(selections).forEach((i) => {
+      selections[i].classList.remove('hide-selection');
+      selections[i].classList.add('show-selection');
+    });
 
     // resume idle timer
     reset();
@@ -121,6 +127,7 @@ VideoPlayer.propTypes = {
   currentSelection: PropTypes.objectOf(PropTypes.any).isRequired,
   pause: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
+  setModalSel: PropTypes.func.isRequired,
 };
 
 export default VideoPlayer;

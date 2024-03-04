@@ -79,6 +79,10 @@ img {
   z-index: -1;
 }
 
+.skillsville .show-selection {
+  z-index: 500;
+}
+
 .skillsville .selection-item img {
   height: 200px;
   width: 200px;
@@ -241,4 +245,42 @@ img {
   padding: 50px;
   position: absolute;
   top: 0;
+}
+
+.skillsville .modal-container {
+  background-color: purple;
+  color: white;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  top: 300px;
+  left: 500px;
+  width: 500px;
+  z-index: 500;
+}
+
+.skillsville .yes {
+  border: 1px solid white;
+  font-size: 34px;
+  margin: auto;
+  padding: 20px;
+}
+
+.skillsville .no {
+  border: 1px solid white;
+  font-size: 34px;
+  margin: auto;
+  padding: 20px;
+}
+
+.skillsville .modal-hide {
+  opacity: 0;
+  z-index: -5;
+}
+
+.skillsville .modal-show {
+  opacity: 1;
+  z-index: 500;
 }

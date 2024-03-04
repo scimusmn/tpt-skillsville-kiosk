@@ -5,6 +5,7 @@ import { useIdleTimer } from 'react-idle-timer/legacy';
 import VideoPlayer from '@components/VideoPlayer';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
+import SelectModal from '../../components/SelectModal';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 export const pageQuery = graphql`
@@ -134,6 +135,7 @@ function VideoSelector(all) {
   };
 
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
+  const [modalSel, setModalSel] = useState('');
 
   function setSelection(selection) {
     setCurrentSelection(selection);
@@ -147,19 +149,23 @@ function VideoSelector(all) {
       player.classList.remove('hide-player-wrapper');
       player.classList.add('show-player-wrapper');
       const selectionItems = document.getElementsByClassName('selection-item');
-      Object.keys(selectionItems).forEach((i) => selectionItems[i].classList.add('hide-selection'));
+      Object.keys(selectionItems).forEach((i) => {
+        selectionItems[i].classList.add('hide-selection');
+      });
     }
   }
 
   useEffect(() => {
-    setSelection(currentSelection);
-  }, [currentSelection]);
+    if (modalSel === 'yes') {
+      setSelection(currentSelection);
+    }
+  }, [currentSelection, modalSel]);
 
   const selectionItems = selections.map((i) => (
     <Selection
       key={i.titleDisplay}
       item={i}
-      setSelection={setSelection}
+      setCurrentSelection={setCurrentSelection}
     />
   ));
 
@@ -181,7 +187,13 @@ function VideoSelector(all) {
         ))}
       </div>
       <div className="selection-container">{selectionItems}</div>
-      <VideoPlayer currentSelection={currentSelection} pause={pause} reset={reset} />
+      <SelectModal setModalSel={setModalSel} />
+      <VideoPlayer
+        currentSelection={currentSelection}
+        pause={pause}
+        reset={reset}
+        setModalSel={setModalSel}
+      />
       <AttractScreen pause={pause} reset={reset} />
       {otherLocales.length > 0 && (
         <LanguageSwitcher otherLocales={otherLocales} slug={defaultSelector.slug} />

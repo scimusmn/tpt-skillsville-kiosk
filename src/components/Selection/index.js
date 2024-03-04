@@ -7,16 +7,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Selection(props) {
-  const { item, setCurrentSelection } = props;
+  const {
+    item, setCurrentSelection, setModalShow, menuShow,
+  } = props;
 
   function popModal() {
-    document.getElementById('modal').classList.add('modal-show');
-    document.getElementById('modal').classList.remove('modal-hide');
+    setModalShow(true);
     setCurrentSelection(item);
   }
 
   return (
-    <div className="selection-item hide-selection" onClick={() => popModal()}>
+    <div className={`selection-item ${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
       <div className="image-container">
         <img src={item.thumbnail.localFile.publicURL} alt="thumbnail" />
       </div>
@@ -36,6 +37,8 @@ function Selection(props) {
 Selection.propTypes = {
   item: PropTypes.objectOf(PropTypes.any).isRequired,
   setCurrentSelection: PropTypes.func.isRequired,
+  setModalShow: PropTypes.func.isRequired,
+  menuShow: PropTypes.bool.isRequired,
 };
 
 export default Selection;

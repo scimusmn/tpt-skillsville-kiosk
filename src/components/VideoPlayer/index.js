@@ -9,7 +9,7 @@ import useCaptions from '../../useCaptions';
 
 function VideoPlayer(props) {
   const {
-    currentSelection, pause, reset, setModalSel,
+    currentSelection, pause, reset, setModalSel, videoShow, setVideoShow, setMenuShow,
   } = props;
   const videoRef = useRef(null);
   const [fillAmount, setFillAmount] = useState(0);
@@ -59,16 +59,8 @@ function VideoPlayer(props) {
     videoRef.current.pause();
     videoRef.src = '';
     setModalSel('');
-
-    // Apply styles to show menu and hide list items
-    const player = document.getElementById('player-wrapper');
-    player.classList.add('hide-player-wrapper');
-    player.classList.remove('show-player-wrapper');
-    const selections = document.getElementsByClassName('selection-item');
-    Object.keys(selections).forEach((i) => {
-      selections[i].classList.remove('hide-selection');
-      selections[i].classList.add('show-selection');
-    });
+    setVideoShow(false);
+    setMenuShow(true);
 
     // resume idle timer
     reset();
@@ -79,7 +71,7 @@ function VideoPlayer(props) {
   }
 
   return (
-    <div id="player-wrapper" className="wrapper hide-player-wrapper">
+    <div id="player-wrapper" className={`wrapper ${videoShow ? 'show-player-wrapper' : 'hide-player-wrapper'}`}>
       <div id="player-container">
         <video
           id="video"
@@ -128,6 +120,9 @@ VideoPlayer.propTypes = {
   pause: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
   setModalSel: PropTypes.func.isRequired,
+  videoShow: PropTypes.bool.isRequired,
+  setVideoShow: PropTypes.func.isRequired,
+  setMenuShow: PropTypes.func.isRequired,
 };
 
 export default VideoPlayer;

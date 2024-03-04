@@ -13,7 +13,7 @@ img {
   display: block;
 }
 
-/* *****EXAMPLE STYLES**** */
+/* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
   border: 1px solid #ccc;
@@ -168,11 +168,6 @@ img {
   transition: opacity 1s;
 }
 
-.skillsville .show-attract-wrapper {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
 .skillsville .wrapper {
   background-color: black;
 }
@@ -253,10 +248,10 @@ img {
   display: flex;
   height: 500px;
   justify-content: center;
+  left: 500px;
   margin: auto;
   position: absolute;
   top: 300px;
-  left: 500px;
   width: 500px;
   z-index: 500;
 }

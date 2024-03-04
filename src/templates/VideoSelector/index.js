@@ -137,21 +137,20 @@ function VideoSelector(all) {
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
   const [modalSel, setModalSel] = useState('');
 
+  // Display states
+  const [menuShow, setMenuShow] = useState(false);
+  const [videoShow, setVideoShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+
   function setSelection(selection) {
     setCurrentSelection(selection);
     // Replay video on click if current selection hasn't changed.
     // (Only applicable when selections and video player are both visible)
     if (selection === currentSelection && selection.videoAsset) {
       document.getElementById('video').play();
-
-      // Apply styles to hide list and show video
-      const player = document.getElementById('player-wrapper');
-      player.classList.remove('hide-player-wrapper');
-      player.classList.add('show-player-wrapper');
-      const selectionItems = document.getElementsByClassName('selection-item');
-      Object.keys(selectionItems).forEach((i) => {
-        selectionItems[i].classList.add('hide-selection');
-      });
+      // Set display states
+      setVideoShow(true);
+      setMenuShow(false);
     }
   }
 
@@ -159,13 +158,15 @@ function VideoSelector(all) {
     if (modalSel === 'yes') {
       setSelection(currentSelection);
     }
-  }, [currentSelection, modalSel]);
+  }, [currentSelection, modalSel, videoShow]);
 
   const selectionItems = selections.map((i) => (
     <Selection
       key={i.titleDisplay}
       item={i}
       setCurrentSelection={setCurrentSelection}
+      setModalShow={setModalShow}
+      menuShow={menuShow}
     />
   ));
 
@@ -187,14 +188,30 @@ function VideoSelector(all) {
         ))}
       </div>
       <div className="selection-container">{selectionItems}</div>
-      <SelectModal setModalSel={setModalSel} />
+      <SelectModal
+        setModalSel={setModalSel}
+        setModalShow={setModalShow}
+        modalShow={modalShow}
+        setVideoShow={setVideoShow}
+        setMenuShow={setMenuShow}
+      />
       <VideoPlayer
         currentSelection={currentSelection}
         pause={pause}
         reset={reset}
         setModalSel={setModalSel}
+        modalShow={modalShow}
+        videoShow={videoShow}
+        setVideoShow={setVideoShow}
+        setMenuShow={setMenuShow}
       />
-      <AttractScreen pause={pause} reset={reset} />
+      <AttractScreen
+        pause={pause}
+        reset={reset}
+        menuShow={menuShow}
+        setMenuShow={setMenuShow}
+        videoShow={videoShow}
+      />
       {otherLocales.length > 0 && (
         <LanguageSwitcher otherLocales={otherLocales} slug={defaultSelector.slug} />
       )}

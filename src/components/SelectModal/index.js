@@ -4,28 +4,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SelectModal(props) {
-  const { setModalSel } = props;
+  const {
+    setModalSel, modalShow, setModalShow, setVideoShow, setMenuShow,
+  } = props;
 
   function choose(choice) {
-    document.getElementById('modal').classList.add('modal-hide');
-    document.getElementById('modal').classList.remove('modal-show');
-    const selections = document.getElementsByClassName('selection-item');
+    setModalShow(false);
     if (choice === 'yes') {
       setModalSel('yes');
-      Object.keys(selections).forEach((i) => {
-        selections[i].classList.add('hide-selection');
-        selections[i].classList.remove('show-selection');
-      });
-    } else {
-      Object.keys(selections).forEach((i) => {
-        selections[i].classList.remove('hide-selection');
-        selections[i].classList.add('show-selection');
-      });
+      setVideoShow(true);
+      setMenuShow(false);
     }
   }
 
   return (
-    <div id="modal" className="modal-container modal-hide">
+    <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
       <div className="yes" onClick={() => choose('yes')}>
         Yes
       </div>
@@ -38,6 +31,10 @@ function SelectModal(props) {
 
 SelectModal.propTypes = {
   setModalSel: PropTypes.func.isRequired,
+  setModalShow: PropTypes.func.isRequired,
+  setVideoShow: PropTypes.func.isRequired,
+  modalShow: PropTypes.bool.isRequired,
+  setMenuShow: PropTypes.func.isRequired,
 };
 
 export default SelectModal;

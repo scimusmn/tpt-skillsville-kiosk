@@ -8,7 +8,9 @@ import PropTypes from 'prop-types';
 import data from '../../../static/locales/en-US.json';
 
 function AttractScreen(props) {
-  const { pause, reset } = props;
+  const {
+    pause, reset, menuShow, setMenuShow, videoShow,
+  } = props;
   const videoRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,9 +33,6 @@ function AttractScreen(props) {
 
   const [attractVideo, setAttractVideo] = useState(data.attractSelections[0]);
 
-  const selections = document.getElementsByClassName('selection-item');
-  Object.keys(selections).forEach((i) => selections[i].classList.add('hide-selection'));
-
   useEffect(() => {
     videoRef.current?.load();
   }, [attractVideo, currentSelection]);
@@ -55,13 +54,7 @@ function AttractScreen(props) {
     videoRef.current.currentTime = 0;
     videoRef.current.pause();
     videoRef.src = '';
-
-    // Apply styles to show menu and hide list items
-    const attractPlayer = document.getElementById('attract-wrapper');
-    attractPlayer.classList.add('hide-attract-wrapper');
-    attractPlayer.classList.remove('show-attract-wrapper');
-    Object.keys(selections).forEach((i) => selections[i].classList.remove('hide-selection'));
-
+    setMenuShow(true);
     // resume idle timer
     reset();
   }
@@ -74,7 +67,7 @@ function AttractScreen(props) {
   }
 
   return (
-    <div id="attract-wrapper" className="attract-wrapper show-attract-wrapper">
+    <div className={`attract-wrapper ${menuShow || videoShow ? 'hide-attract-wrapper' : ''}`}>
       <div id="attract-container">
         <video
           autoPlay
@@ -99,6 +92,9 @@ function AttractScreen(props) {
 AttractScreen.propTypes = {
   pause: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
+  menuShow: PropTypes.bool.isRequired,
+  setMenuShow: PropTypes.func.isRequired,
+  videoShow: PropTypes.bool.isRequired,
 };
 
 export default AttractScreen;

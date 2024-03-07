@@ -17,19 +17,11 @@ function Selection(props) {
   }
 
   return (
-    <div className={`selection-item ${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
-      <div className="image-container">
+    <div className={`hexagon ${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
+      <div className="shape">
         <img src={item.thumbnail.localFile.publicURL} alt="thumbnail" />
       </div>
-      {Object.keys(item.titleDisplays).map((locale, i) => {
-        const title = item.titleDisplays[locale];
-        return (
-          <React.Fragment key={i}>
-            {i !== 0 && <hr className={`divider ${locale}`} />}
-            <h4 className={`selection-title ${locale}`}>{title}</h4>
-          </React.Fragment>
-        );
-      })}
+      <img src="/assets/images/border.png" alt="border" width={400} height={100} />
     </div>
   );
 }

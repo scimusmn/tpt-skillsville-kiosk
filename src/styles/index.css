@@ -38,41 +38,10 @@ img {
 */
 
 .skillsville.video-selector {
-  background-color: aqua;
-  height: 1080px;
+  background-color: #FF6F00;
   width: 1920px;
-}
-
-.skillsville .graphic {
   height: 1080px;
-  opacity: 0.2;
   position: absolute;
-  top: 0;
-  width: 1920px;
-}
-
-.skillsville .title-container {
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-}
-
-.skillsville .title.es {
-  color: purple;
-}
-
-.skillsville .title.en-US {
-  color: blue;
-}
-
-.skillsville .selection-item {
-  border: 1px solid black;
-  margin: 20px;
-  max-height: 400px;
-  width: 200px;
-
-  /* make sure buttons are above background */
-  z-index: 500;
 }
 
 .skillsville .hide-selection {
@@ -83,16 +52,6 @@ img {
   z-index: 500;
 }
 
-.skillsville .selection-item img {
-  height: 200px;
-  width: 200px;
-}
-
-.skillsville .selection-container {
-  display: flex;
-  justify-content: center;
-}
-
 .skillsville .language-switcher {
   bottom: 42px;
   color: white;
@@ -101,6 +60,13 @@ img {
   left: 40px;
   outline: none;
   position: absolute;
+  /* background-color: transparent;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 750px;
+  width: 100%;
+  z-index: 1000; */
 }
 
 .skillsville .language-switcher .language {
@@ -108,6 +74,13 @@ img {
   border-radius: 5px;
   margin-right: 15px;
   padding: 7px;
+  /* background-color: #FF6F00;
+  border: 5px solid white;
+  border-radius: 50px;
+  font-size: 30px;
+  margin: 0 30px;
+  color: white;
+  padding: 5px 30px; */
 }
 
 .skillsville .language-switcher .language a {
@@ -129,28 +102,6 @@ img {
   color: purple;
   position: absolute;
   top: 1000px;
-}
-
-.skillsville .selection-title {
-  display: flex;
-  justify-content: center;
-}
-
-.skillsville .selection-title.en-US {
-  color: blue;
-}
-
-.skillsville .selection-title.es {
-  color: purple;
-}
-
-.skillsville .divider {
-  border: 1px solid blue;
-  width: 50%;
-}
-
-.skillsville .divider.es {
-  border: 1px solid purple;
 }
 
 .skillsville .hide-player-wrapper {
@@ -193,19 +144,6 @@ img {
   position: absolute;
   top: 0;
   width: 1920px;
-}
-
-.skillsville .progress {
-  background: white;
-  height: 20px;
-  position: absolute;
-  top: 1055px;
-  width: 1920px;
-}
-
-.skillsville .progress-fill {
-  background-color: gold;
-  height: 20px;
 }
 
 .skillsville .icon {
@@ -278,4 +216,96 @@ img {
 .skillsville .modal-show {
   opacity: 1;
   z-index: 500;
+}
+
+.skillsville .hexagon {
+  filter: drop-shadow(rgb(164, 105, 66) 0px 25px 35px);
+  position: relative;
+  width: 420px;
+  height: 370px;
+}
+
+.skillsville .hexagon .shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.skillsville .hexagon .shape img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skillsville .hexagon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+.skillsville .swiper-wrapper {
+  height: 900px;
+  top: 100px;
+}
+
+/* .skillsville .swiper-slide {
+  border: 1px solid blue;
+} */
+
+.skillsville .bottom-slide {
+  top: 185px;
+  right: 225px;
+}
+
+.skillsville .top-slide {
+  right: 225px;
+}
+
+.skillsville .swiper-pagination {
+  display: none;
+}
+
+.skillsville .swiper-button-next {
+  background: url("next.png") no-repeat;
+  top: 800px;
+}
+
+.skillsville .swiper-button-prev {
+  background: url("next.png") no-repeat;
+  top: 800px;
+}
+
+.skillsville .logo {
+  left: 650px;
+  position: absolute;
+  top: 820px;
+}
+
+.skillsville .lang-btn-container {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 750px;
+  width: 100%;
+  z-index: 500;
+}
+
+.skillsville .lang-btn {
+  background-color: #FF6F00;
+  border: 5px solid white;
+  border-radius: 50px;
+  font-size: 30px;
+  margin: 0 30px;
+  color: white;
+  padding: 5px 30px;
 }

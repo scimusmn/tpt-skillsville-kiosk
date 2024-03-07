@@ -21,7 +21,7 @@ function AttractScreen(props) {
     const selection = Math.floor(Math.random() * max);
     if (selection !== current) setCurrentSelection(selection);
     if (selection === current) {
-      // select video that did not just play.
+      // select video within array
       if (current + 1 <= numSelections) {
         setCurrentSelection(current + 1);
       }

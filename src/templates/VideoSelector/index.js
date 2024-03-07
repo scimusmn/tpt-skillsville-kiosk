@@ -3,10 +3,15 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useIdleTimer } from 'react-idle-timer/legacy';
 import VideoPlayer from '@components/VideoPlayer';
+import Menu from '@components/Menu';
+import { SwiperSlide } from 'swiper/react';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export const pageQuery = graphql`
 
@@ -95,7 +100,7 @@ function VideoSelector(all) {
     return locales;
   }
 
-  // Loads default (multi-lingual) selector after inactivity timeout
+  // Loads default selector (all languages) after inactivity timeout
   const onIdle = () => {
     window.location = `${window.location.origin}/${defaultSelector.slug}`;
   };
@@ -160,34 +165,22 @@ function VideoSelector(all) {
     }
   }, [currentSelection, modalSel, videoShow]);
 
-  const selectionItems = selections.map((i) => (
-    <Selection
-      key={i.titleDisplay}
-      item={i}
-      setCurrentSelection={setCurrentSelection}
-      setModalShow={setModalShow}
-      menuShow={menuShow}
-    />
+  const selectionItems = selections.map((i, index) => (
+    <SwiperSlide className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
+      {index}
+      <Selection
+        key={i.titleDisplay}
+        item={i}
+        setCurrentSelection={setCurrentSelection}
+        setModalShow={setModalShow}
+        menuShow={menuShow}
+      />
+    </SwiperSlide>
   ));
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      <div
-        className="graphic"
-        style={{
-          backgroundImage: `url(${defaultSelector.backgroundAsset
-            ? defaultSelector.backgroundAsset.localFile.publicURL
-            : null})`,
-        }}
-      />
-      <div className="title-container">
-        {selectors.map((selector) => (
-          <h1 key={`title-${selector.node_locale}`} className={`title ${selector.node_locale}`}>
-            {selector.titleDisplay}
-          </h1>
-        ))}
-      </div>
-      <div className="selection-container">{selectionItems}</div>
+      {menuShow && <Menu selectionItems={selectionItems} />}
       <SelectModal
         setModalSel={setModalSel}
         setModalShow={setModalShow}
@@ -212,8 +205,11 @@ function VideoSelector(all) {
         setMenuShow={setMenuShow}
         videoShow={videoShow}
       />
-      {otherLocales.length > 0 && (
-        <LanguageSwitcher otherLocales={otherLocales} slug={defaultSelector.slug} />
+      {otherLocales.length > 0 && menuShow && (
+        <LanguageSwitcher
+          otherLocales={otherLocales}
+          slug={defaultSelector.slug}
+        />
       )}
     </div>
   );

@@ -207,7 +207,7 @@ img {
   z-index: 500;
 }
 
-.skillsville .hexagon {
+/* .skillsville .hexagon {
   filter: drop-shadow(rgb(164 105 66) 0 25px 35px);
   height: 370px;
   position: relative;
@@ -229,8 +229,6 @@ img {
   position: absolute;
   top: 0;
   width: 100%;
-
-  /* object-fit: cover; */
 }
 
 .skillsville .hexagon .shape img {
@@ -240,16 +238,12 @@ img {
   position: absolute;
   top: 0;
   width: 100%;
-}
+} */
 
 .skillsville .swiper-wrapper {
   height: 900px;
   top: 100px;
 }
-
-/* .skillsville .swiper-slide {
-  border: 1px solid blue;
-} */
 
 .skillsville .bottom-slide {
   right: 225px;
@@ -262,6 +256,18 @@ img {
 
 .skillsville .swiper-pagination {
   display: none;
+}
+
+.thumb-container {
+  background-size: cover;
+  clip-path: url("#myClip");
+  height: 500px;
+  width: 500px;
+}
+
+.border {
+  position: absolute;
+  top: 19px;
 }
 
 .skillsville .swiper-button-next {

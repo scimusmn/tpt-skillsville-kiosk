@@ -208,7 +208,7 @@ img {
 }
 
 .skillsville .hexagon {
-  /* filter: drop-shadow(rgb(164, 105, 66) 0 25px 35px); */
+  filter: drop-shadow(rgb(164 105 66) 0 25px 35px);
   height: 370px;
   position: relative;
   width: 420px;

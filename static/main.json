@@ -3,6 +3,11 @@
         "id": "skillsville",
         "inactivityTimeout": 45
     },
+    "attractPlaylist": [
+        "/assets/videos/space1.mp4",
+        "/assets/videos/video-2.mp4",
+        "RANDOM_SELECTION"
+    ],
     "locales": [
         {
             "code": "en-US",

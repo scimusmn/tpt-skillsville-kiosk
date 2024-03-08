@@ -1,25 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function LanguageSwitcher({ otherLocales, slug }) {
+function LanguageSwitcher({ slug, allLocales }) {
   return (
     <div className="language-switcher">
-      {/* <h2>Language</h2> */}
       <div>
-        {otherLocales.map(({ node }) => (
+        {allLocales.map(({ node }) => (
           <span key={`language-${node.code}`} className={`language ${node.code}`}>
             <a href={`/${node.code}/${slug}`}>
               {node.name}
             </a>
           </span>
         ))}
+        {/* For testing more languages */}
+        {/* <span key="es" className="language es">
+          <a href={`/es/${slug}`}>
+            Hmong
+          </a>
+        </span>
+        <span key="es" className="language es">
+          <a href={`/es/${slug}`}>
+            Somali
+          </a>
+        </span> */}
       </div>
     </div>
   );
 }
 
 LanguageSwitcher.propTypes = {
-  otherLocales: PropTypes.arrayOf(
+  slug: PropTypes.string.isRequired,
+  allLocales: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
         code: PropTypes.string.isRequired,
@@ -27,7 +38,6 @@ LanguageSwitcher.propTypes = {
       }).isRequired,
     }).isRequired,
   ).isRequired,
-  slug: PropTypes.string.isRequired,
 };
 
 export default LanguageSwitcher;

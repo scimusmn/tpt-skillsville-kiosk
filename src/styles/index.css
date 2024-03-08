@@ -38,10 +38,10 @@ img {
 */
 
 .skillsville.video-selector {
-  background-color: #FF6F00;
-  width: 1920px;
+  background-color: #ff6f00;
   height: 1080px;
   position: absolute;
+  width: 1920px;
 }
 
 .skillsville .hide-selection {
@@ -53,34 +53,23 @@ img {
 }
 
 .skillsville .language-switcher {
-  bottom: 42px;
-  color: white;
-  font-size: 20px;
-  font-weight: 900;
-  left: 40px;
-  outline: none;
-  position: absolute;
-  /* background-color: transparent;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   position: absolute;
   top: 750px;
   width: 100%;
-  z-index: 1000; */
+  z-index: 1000;
 }
 
 .skillsville .language-switcher .language {
-  background-color: rgb(255 255 255 / 25%);
-  border-radius: 5px;
-  margin-right: 15px;
-  padding: 7px;
-  /* background-color: #FF6F00;
+  background-color: #ff6f00;
   border: 5px solid white;
   border-radius: 50px;
+  color: white;
   font-size: 30px;
   margin: 0 30px;
-  color: white;
-  padding: 5px 30px; */
+  padding: 5px 30px;
 }
 
 .skillsville .language-switcher .language a {
@@ -219,37 +208,38 @@ img {
 }
 
 .skillsville .hexagon {
-  filter: drop-shadow(rgb(164, 105, 66) 0px 25px 35px);
+  /* filter: drop-shadow(rgb(164, 105, 66) 0 25px 35px); */
+  height: 370px;
   position: relative;
   width: 420px;
-  height: 370px;
 }
 
 .skillsville .hexagon .shape {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-}
-
-.skillsville .hexagon .shape img {
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .skillsville .hexagon img {
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+
   /* object-fit: cover; */
+}
+
+.skillsville .hexagon .shape img {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .skillsville .swiper-wrapper {
@@ -262,8 +252,8 @@ img {
 } */
 
 .skillsville .bottom-slide {
-  top: 185px;
   right: 225px;
+  top: 185px;
 }
 
 .skillsville .top-slide {
@@ -301,11 +291,11 @@ img {
 }
 
 .skillsville .lang-btn {
-  background-color: #FF6F00;
+  background-color: #ff6f00;
   border: 5px solid white;
   border-radius: 50px;
+  color: white;
   font-size: 30px;
   margin: 0 30px;
-  color: white;
   padding: 5px 30px;
 }

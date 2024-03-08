@@ -5,37 +5,41 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import data from '../../../static/locales/en-US.json';
 
 function AttractScreen(props) {
   const {
-    pause, reset, menuShow, setMenuShow, videoShow,
+    pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool,
   } = props;
   const videoRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line prefer-const
+  let [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
 
-  const numSelections = data.attractSelections.length;
-  const [currentSelection, setCurrentSelection] = useState(0);
+  // Special playlist keys
+  const RANDOM_VIDEO_SELECTION_KEY = 'RANDOM_SELECTION';
+  const BOUNCING_LOGO_KEY = 'BOUNCING_LOGO';
 
-  function getRandomSel(max, current) {
-    const selection = Math.floor(Math.random() * max);
-    if (selection !== current) setCurrentSelection(selection);
-    if (selection === current) {
-      // select video within array
-      if (current + 1 <= numSelections) {
-        setCurrentSelection(current + 1);
-      }
-      if (current - 1 >= 0) {
-        setCurrentSelection(current - 1);
-      }
+  const numSelections = playlist.length - 1;
+
+  function getNextVideoInPlaylist() {
+    setCurrentPlaylistIndex(currentPlaylistIndex += 1);
+    console.log('currentPlaylistIndex', currentPlaylistIndex);
+    if (currentPlaylistIndex > numSelections) {
+      setCurrentPlaylistIndex(0);
+      console.log('got here');
     }
+    return playlist[currentPlaylistIndex];
   }
 
-  const [attractVideo, setAttractVideo] = useState(data.attractSelections[0]);
+  function randomFishArray(array) {
+    return Math.floor(Math.random() * array.length);
+  }
+
+  const [attractVideo, setAttractVideo] = useState(playlist[0]);
 
   useEffect(() => {
     videoRef.current?.load();
-  }, [attractVideo, currentSelection]);
+  }, [attractVideo, currentPlaylistIndex]);
 
   useEffect(() => {
     // hack to hide loading indicator on mount before selection is made
@@ -61,8 +65,25 @@ function AttractScreen(props) {
 
   // Load new video on end
   function onVideoEnd() {
-    getRandomSel(numSelections, currentSelection);
-    setAttractVideo(data.attractSelections[currentSelection]);
+    let nextVideo = getNextVideoInPlaylist();
+    console.log('next video:', nextVideo);
+    if (nextVideo === RANDOM_VIDEO_SELECTION_KEY || nextVideo === BOUNCING_LOGO_KEY) {
+      const randomIndex = randomFishArray(videoPool);
+      nextVideo = videoPool[randomIndex];
+      if (nextVideo === attractVideo) {
+        console.log('need a random index!', randomIndex);
+        // select video within array
+        if (randomIndex + 1 <= numSelections) {
+          setAttractVideo(randomIndex + 1);
+        }
+        if (randomIndex - 1 >= 0) {
+          setAttractVideo(randomIndex - 1);
+        }
+      }
+      console.log(attractVideo, 'attract video (current)');
+      console.log('oooh random!:', nextVideo);
+    }
+    setAttractVideo(nextVideo);
     videoRef.src = attractVideo;
   }
 
@@ -95,6 +116,8 @@ AttractScreen.propTypes = {
   menuShow: PropTypes.bool.isRequired,
   setMenuShow: PropTypes.func.isRequired,
   videoShow: PropTypes.bool.isRequired,
+  playlist: PropTypes.array.isRequired,
+  videoPool: PropTypes.array.isRequired,
 };
 
 export default AttractScreen;

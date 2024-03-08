@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
@@ -5,7 +6,7 @@ import PropTypes from 'prop-types';
 
 function SelectModal(props) {
   const {
-    setModalSel, modalShow, setModalShow, setVideoShow, setMenuShow,
+    setModalSel, modalShow, setModalShow, setVideoShow, setMenuShow, currentSelection,
   } = props;
 
   function choose(choice) {
@@ -19,6 +20,8 @@ function SelectModal(props) {
 
   return (
     <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
+      <h1>{currentSelection.titleDisplay}</h1>
+      <img src={currentSelection.thumbnail.localFile.publicURL} alt="thumbnail" height={100} width={100} />
       <div className="yes" onClick={() => choose('yes')}>
         Yes
       </div>
@@ -35,6 +38,7 @@ SelectModal.propTypes = {
   setVideoShow: PropTypes.func.isRequired,
   modalShow: PropTypes.bool.isRequired,
   setMenuShow: PropTypes.func.isRequired,
+  currentSelection: PropTypes.object.isRequired,
 };
 
 export default SelectModal;

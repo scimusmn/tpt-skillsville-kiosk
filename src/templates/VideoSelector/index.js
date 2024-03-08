@@ -9,6 +9,7 @@ import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import logger from '../../utils/Logger';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -161,6 +162,7 @@ function VideoSelector(all) {
 
   useEffect(() => {
     if (modalSel === 'yes') {
+      logger.log('video-selection', currentSelection.titleDisplay);
       setSelection(currentSelection);
     }
   }, [currentSelection, modalSel, videoShow]);

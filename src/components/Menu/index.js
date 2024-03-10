@@ -8,8 +8,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import data from '../../../static/main.json';
 
 function Menu(props) {
-  const { selectionItems } = props;
-  console.log(data.locales);
+  const { selectionItems, initialSlide } = props;
 
   // const selectionItems = selections.map((i, index) => (
   //   <SwiperSlide className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
@@ -36,6 +35,7 @@ function Menu(props) {
   return (
     <>
       <Swiper
+        initialSlide={initialSlide}
         slidesPerView={6.5}
         spaceBetween={225}
         loop
@@ -60,6 +60,7 @@ function Menu(props) {
 
 Menu.propTypes = {
   selectionItems: PropTypes.array.isRequired,
+  initialSlide: PropTypes.number.isRequired,
 };
 
 export default Menu;

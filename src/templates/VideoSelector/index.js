@@ -41,6 +41,11 @@ export const pageQuery = graphql`
           publicURL
         }
       }
+      narrationAsset{
+        localFile {
+          publicURL
+        }
+      }
       thumbnail {
         localFile {
           publicURL
@@ -131,6 +136,8 @@ function VideoSelector(all) {
       titleDisplays: getLocales('titleDisplay', index),
       captionAsset: selection.captionAsset?.localFile.publicURL,
       captionAssets: getLocales('captionAsset', index),
+      narrationAsset: selection.narrationAsset?.localFile.publicURL,
+      narrationAssets: getLocales('narrationAsset', index),
       thumbnail: selection.thumbnail,
       thumbnails: getLocales('thumbnail', index),
       videoAsset: selection.videoAsset?.localFile.publicURL,

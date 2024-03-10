@@ -52,7 +52,10 @@ function AttractScreen({
   };
 
   return (
-    <div className={`attract-wrapper ${menuShow || videoShow ? 'hide-attract-wrapper' : ''}`}>
+    <div
+      className={`attract-wrapper ${menuShow || videoShow ? 'hide-attract-wrapper' : ''}`}
+      onClick={goToMenu}
+    >
       <div id="attract-container">
         <video
           autoPlay
@@ -66,7 +69,7 @@ function AttractScreen({
         />
       </div>
       {isLoading && <div className="loading">Loading...</div>}
-      <div className="attract-cta" onClick={goToMenu}>
+      <div className="attract-cta">
         START!
       </div>
     </div>

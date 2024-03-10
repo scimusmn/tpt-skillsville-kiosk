@@ -27,14 +27,14 @@
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
       "videoAsset": "/assets/videos/space2.mp4",
-      "thumbnail": "/assets/images/tpt4.png"
+      "thumbnail": "/assets/images/tall-thumbnail.jpg"
     },
     {
       "titleDisplay": "Caterpillar",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
       "videoAsset": "/assets/videos/video-1.mp4",
-      "thumbnail": "/assets/images/tpt1.png"
+      "thumbnail": "/assets/images/tall-thumbnail.jpg"
     },
     {
       "titleDisplay": "Ladybug",
@@ -62,13 +62,13 @@
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
       "videoAsset": "/assets/videos/video-1.mp4",
-      "thumbnail": "/assets/images/tpt1.png"
+      "thumbnail": "/assets/images/wide-thumbnail.jpg"
     },
     {
       "titleDisplay": "Ladybug",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
       "thumbnail": "/assets/images/tpt2.png"
     },
     {
@@ -82,8 +82,8 @@
       "titleDisplay": "Ladybug",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
-      "thumbnail": "/assets/images/tpt4.png"
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
+      "thumbnail": "/assets/images/wide-thumbnail.jpg"
     },
     {
       "titleDisplay": "Caterpillar",
@@ -103,7 +103,7 @@
       "titleDisplay": "Caterpillar",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
       "thumbnail": "/assets/images/tpt3.png"
     },
     {

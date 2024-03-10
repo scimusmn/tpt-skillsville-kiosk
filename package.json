@@ -23,7 +23,8 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-idle-timer": "^5.7.2",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "chalk": "4.1.2",

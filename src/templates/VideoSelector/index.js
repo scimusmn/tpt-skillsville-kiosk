@@ -5,6 +5,7 @@ import { useIdleTimer } from 'react-idle-timer/legacy';
 import VideoPlayer from '@components/VideoPlayer';
 import Menu from '@components/Menu';
 import { SwiperSlide } from 'swiper/react';
+import { v4 as uuidv4 } from 'uuid';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
@@ -36,6 +37,11 @@ export const pageQuery = graphql`
         } 
       }
       videoAsset {
+        localFile {
+          publicURL
+        }
+      }
+      narrationAsset{
         localFile {
           publicURL
         }
@@ -98,7 +104,9 @@ function VideoSelector(all) {
   const { attractPlaylist } = defaultSelector;
 
   // Create a pool of videos for random selection
-  const attractVideoPool = attractPlaylist.filter((video) => video.includes('assets'));
+  const attractVideoPool = defaultSelector.selections.map(
+    (selection) => selection.videoAsset.localFile.publicURL,
+  );
 
   // Create array of localized content based on a specific selection field
   function getLocales(field, selectionIndex) {
@@ -128,6 +136,8 @@ function VideoSelector(all) {
       titleDisplays: getLocales('titleDisplay', index),
       captionAsset: selection.captionAsset?.localFile.publicURL,
       captionAssets: getLocales('captionAsset', index),
+      narrationAsset: selection.narrationAsset?.localFile.publicURL,
+      narrationAssets: getLocales('narrationAsset', index),
       thumbnail: selection.thumbnail,
       thumbnails: getLocales('thumbnail', index),
       videoAsset: selection.videoAsset?.localFile.publicURL,
@@ -176,7 +186,7 @@ function VideoSelector(all) {
   }, [currentSelection, modalSel, videoShow]);
 
   const selectionItems = selections.map((i, index) => (
-    <SwiperSlide className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
+    <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
       {index}
       <Selection
         key={i.titleDisplay}

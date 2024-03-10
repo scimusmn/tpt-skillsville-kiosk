@@ -3,7 +3,7 @@
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const jsonData = require('../../static/main.json');
 
-  const { globalSettings, locales } = jsonData;
+  const { globalSettings, attractPlaylist, locales } = jsonData;
   const defaultLocaleCode = locales.find((locale) => locale.default).code;
 
   const localeData = {};
@@ -41,6 +41,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       node_locale: code,
       inactivityDelay: globalSettings.inactivityTimeout,
       randomizeSelections: globalSettings.randomizeSelections,
+      attractPlaylist: attractPlaylist || [],
       titleDisplay: data.titleDisplay || defaultData.titleDisplay,
       backgroundAsset: {
         localFile: {

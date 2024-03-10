@@ -22,6 +22,7 @@ export const pageQuery = graphql`
     titleDisplay
     inactivityDelay
     randomizeSelections
+    attractPlaylist
     backgroundAsset {
       localFile {
         publicURL
@@ -85,6 +86,7 @@ function VideoSelector(all) {
   }
 
   const selectors = data.allContentfulVideoSelector.edges.map(({ node }) => node);
+  const allLocales = data.allContentfulLocale.edges;
 
   // Get default locale code
   const defaultLocale = data.allContentfulLocale.edges.find(({ node }) => node.default).node.code;
@@ -92,6 +94,11 @@ function VideoSelector(all) {
   if (!defaultSelector) {
     [defaultSelector] = selectors; // Default to first selector if default locale is not available
   }
+  // console.log(data.allContentfulLocale.edges);
+  const { attractPlaylist } = defaultSelector;
+
+  // Create a pool of videos for random selection
+  const attractVideoPool = attractPlaylist.filter((video) => video.includes('assets'));
 
   // Create array of localized content based on a specific selection field
   function getLocales(field, selectionIndex) {
@@ -104,7 +111,7 @@ function VideoSelector(all) {
 
   // Loads default selector (all languages) after inactivity timeout
   const onIdle = () => {
-    window.location = `${window.location.origin}/${defaultSelector.slug}`;
+    window.location = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}`;
   };
 
   const { pause, reset } = useIdleTimer({
@@ -195,6 +202,7 @@ function VideoSelector(all) {
         modalShow={modalShow}
         setVideoShow={setVideoShow}
         setMenuShow={setMenuShow}
+        currentSelection={currentSelection}
       />
       <VideoPlayer
         currentSelection={currentSelection}
@@ -212,9 +220,12 @@ function VideoSelector(all) {
         menuShow={menuShow}
         setMenuShow={setMenuShow}
         videoShow={videoShow}
+        playlist={attractPlaylist}
+        videoPool={attractVideoPool}
       />
       {otherLocales.length > 0 && menuShow && (
         <LanguageSwitcher
+          allLocales={allLocales}
           otherLocales={otherLocales}
           slug={defaultSelector.slug}
         />

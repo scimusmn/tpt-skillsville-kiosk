@@ -7,7 +7,7 @@ import { Swiper } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 
 function Menu(props) {
-  const { selectionItems } = props;
+  const { selectionItems, initialSlide } = props;
 
   return (
     <>
@@ -15,6 +15,7 @@ function Menu(props) {
         <img src="/assets/images/logo.png" alt="logo" />
       </div>
       <Swiper
+        initialSlide={initialSlide}
         slidesPerView={6.5}
         slidesPerGroup={4}
         spaceBetween={225}
@@ -34,6 +35,7 @@ function Menu(props) {
 
 Menu.propTypes = {
   selectionItems: PropTypes.array.isRequired,
+  initialSlide: PropTypes.number.isRequired,
 };
 
 export default Menu;

@@ -9,6 +9,7 @@ import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import logger from '../../utils/Logger';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -20,6 +21,7 @@ export const pageQuery = graphql`
     node_locale
     titleDisplay
     inactivityDelay
+    randomizeSelections
     attractPlaylist
     backgroundAsset {
       localFile {
@@ -168,6 +170,7 @@ function VideoSelector(all) {
 
   useEffect(() => {
     if (modalSel === 'yes') {
+      logger.log('video-selection', currentSelection.titleDisplay);
       setSelection(currentSelection);
     }
   }, [currentSelection, modalSel, videoShow]);
@@ -185,9 +188,14 @@ function VideoSelector(all) {
     </SwiperSlide>
   ));
 
+  let initialSlide = 0;
+  if (defaultSelector.randomizeSelections) {
+    initialSlide = Math.floor(Math.random() * selections.length);
+  }
+
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      {menuShow && <Menu selectionItems={selectionItems} />}
+      {menuShow && <Menu selectionItems={selectionItems} initialSlide={initialSlide} />}
       <SelectModal
         setModalSel={setModalSel}
         setModalShow={setModalShow}

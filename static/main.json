@@ -1,7 +1,8 @@
 {
     "globalSettings": {
         "id": "skillsville",
-        "inactivityTimeout": 45
+        "inactivityTimeout": 45,
+        "randomizeSelections": true
     },
     "attractPlaylist": [
         "/assets/videos/space1.mp4",

@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# Large asset files in static folder
+static/assets/*
+
 # Mac files
 .DS_Store
 

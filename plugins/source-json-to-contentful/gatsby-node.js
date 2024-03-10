@@ -40,6 +40,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       slug: globalSettings.id || 'video-selector',
       node_locale: code,
       inactivityDelay: globalSettings.inactivityTimeout,
+      randomizeSelections: globalSettings.randomizeSelections,
       attractPlaylist: attractPlaylist || [],
       titleDisplay: data.titleDisplay || defaultData.titleDisplay,
       backgroundAsset: {

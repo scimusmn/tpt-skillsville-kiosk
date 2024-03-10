@@ -64,6 +64,7 @@
     "lint:code": "node_modules/.bin/eslint .",
     "lint:style": "node_modules/.bin/stylelint \"**/*.*css\"",
     "local-mode": "node scripts/local-mode/local-mode.js",
+    "pull:assets": "echo Download from Drive and copy contents into local ./static/assets/ directory. && open ./static/assets && open https://drive.google.com/drive/folders/1KmtfYChCFzMWytymI745fg46Q85K8dcA",
     "serve": "gatsby serve --port 3000"
   }
 }

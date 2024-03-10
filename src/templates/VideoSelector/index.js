@@ -119,8 +119,11 @@ function VideoSelector(all) {
 
   // Loads default selector (all languages) after inactivity timeout
   const onIdle = () => {
-    window.location = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}`;
+    console.log('Idle timeout reached. Redirecting to default selector.');
+    // const reloadURL = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}/?state=timeout`;
+    // window.location.href = reloadURL;
   };
+  console.log(defaultSelector.inactivityDelay);
 
   const { pause, reset } = useIdleTimer({
     onIdle,
@@ -162,7 +165,7 @@ function VideoSelector(all) {
   const [modalSel, setModalSel] = useState('');
 
   // Display states
-  const [menuShow, setMenuShow] = useState(false);
+  const [menuShow, setMenuShow] = useState(true);
   const [videoShow, setVideoShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
 

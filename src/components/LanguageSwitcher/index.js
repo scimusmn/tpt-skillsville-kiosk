@@ -1,28 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 function LanguageSwitcher({ slug, allLocales }) {
   return (
     <div className="language-switcher">
       <div>
         {allLocales.map(({ node }) => (
-          <span key={`language-${node.code}`} className={`language ${node.code}`}>
-            <a href={`/${node.code}/${slug}`}>
+          <Link to={`/${node.code}/${slug}`} key={`language-${node.code}`}>
+            <span className={`language ${node.code}`}>
               {node.name}
-            </a>
-          </span>
+            </span>
+          </Link>
         ))}
-        {/* For testing more languages */}
-        {/* <span key="es" className="language es">
-          <a href={`/es/${slug}`}>
-            Hmong
-          </a>
-        </span>
-        <span key="es" className="language es">
-          <a href={`/es/${slug}`}>
-            Somali
-          </a>
-        </span> */}
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ export const pageQuery = graphql`
     node_locale
     titleDisplay
     inactivityDelay
+    randomizeSelections
     backgroundAsset {
       localFile {
         publicURL
@@ -180,9 +181,14 @@ function VideoSelector(all) {
     </SwiperSlide>
   ));
 
+  let initialSlide = 0;
+  if (defaultSelector.randomizeSelections) {
+    initialSlide = Math.floor(Math.random() * selections.length);
+  }
+
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      {menuShow && <Menu selectionItems={selectionItems} />}
+      {menuShow && <Menu selectionItems={selectionItems} initialSlide={initialSlide} />}
       <SelectModal
         setModalSel={setModalSel}
         setModalShow={setModalShow}

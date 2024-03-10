@@ -5,6 +5,7 @@ import { useIdleTimer } from 'react-idle-timer/legacy';
 import VideoPlayer from '@components/VideoPlayer';
 import Menu from '@components/Menu';
 import { SwiperSlide } from 'swiper/react';
+import { v4 as uuidv4 } from 'uuid';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
@@ -176,7 +177,7 @@ function VideoSelector(all) {
   }, [currentSelection, modalSel, videoShow]);
 
   const selectionItems = selections.map((i, index) => (
-    <SwiperSlide className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
+    <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
       {index}
       <Selection
         key={i.titleDisplay}

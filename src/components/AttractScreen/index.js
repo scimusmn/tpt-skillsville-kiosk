@@ -15,7 +15,6 @@ function AttractScreen({
   pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool,
 }) {
   const videoRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [playbackIndex, setPlaybackIndex] = useState(0);
 
   const getNextVideo = () => {
@@ -27,7 +26,6 @@ function AttractScreen({
   const selectRandomVideo = () => videoPool[Math.floor(Math.random() * videoPool.length)];
 
   const onVideoLoad = () => {
-    setIsLoading(false);
     pause(); // Pause idle timer during video playback
   };
 
@@ -64,11 +62,9 @@ function AttractScreen({
           ref={videoRef}
           onLoadedData={onVideoLoad}
           onEnded={onVideoEnd}
-          onLoadStart={() => setIsLoading(true)}
           src={playlist[0]}
         />
       </div>
-      {isLoading && <div className="loading">Loading...</div>}
       <div className="attract-cta">
         START!
       </div>

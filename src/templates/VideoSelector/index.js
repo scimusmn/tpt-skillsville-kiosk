@@ -99,7 +99,9 @@ function VideoSelector(all) {
   const { attractPlaylist } = defaultSelector;
 
   // Create a pool of videos for random selection
-  const attractVideoPool = attractPlaylist.filter((video) => video.includes('assets'));
+  const attractVideoPool = defaultSelector.selections.map(
+    (selection) => selection.videoAsset.localFile.publicURL,
+  );
 
   // Create array of localized content based on a specific selection field
   function getLocales(field, selectionIndex) {

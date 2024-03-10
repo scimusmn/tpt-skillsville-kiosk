@@ -6,8 +6,12 @@
     },
     "attractPlaylist": [
         "/assets/videos/space1.mp4",
+        "RANDOM",
         "/assets/videos/video-2.mp4",
-        "RANDOM_SELECTION"
+        "RANDOM",
+        "/assets/videos/video-1.mp4",
+        "RANDOM",
+        "/assets/videos/video-2.mp4"
     ],
     "locales": [
         {

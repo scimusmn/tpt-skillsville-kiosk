@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import { useIdleTimer } from 'react-idle-timer/legacy';
+import { useIdleTimer } from 'react-idle-timer';
 import VideoPlayer from '@components/VideoPlayer';
 import Menu from '@components/Menu';
 import { SwiperSlide } from 'swiper/react';
@@ -117,18 +117,14 @@ function VideoSelector(all) {
     return locales;
   }
 
-  // Loads default selector (all languages) after inactivity timeout
   const onIdle = () => {
-    console.log('Idle timeout reached. Redirecting to default selector.');
-    // const reloadURL = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}/?state=timeout`;
-    // window.location.href = reloadURL;
+    const route = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}`;
+    window.location.href = route;
   };
-  console.log(defaultSelector.inactivityDelay);
 
-  const { pause, reset } = useIdleTimer({
+  const { reset, pause } = useIdleTimer({
     onIdle,
-    timeout: defaultSelector.inactivityDelay * 1000,
-    throttle: 500,
+    timeout: 1000 * defaultSelector.inactivityDelay,
   });
 
   // Loop over defaultSelector's selections to create selection objects
@@ -164,8 +160,16 @@ function VideoSelector(all) {
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
   const [modalSel, setModalSel] = useState('');
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const state = urlParams.get('state');
+  let skipAttract = false;
+  if (state === 'selection') {
+    skipAttract = true;
+    reset(); // Pause idle timer if state is set to selection
+  }
+
   // Display states
-  const [menuShow, setMenuShow] = useState(true);
+  const [menuShow, setMenuShow] = useState(skipAttract);
   const [videoShow, setVideoShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
 

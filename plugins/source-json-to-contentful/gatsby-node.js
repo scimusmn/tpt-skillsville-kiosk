@@ -39,7 +39,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     const transformedData = {
       slug: globalSettings.id || 'video-selector',
       node_locale: code,
-      inactivityDelay: globalSettings.inactivityTimeout,
+      inactivityDelay: globalSettings.inactivityDelay,
       randomizeSelections: globalSettings.randomizeSelections,
       attractPlaylist: attractPlaylist || [],
       titleDisplay: data.titleDisplay || defaultData.titleDisplay,

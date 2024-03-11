@@ -7,7 +7,7 @@ function LanguageSwitcher({ slug, allLocales }) {
     <div className="language-switcher">
       <div>
         {allLocales.map(({ node }) => (
-          <Link to={`/${node.code}/${slug}`} key={`language-${node.code}`}>
+          <Link to={`/${node.code}/${slug}/?state=selection`} key={`language-${node.code}`}>
             <span className={`language ${node.code}`}>
               {node.name}
             </span>

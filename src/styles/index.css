@@ -1,3 +1,4 @@
+/* stylelint-disable order/properties-alphabetical-order */
 /* stylelint-disable comment-empty-line-before */
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable no-missing-end-of-source-newline */
@@ -14,6 +15,10 @@ img {
   display: block;
 }
 
+@font-face {
+  font-family: bomb-sound;
+  src: url("the-bomb-sound.regular.ttf");
+}
 /* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
@@ -60,7 +65,7 @@ img {
   position: absolute;
   top: 900px;
   width: 100%;
-  z-index: 1000;
+  z-index: 300;
 }
 
 .skillsville .language-switcher .language {
@@ -171,32 +176,69 @@ img {
   top: 0;
 }
 
-.skillsville .modal-container {
-  background-color: purple;
+/* .skillsville .modal-container {
+  background: rgba(0 27 138);
   color: white;
   display: flex;
-  height: 500px;
+  font-family: bomb-sound, sans-serif;
+  height: 800px;
   justify-content: center;
-  left: 500px;
-  margin: auto;
+  left: 0;
+  opacity: 0.1;
   position: absolute;
-  top: 300px;
-  width: 500px;
-  z-index: 500;
+  top: 0;
+  width: 800px;
+} */
+
+.modal-container {
+  background: #001b8ae5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: bomb-sound, sans-serif;
+  font-size: 64px;
+  position: absolute;
+  height: 1080px;
+  width: 1920px;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+}
+
+.modal-container .header {
+  border-bottom: 3px solid white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+}
+
+/* .modal-container img {
+  height: 200px;
+  margin: auto;
+  width: 200px;
+} */
+
+.modal-container .yes-no-container {
+  display: flex;
+  margin: 100px 250px 0;
+  justify-content: space-around;
+}
+
+.skillsville .no,
+.yes {
+  background-image: url("thumbdown.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  width: 200px;
 }
 
 .skillsville .yes {
-  border: 1px solid white;
-  font-size: 34px;
-  margin: auto;
-  padding: 20px;
-}
-
-.skillsville .no {
-  border: 1px solid white;
-  font-size: 34px;
-  margin: auto;
-  padding: 20px;
+  background-image: url("thumbup.png");
 }
 
 .skillsville .modal-hide {
@@ -267,9 +309,20 @@ img {
   width: 500px;
 }
 
+.thumb-modal {
+  margin: auto;
+}
+
 .border {
   position: absolute;
   top: 19px;
+}
+
+.border-modal {
+  margin: auto;
+  position: absolute;
+  top: 89px;
+  left: 710px;
 }
 
 .swiper-button-next::after,

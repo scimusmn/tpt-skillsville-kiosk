@@ -4,6 +4,7 @@
 import PropTypes from 'prop-types';
 import './src/styles/index.css';
 import '@fontsource/open-sans';
+import '@fontsource/roboto';
 
 export const wrapRootElement = ({ element }) => element;
 

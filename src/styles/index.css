@@ -4,7 +4,7 @@
 
 html,
 body {
-  font-family: open-sans, sans-serif;
+  font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -68,9 +68,10 @@ img {
   border: 5px solid white;
   border-radius: 50px;
   color: white;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 700;
   margin: 0 30px;
-  padding: 5px 30px;
+  padding: 5px 40px;
 }
 
 .skillsville .language-switcher a {
@@ -287,6 +288,7 @@ img {
   height: 150px !important;
   top: 700px !important;
   width: 150px !important;
+  z-index: 500;
 }
 
 .swiper-button-prev {
@@ -322,12 +324,19 @@ img {
   z-index: 500;
 }
 
-.skillsville .lang-btn {
+/* .skillsville .lang-btn {
   background-color: #ff6f00;
   border: 5px solid white;
   border-radius: 50px;
   color: white;
-  font-size: 30px;
+  font-family: Roboto, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  height: 100px;
   margin: 0 30px;
   padding: 5px 30px;
+} */
+
+p {
+  color: white;
 }

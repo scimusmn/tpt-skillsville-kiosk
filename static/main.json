@@ -1,7 +1,7 @@
 {
     "globalSettings": {
         "id": "skillsville",
-        "inactivityTimeout": 45,
+        "inactivityDelay": 45,
         "randomizeSelections": true
     },
     "attractPlaylist": [

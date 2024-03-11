@@ -49,9 +49,11 @@ function AttractScreen({
     reset(); // Resume idle timer
   };
 
+  const wrapperClass = menuShow || videoShow ? 'hide-attract-wrapper' : '';
+
   return (
     <div
-      className={`attract-wrapper ${menuShow || videoShow ? 'hide-attract-wrapper' : ''}`}
+      className={wrapperClass}
       onClick={goToMenu}
     >
       <div id="attract-container">

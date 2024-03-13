@@ -118,8 +118,10 @@ function VideoSelector(all) {
   }
 
   const onIdle = () => {
-    const route = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}`;
-    window.location.href = route;
+    if (typeof window !== 'undefined') {
+      const route = `${window.location.origin}/${defaultLocale}/${defaultSelector.slug}`;
+      window.location.href = route;
+    }
   };
 
   const { reset, pause } = useIdleTimer({
@@ -160,12 +162,15 @@ function VideoSelector(all) {
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
   const [modalSel, setModalSel] = useState('');
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const state = urlParams.get('state');
   let skipAttract = false;
-  if (state === 'selection') {
-    skipAttract = true;
-    reset(); // Pause idle timer if state is set to selection
+  if (typeof window !== 'undefined') {
+    const urlParams = new URLSearchParams(window.location.search);
+    const state = urlParams.get('state');
+
+    if (state === 'selection') {
+      skipAttract = true;
+      reset(); // Pause idle timer if state is set to selection
+    }
   }
 
   // Display states

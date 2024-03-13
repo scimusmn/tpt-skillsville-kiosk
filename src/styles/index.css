@@ -1,9 +1,11 @@
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-disable comment-empty-line-before */
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable no-missing-end-of-source-newline */
 
 html,
 body {
-  font-family: open-sans, sans-serif;
+  font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -13,6 +15,10 @@ img {
   display: block;
 }
 
+@font-face {
+  font-family: bomb-sound;
+  src: url("the-bomb-sound.regular.ttf");
+}
 /* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
@@ -57,9 +63,9 @@ img {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 750px;
+  top: 900px;
   width: 100%;
-  z-index: 1000;
+  z-index: 300;
 }
 
 .skillsville .language-switcher .language {
@@ -67,9 +73,10 @@ img {
   border: 5px solid white;
   border-radius: 50px;
   color: white;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 700;
   margin: 0 30px;
-  padding: 5px 30px;
+  padding: 5px 40px;
 }
 
 .skillsville .language-switcher a {
@@ -169,32 +176,69 @@ img {
   top: 0;
 }
 
-.skillsville .modal-container {
-  background-color: purple;
+/* .skillsville .modal-container {
+  background: rgba(0 27 138);
   color: white;
   display: flex;
-  height: 500px;
+  font-family: bomb-sound, sans-serif;
+  height: 800px;
   justify-content: center;
-  left: 500px;
-  margin: auto;
+  left: 0;
+  opacity: 0.1;
   position: absolute;
-  top: 300px;
-  width: 500px;
-  z-index: 500;
+  top: 0;
+  width: 800px;
+} */
+
+.modal-container {
+  background: #001b8ae5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: bomb-sound, sans-serif;
+  font-size: 64px;
+  position: absolute;
+  height: 1080px;
+  width: 1920px;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+}
+
+.modal-container .header {
+  border-bottom: 3px solid white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+}
+
+/* .modal-container img {
+  height: 200px;
+  margin: auto;
+  width: 200px;
+} */
+
+.modal-container .yes-no-container {
+  display: flex;
+  margin: 100px 250px 0;
+  justify-content: space-around;
+}
+
+.skillsville .no,
+.yes {
+  background-image: url("thumbdown.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  width: 200px;
 }
 
 .skillsville .yes {
-  border: 1px solid white;
-  font-size: 34px;
-  margin: auto;
-  padding: 20px;
-}
-
-.skillsville .no {
-  border: 1px solid white;
-  font-size: 34px;
-  margin: auto;
-  padding: 20px;
+  background-image: url("thumbup.png");
 }
 
 .skillsville .modal-hide {
@@ -242,16 +286,16 @@ img {
 
 .skillsville .swiper-wrapper {
   height: 900px;
-  top: 100px;
+  top: -40px;
 }
 
 .skillsville .bottom-slide {
-  right: 225px;
+  right: 300px;
   top: 185px;
 }
 
 .skillsville .top-slide {
-  right: 225px;
+  right: 300px;
 }
 
 .skillsville .swiper-pagination {
@@ -265,25 +309,62 @@ img {
   width: 500px;
 }
 
+.thumb-modal {
+  margin: auto;
+}
+
 .border {
   position: absolute;
   top: 19px;
 }
 
-.skillsville .swiper-button-next {
-  background: url("next.png") no-repeat;
-  top: 800px;
+.border-modal {
+  margin: auto;
+  position: absolute;
+  top: 89px;
+  left: 710px;
 }
 
-.skillsville .swiper-button-prev {
-  background: url("next.png") no-repeat;
-  top: 800px;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "" !important;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-image: url("arrow.svg");
+  background-image: url("back.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* border: 1px solid blue; */
+  height: 150px !important;
+  top: 700px !important;
+  width: 150px !important;
+  z-index: 500;
+}
+
+.swiper-button-prev {
+  margin-left: 100px;
+}
+
+.swiper-button-next {
+  margin-right: 100px;
+  transform: rotate(180deg);
+}
+
+/* .swiper-button-next:active,
+.swiper-button-prev:active {
+  background-image: url(../images/nav-arrow-active.svg);
+} */
 
 .skillsville .logo {
-  left: 650px;
-  position: absolute;
-  top: 820px;
+  display: flex;
+  justify-content: center;
+}
+
+.skillsville .logo img {
+  height: 150px;
 }
 
 .skillsville .lang-btn-container {
@@ -296,12 +377,19 @@ img {
   z-index: 500;
 }
 
-.skillsville .lang-btn {
+/* .skillsville .lang-btn {
   background-color: #ff6f00;
   border: 5px solid white;
   border-radius: 50px;
   color: white;
-  font-size: 30px;
+  font-family: Roboto, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  height: 100px;
   margin: 0 30px;
   padding: 5px 30px;
+} */
+
+p {
+  color: white;
 }

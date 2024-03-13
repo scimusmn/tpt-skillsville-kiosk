@@ -34,13 +34,20 @@ function SelectModal(props) {
   return (
     <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
       <audio id="modalSound" src={currentSelection.narrationAsset} preload="auto" ref={soundRef} />
-      <h1>{currentSelection.titleDisplay}</h1>
-      <img src={currentSelection.thumbnail.localFile.publicURL} alt="thumbnail" height={100} width={100} />
-      <div className="yes" onClick={() => choose('yes')}>
-        Yes
+      <div>
+        <div
+          className="thumb-container thumb-modal"
+          style={{
+            backgroundImage:
+        `url(${currentSelection.thumbnail.localFile.publicURL})`,
+          }}
+        />
+        <img className="border-modal" src="/assets/images/border-svg.svg" alt="border" />
+        <div className="header">{currentSelection.titleDisplay}</div>
       </div>
-      <div className="no" onClick={() => choose('no')}>
-        No
+      <div className="yes-no-container">
+        <div className="no" onClick={() => choose('no')} />
+        <div className="yes" onClick={() => choose('yes')} />
       </div>
     </div>
   );

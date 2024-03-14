@@ -12,7 +12,6 @@ function VideoPlayer(props) {
     currentSelection, pause, reset, setModalSel, videoShow, setVideoShow, setMenuShow,
   } = props;
   const videoRef = useRef(null);
-  const [fillAmount, setFillAmount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -39,15 +38,6 @@ function VideoPlayer(props) {
         track.mode = 'hidden';
       }
       setIsLoading(false);
-    });
-
-    // progress bar animation
-    videoRef.current.addEventListener('timeupdate', () => {
-      const percent = videoRef.current.currentTime / videoRef.current.duration;
-      // Round to avoid overloading state updates.
-      // Multiply by 100 to get a whole number usable by CSS.
-      const rounded = (Math.round(percent * 1000) / 1000) * 100;
-      if (rounded !== fillAmount) setFillAmount(rounded);
     });
 
     // pause idle timer during video playback
@@ -102,9 +92,6 @@ function VideoPlayer(props) {
         <div key={locale}>
           <div key={locale} className={`captions captions${index} ${locale}`}>
             {captions[index]}
-          </div>
-          <div className={`progress ${locale}`}>
-            <div className={`progress-fill ${locale}`} style={{ width: `${fillAmount}%` }} />
           </div>
           <div className="transport-container" onClick={() => goBack()}>
             <div className="icon" />

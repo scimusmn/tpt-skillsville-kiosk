@@ -44,7 +44,11 @@ function SelectModal(props) {
           }}
         />
         <img className="border-modal" src={border} alt="border" />
-        <div className="header">{currentSelection.titleDisplay}</div>
+        <div className="header">
+          <div className="title-container">
+            {currentSelection.titleDisplay}
+          </div>
+        </div>
       </div>
       <div className="yes-no-container">
         <div className="no" onClick={() => choose('no')} />

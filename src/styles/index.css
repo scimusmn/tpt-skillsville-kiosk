@@ -193,12 +193,14 @@ img {
 }
 
 .skillsville .modal-container .header {
-  border-bottom: 3px solid white;
   display: flex;
   justify-content: center;
-  margin: auto;
   padding: 20px;
-  width: 30%;
+}
+
+.skillsville .modal-container .header .title-container {
+  border-bottom: 3px solid white;
+  padding: 20px;
 }
 
 .skillsville .modal-container .yes-no-container {
@@ -209,7 +211,7 @@ img {
 
 .skillsville .no,
 .yes {
-  background-image: url("img/thumbdown.png");
+  background-image: url("img/no.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -218,7 +220,7 @@ img {
 }
 
 .skillsville .yes {
-  background-image: url("img/thumbup.png");
+  background-image: url("img/yes.svg");
 }
 
 .skillsville .modal-hide {
@@ -270,12 +272,12 @@ img {
 }
 
 .skillsville .bottom-slide {
-  right: 300px;
+  right: 280px;
   top: 185px;
 }
 
 .skillsville .top-slide {
-  right: 300px;
+  right: 280px;
 }
 
 .skillsville .swiper-pagination {
@@ -301,7 +303,7 @@ img {
 .skillsville .border-modal {
   margin: auto;
   position: absolute;
-  top: 89px;
+  top: 70px;
   left: 710px;
 }
 

@@ -143,7 +143,7 @@ img {
 }
 
 .skillsville .icon {
-  background: url("back.svg") no-repeat;
+  background: url("img/back.svg") no-repeat;
   color: white;
   height: 65px;
   width: 65px;
@@ -176,21 +176,7 @@ img {
   top: 0;
 }
 
-/* .skillsville .modal-container {
-  background: rgba(0 27 138);
-  color: white;
-  display: flex;
-  font-family: bomb-sound, sans-serif;
-  height: 800px;
-  justify-content: center;
-  left: 0;
-  opacity: 0.1;
-  position: absolute;
-  top: 0;
-  width: 800px;
-} */
-
-.modal-container {
+.skillsville .modal-container {
   background: #001b8ae5;
   color: white;
   display: flex;
@@ -206,7 +192,7 @@ img {
   opacity: 0.9;
 }
 
-.modal-container .header {
+.skillsville .modal-container .header {
   border-bottom: 3px solid white;
   display: flex;
   justify-content: center;
@@ -215,13 +201,7 @@ img {
   width: 30%;
 }
 
-/* .modal-container img {
-  height: 200px;
-  margin: auto;
-  width: 200px;
-} */
-
-.modal-container .yes-no-container {
+.skillsville .modal-container .yes-no-container {
   display: flex;
   margin: 100px 250px 0;
   justify-content: space-around;
@@ -229,7 +209,7 @@ img {
 
 .skillsville .no,
 .yes {
-  background-image: url("thumbdown.png");
+  background-image: url("img/thumbdown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -238,7 +218,7 @@ img {
 }
 
 .skillsville .yes {
-  background-image: url("thumbup.png");
+  background-image: url("img/thumbup.png");
 }
 
 .skillsville .modal-hide {
@@ -302,23 +282,23 @@ img {
   display: none;
 }
 
-.thumb-container {
+.skillsville .thumb-container {
   background-size: cover;
   clip-path: url("#myClip");
   height: 500px;
   width: 500px;
 }
 
-.thumb-modal {
+.skillsville .thumb-modal {
   margin: auto;
 }
 
-.border {
+.skillsville .border {
   position: absolute;
   top: 19px;
 }
 
-.border-modal {
+.skillsville .border-modal {
   margin: auto;
   position: absolute;
   top: 89px;
@@ -332,12 +312,10 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background-image: url("arrow.svg");
-  background-image: url("back.svg");
+  background-image: url("img/back.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  /* border: 1px solid blue; */
   height: 150px !important;
   top: 700px !important;
   width: 150px !important;
@@ -376,19 +354,6 @@ img {
   width: 100%;
   z-index: 500;
 }
-
-/* .skillsville .lang-btn {
-  background-color: #ff6f00;
-  border: 5px solid white;
-  border-radius: 50px;
-  color: white;
-  font-family: Roboto, sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  height: 100px;
-  margin: 0 30px;
-  padding: 5px 30px;
-} */
 
 p {
   color: white;

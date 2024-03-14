@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import border from '../../styles/img/border-svg.svg';
 
 function Selection(props) {
   const {
@@ -25,7 +26,7 @@ function Selection(props) {
         `url(${item.thumbnail.localFile.publicURL})`,
         }}
       />
-      <img className="border" src="/assets/images/border-svg.svg" alt="border" />
+      <img className="border" src={border} alt="border" />
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 469">
         <defs>
           <clipPath id="myClip">

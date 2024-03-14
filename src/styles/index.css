@@ -312,14 +312,14 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background-image: url("img/back.svg");
+  background-image: url("img/arrow.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   height: 150px !important;
-  top: 700px !important;
+  top: 720px !important;
   width: 150px !important;
-  z-index: 500;
+  z-index: 1000;
 }
 
 .swiper-button-prev {

@@ -14,7 +14,7 @@ class Logger {
     this.ipcAvailable = false;
     this.logPath = logPath || '';
 
-    if (window.ipcRef) {
+    if (typeof window !== 'undefined' && window && window.ipcRef) {
       this.ipcAvailable = true;
       this.ipcRenderer = window.ipcRef;
       console.log('Logger initialized with IPC connection');

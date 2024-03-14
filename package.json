@@ -61,6 +61,7 @@
     "build": "gatsby clean && gatsby build",
     "clean": "gatsby clean",
     "depcheck": "node -r esm scripts/depcheck.js",
+    "deploy:preview": "yarn build && gsutil -m rsync -d -r public/ gs://tpt-skillsville-preview.smm.org",
     "develop": "gatsby develop --port 3000",
     "lint": "npm-run-all lint:*",
     "lint:code": "node_modules/.bin/eslint .",

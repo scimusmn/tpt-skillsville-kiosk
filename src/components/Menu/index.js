@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
+import logo from '../../styles/img/logo.png';
 
 function Menu(props) {
   const { selectionItems, initialSlide } = props;
@@ -12,7 +13,7 @@ function Menu(props) {
   return (
     <>
       <div className="logo">
-        <img src="/assets/images/logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <Swiper
         initialSlide={initialSlide}

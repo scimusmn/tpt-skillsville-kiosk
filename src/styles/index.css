@@ -19,6 +19,7 @@ img {
   font-family: bomb-sound;
   src: url("the-bomb-sound.regular.ttf");
 }
+
 /* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
@@ -130,7 +131,7 @@ img {
 }
 
 .attract-cta .attract-cta-text-ring {
-  background: url("svg/cta-ring.svg") no-repeat;
+  background: url("img/cta-ring.svg") no-repeat;
   display: inline-block;
   width: 416.5px;
   height: 416.5px;
@@ -179,18 +180,18 @@ img {
   }
 
   .background {
-    background: url("svg/btn-background.svg") no-repeat;
+    background: url("img/btn-background.svg") no-repeat;
     top: 14.88px;
   }
 
   .button {
-    background: url("svg/btn-button.svg") no-repeat;
+    background: url("img/btn-button.svg") no-repeat;
     left: 26.18px;
     /* animation: button-down-up 2s infinite linear; */
   }
 
   .foreground {
-    background: url("svg/btn-foreground.svg") no-repeat;
+    background: url("img/btn-foreground.svg") no-repeat;
     top: 70.64px;
     left: 3.11px;
   }
@@ -227,7 +228,7 @@ img {
 }
 
 .skillsville .icon {
-  background: url("back.svg") no-repeat;
+  background: url("img/back.svg") no-repeat;
   color: white;
   height: 65px;
   width: 65px;
@@ -242,21 +243,7 @@ img {
   z-index: 5;
 }
 
-/* .skillsville .modal-container {
-  background: rgba(0 27 138);
-  color: white;
-  display: flex;
-  font-family: bomb-sound, sans-serif;
-  height: 800px;
-  justify-content: center;
-  left: 0;
-  opacity: 0.1;
-  position: absolute;
-  top: 0;
-  width: 800px;
-} */
-
-.modal-container {
+.skillsville .modal-container {
   background: #001b8ae5;
   color: white;
   display: flex;
@@ -272,22 +259,18 @@ img {
   opacity: 0.9;
 }
 
-.modal-container .header {
-  border-bottom: 3px solid white;
+.skillsville .modal-container .header {
   display: flex;
   justify-content: center;
-  margin: auto;
   padding: 20px;
-  width: 30%;
 }
 
-/* .modal-container img {
-  height: 200px;
-  margin: auto;
-  width: 200px;
-} */
+.skillsville .modal-container .header .title-container {
+  border-bottom: 3px solid white;
+  padding: 20px;
+}
 
-.modal-container .yes-no-container {
+.skillsville .modal-container .yes-no-container {
   display: flex;
   margin: 100px 250px 0;
   justify-content: space-around;
@@ -295,7 +278,7 @@ img {
 
 .skillsville .no,
 .yes {
-  background-image: url("thumbdown.png");
+  background-image: url("img/no.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -304,7 +287,7 @@ img {
 }
 
 .skillsville .yes {
-  background-image: url("thumbup.png");
+  background-image: url("img/yes.svg");
 }
 
 .skillsville .modal-hide {
@@ -356,38 +339,38 @@ img {
 }
 
 .skillsville .bottom-slide {
-  right: 300px;
+  right: 280px;
   top: 185px;
 }
 
 .skillsville .top-slide {
-  right: 300px;
+  right: 280px;
 }
 
 .skillsville .swiper-pagination {
   display: none;
 }
 
-.thumb-container {
+.skillsville .thumb-container {
   background-size: cover;
   clip-path: url("#myClip");
   height: 500px;
   width: 500px;
 }
 
-.thumb-modal {
+.skillsville .thumb-modal {
   margin: auto;
 }
 
-.border {
+.skillsville .border {
   position: absolute;
   top: 19px;
 }
 
-.border-modal {
+.skillsville .border-modal {
   margin: auto;
   position: absolute;
-  top: 89px;
+  top: 70px;
   left: 710px;
 }
 
@@ -398,16 +381,14 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background-image: url("arrow.svg");
-  background-image: url("back.svg");
+  background-image: url("img/arrow.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  /* border: 1px solid blue; */
   height: 150px !important;
-  top: 700px !important;
+  top: 720px !important;
   width: 150px !important;
-  z-index: 500;
+  z-index: 1000;
 }
 
 .swiper-button-prev {
@@ -442,19 +423,6 @@ img {
   width: 100%;
   z-index: 500;
 }
-
-/* .skillsville .lang-btn {
-  background-color: #ff6f00;
-  border: 5px solid white;
-  border-radius: 50px;
-  color: white;
-  font-family: Roboto, sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  height: 100px;
-  margin: 0 30px;
-  padding: 5px 30px;
-} */
 
 p {
   color: white;

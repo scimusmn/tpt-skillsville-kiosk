@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import border from '../../styles/img/border-svg.svg';
 
 function SelectModal(props) {
   const {
@@ -42,8 +43,12 @@ function SelectModal(props) {
         `url(${currentSelection.thumbnail.localFile.publicURL})`,
           }}
         />
-        <img className="border-modal" src="/assets/images/border-svg.svg" alt="border" />
-        <div className="header">{currentSelection.titleDisplay}</div>
+        <img className="border-modal" src={border} alt="border" />
+        <div className="header">
+          <div className="title-container">
+            {currentSelection.titleDisplay}
+          </div>
+        </div>
       </div>
       <div className="yes-no-container">
         <div className="no" onClick={() => choose('no')} />

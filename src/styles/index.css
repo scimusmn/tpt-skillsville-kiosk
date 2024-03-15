@@ -317,6 +317,19 @@ img {
   background-image: url("img/yes.svg");
 }
 
+.skillsville .yes:active {
+  background-image: url("img/yes-select.svg");
+}
+
+@keyframes rotate-animation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-90deg); }
+}
+
+.skillsville .no:active {
+  animation: rotate-animation 0.3s;
+}
+
 .skillsville .modal-hide {
   opacity: 0;
   z-index: -5;
@@ -404,13 +417,3 @@ img {
 .skillsville .logo img {
   height: 150px;
 }
-
-/* .skillsville .lang-btn-container {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 750px;
-  width: 100%;
-  z-index: 500;
-} */

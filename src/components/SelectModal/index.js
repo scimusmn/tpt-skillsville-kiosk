@@ -31,7 +31,6 @@ function SelectModal(props) {
       setMenuShow(false);
     }
   }
-  console.log(choose);
 
   return (
     <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
@@ -50,8 +49,8 @@ function SelectModal(props) {
         </div>
       </div>
       <div className="yes-no-container">
-        <div className="no" onClick={() => choose('no')} />
-        <div className="yes" onClick={() => choose('yes')} />
+        <div className="no" onTouchEnd={() => choose('no')} />
+        <div className="yes" onTouchEnd={() => choose('yes')} />
       </div>
     </div>
   );

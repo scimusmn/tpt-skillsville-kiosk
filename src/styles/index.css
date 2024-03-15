@@ -180,20 +180,17 @@ img {
 
   .background {
     background: url("svg/btn-background.svg") no-repeat;
-    /* background: url("png/btn-background.png") no-repeat; */
     top: 14.88px;
   }
 
   .button {
     background: url("svg/btn-button.svg") no-repeat;
-    /* background: url("png/btn-button.png") no-repeat; */
     left: 26.18px;
-    animation: button-down-up 2s infinite linear;
+    /* animation: button-down-up 2s infinite linear; */
   }
 
   .foreground {
     background: url("svg/btn-foreground.svg") no-repeat;
-    /* background: url("png/btn-foreground.png") no-repeat; */
     top: 70.64px;
     left: 3.11px;
   }

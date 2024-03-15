@@ -15,10 +15,10 @@ img {
   display: block;
 }
 
-/* @font-face {
+@font-face {
   font-family: bomb-sound;
   src: url("the-bomb-sound.regular.ttf");
-} */
+}
 /* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
@@ -227,7 +227,7 @@ img {
 }
 
 .skillsville .icon {
-  /* background: url("back.svg") no-repeat; */
+  background: url("back.svg") no-repeat;
   color: white;
   height: 65px;
   width: 65px;
@@ -262,7 +262,7 @@ img {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* font-family: bomb-sound, sans-serif; */
+  font-family: bomb-sound, sans-serif;
   font-size: 64px;
   position: absolute;
   height: 1080px;
@@ -295,7 +295,7 @@ img {
 
 .skillsville .no,
 .yes {
-  /* background-image: url("thumbdown.png"); */
+  background-image: url("thumbdown.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -304,7 +304,7 @@ img {
 }
 
 .skillsville .yes {
-  /* background-image: url("thumbup.png"); */
+  background-image: url("thumbup.png");
 }
 
 .skillsville .modal-hide {
@@ -398,8 +398,8 @@ img {
 
 .swiper-button-prev,
 .swiper-button-next {
-  /* background-image: url("arrow.svg");
-  background-image: url("back.svg"); */
+  background-image: url("arrow.svg");
+  background-image: url("back.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

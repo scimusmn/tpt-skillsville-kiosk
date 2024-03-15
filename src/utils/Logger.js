@@ -1,18 +1,13 @@
 /**
- * Singleton that sends logging events to the Electron main process via IPC.
+ * Singleton sends logging events to the Electron main process via IPC.
  */
 
-// TODO - add event logging (outside this file) for:
-// - language selection
-// - video selection
-// - video completion
-// - video exit
-
+// This is the event name that the main process listens for
+const RENDERER_LOG_EVENT = 'renderer-log-event';
 class Logger {
-  constructor(logPath) {
+  constructor() {
     this.ipcRenderer = null;
     this.ipcAvailable = false;
-    this.logPath = logPath || '';
 
     if (typeof window !== 'undefined' && window && window.ipcRef) {
       this.ipcAvailable = true;
@@ -23,15 +18,16 @@ class Logger {
     }
   }
 
-  log(eventType, eventValue) {
-    console.log('log:', eventType, eventValue);
+  log(type, value) {
+    console.log('logger.log:', type, value);
     if (this.ipcAvailable) {
-      this.ipcRenderer.send('RENDERER_LOG_EVENT', this.logPath, eventType, eventValue);
+      const event = {
+        type,
+        value,
+      };
+      this.ipcRenderer.send(RENDERER_LOG_EVENT, event);
     }
   }
 }
 
-// Relative to operating system's user directory
-const RENDERER_LOGGING_PATH = '/skillsville-logs/';
-
-module.exports = new Logger(RENDERER_LOGGING_PATH); // Set the default log path here
+module.exports = new Logger(); // Set the default log path here

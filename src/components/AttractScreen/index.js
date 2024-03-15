@@ -68,7 +68,13 @@ function AttractScreen({
         />
       </div>
       <div className="attract-cta">
-        START!
+        <div className="attract-cta-text-ring" />
+        <div className="attract-cta-bg-ring" />
+        <div className="cta-button">
+          <div className="background" />
+          <div className="button" />
+          <div className="foreground" />
+        </div>
       </div>
     </div>
   );

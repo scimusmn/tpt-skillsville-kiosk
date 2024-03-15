@@ -19,6 +19,7 @@ img {
   font-family: bomb-sound;
   src: url("font/the-bomb-sound.regular.ttf");
 }
+
 /* *****SELECTOR STYLES**** */
 
 .selector-selector .card {
@@ -123,6 +124,90 @@ img {
   background-color: black;
 }
 
+.skillsville .attract-cta {
+  position: absolute;
+  top: 558px;
+  left: 1403px;
+}
+
+.attract-cta .attract-cta-text-ring {
+  background: url("img/cta-ring.svg") no-repeat;
+  display: inline-block;
+  width: 416.5px;
+  height: 416.5px;
+  animation: spin 15s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.attract-cta .attract-cta-bg-ring::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  border: solid rgb(255 111 0 / 50%);
+  border-width: 93px;
+  margin: -93px;
+  z-index: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.attract-cta .cta-button {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+
+  div {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .background {
+    background: url("img/btn-background.svg") no-repeat;
+    top: 14.88px;
+  }
+
+  .button {
+    background: url("img/btn-button.svg") no-repeat;
+    left: 26.18px;
+    /* animation: button-down-up 2s infinite linear; */
+  }
+
+  .foreground {
+    background: url("img/btn-foreground.svg") no-repeat;
+    top: 70.64px;
+    left: 3.11px;
+  }
+}
+
+@keyframes button-down-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+}
+
 .skillsville #player-container {
   display: flex;
   height: 1080px;
@@ -156,24 +241,6 @@ img {
   position: absolute;
   top: 800px;
   z-index: 5;
-}
-
-.skillsville .attract-cta {
-  background-color: blue;
-  color: white;
-  font-size: 34px;
-  left: 500px;
-  padding: 20px;
-  position: absolute;
-  top: 800px;
-}
-
-.skillsville .loading {
-  background-color: orange;
-  color: black;
-  padding: 50px;
-  position: absolute;
-  top: 0;
 }
 
 .skillsville .modal-container {

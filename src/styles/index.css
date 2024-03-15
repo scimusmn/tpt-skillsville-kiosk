@@ -55,6 +55,7 @@ img {
 }
 
 .skillsville .show-selection {
+  /* transform: scale(0.5); */
   z-index: 500;
 }
 
@@ -85,19 +86,20 @@ img {
 }
 
 .skillsville .captions {
-  background-color: pink;
-  color: blue;
+  background-color: white;
+  border-radius: 30px;
   position: absolute;
-  text-align: center;
-  top: 950px;
-  width: 1920px;
+  top: 920px;
+  left: 560px;
+  width: 964px;
+  height: 96px;
+  z-index: 560;
 }
 
-.skillsville .captions.es {
-  background-color: orange;
-  color: purple;
-  position: absolute;
-  top: 1000px;
+.skillsville .captions p {
+  color: black;
+  font-size: 38px;
+  margin: 25px 0 0 50px;
 }
 
 .skillsville .hide-player-wrapper {
@@ -134,6 +136,35 @@ img {
   width: 1920px;
 }
 
+/* .skillsville .branding-box {
+  position: absolute;
+  border-radius: 0 30px;
+  width: 520px;
+  height: 170px;
+  bottom: 0;
+  background: #001b8ae5;
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
+  z-index: 500;
+  overflow: hidden;
+  opacity: 0.7;
+} */
+
+.skillsville .box {
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  bottom: 0;
+}
+
+.skillsville .branding-logo {
+  height: 130px;
+  margin-left: 180px;
+  position: absolute;
+  top: 940px;
+  z-index: 550;
+}
+
 .skillsville video {
   height: 1080px;
   left: 0;
@@ -143,19 +174,17 @@ img {
 }
 
 .skillsville .icon {
-  background: url("img/back.svg") no-repeat;
+  background: url("img/arrow.svg") no-repeat;
   color: white;
-  height: 65px;
-  width: 65px;
+  height: 105px;
+  width: 105px;
 }
 
 .skillsville .transport-container {
-  background-color: green;
-  border-radius: 50%;
-  left: 50px;
+  left: 70px;
   position: absolute;
-  top: 800px;
-  z-index: 5;
+  top: 950px;
+  z-index: 550;
 }
 
 .skillsville .attract-cta {
@@ -195,7 +224,7 @@ img {
 .skillsville .modal-container .header {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  margin-top: 450px;
 }
 
 .skillsville .modal-container .header .title-container {
@@ -233,42 +262,9 @@ img {
   z-index: 500;
 }
 
-/* .skillsville .hexagon {
-  filter: drop-shadow(rgb(164 105 66) 0 25px 35px);
-  height: 370px;
-  position: relative;
-  width: 420px;
-}
-
-.skillsville .hexagon .shape {
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.skillsville .hexagon img {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.skillsville .hexagon .shape img {
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
-} */
-
 .skillsville .swiper-wrapper {
   height: 900px;
-  top: -40px;
+  top: -20px;
 }
 
 .skillsville .bottom-slide {
@@ -288,23 +284,21 @@ img {
   background-size: cover;
   clip-path: url("#myClip");
   height: 500px;
+  position: absolute;
+  top: 0;
   width: 500px;
-}
-
-.skillsville .thumb-modal {
-  margin: auto;
 }
 
 .skillsville .border {
   position: absolute;
-  top: 19px;
+  top: 0;
 }
 
-.skillsville .border-modal {
-  margin: auto;
-  position: absolute;
-  top: 70px;
+.skillsville .thumb-modal,
+.border-modal {
   left: 710px;
+  top: 100px !important;
+  scale: 1.1;
 }
 
 .swiper-button-next::after,
@@ -355,8 +349,4 @@ img {
   top: 750px;
   width: 100%;
   z-index: 500;
-}
-
-p {
-  color: white;
 }

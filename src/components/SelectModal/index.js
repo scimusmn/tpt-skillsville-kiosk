@@ -31,23 +31,22 @@ function SelectModal(props) {
       setMenuShow(false);
     }
   }
+  console.log(choose);
 
   return (
     <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
       <audio id="modalSound" src={currentSelection.narrationAsset} preload="auto" ref={soundRef} />
-      <div>
-        <div
-          className="thumb-container thumb-modal"
-          style={{
-            backgroundImage:
+      <div
+        className="thumb-container thumb-modal"
+        style={{
+          backgroundImage:
         `url(${currentSelection.thumbnail.localFile.publicURL})`,
-          }}
-        />
-        <img className="border-modal" src={border} alt="border" />
-        <div className="header">
-          <div className="title-container">
-            {currentSelection.titleDisplay}
-          </div>
+        }}
+      />
+      <img className="border border-modal" src={border} alt="border" />
+      <div className="header">
+        <div className="title-container">
+          {currentSelection.titleDisplay}
         </div>
       </div>
       <div className="yes-no-container">

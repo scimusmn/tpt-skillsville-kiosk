@@ -199,7 +199,6 @@ function VideoSelector(all) {
 
   const selectionItems = selections.map((i, index) => (
     <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
-      {index}
       <Selection
         key={i.titleDisplay}
         item={i}

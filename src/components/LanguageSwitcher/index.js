@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 function LanguageSwitcher({ slug, allLocales }) {
   return (
     <div className="language-switcher">
-      <div>
+      <div style={{ zIndex: 300 }}>
         {allLocales.map(({ node }) => (
           <Link to={`/${node.code}/${slug}/?state=selection`} key={`language-${node.code}`}>
             <span className={`language ${node.code}`}>

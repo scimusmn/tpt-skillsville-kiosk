@@ -6,13 +6,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import useCaptions from '../../useCaptions';
+import logo from '../../styles/img/logo.png';
+// import box from '../../styles/img/box2.svg';
 
 function VideoPlayer(props) {
   const {
     currentSelection, pause, reset, setModalSel, videoShow, setVideoShow, setMenuShow,
   } = props;
   const videoRef = useRef(null);
-  const [fillAmount, setFillAmount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -39,15 +40,6 @@ function VideoPlayer(props) {
         track.mode = 'hidden';
       }
       setIsLoading(false);
-    });
-
-    // progress bar animation
-    videoRef.current.addEventListener('timeupdate', () => {
-      const percent = videoRef.current.currentTime / videoRef.current.duration;
-      // Round to avoid overloading state updates.
-      // Multiply by 100 to get a whole number usable by CSS.
-      const rounded = (Math.round(percent * 1000) / 1000) * 100;
-      if (rounded !== fillAmount) setFillAmount(rounded);
     });
 
     // pause idle timer during video playback
@@ -101,11 +93,10 @@ function VideoPlayer(props) {
       {Object.keys(currentSelection.captionAssets).map((locale, index) => (
         <div key={locale}>
           <div key={locale} className={`captions captions${index} ${locale}`}>
-            {captions[index]}
+            <p>{captions[index]}</p>
           </div>
-          <div className={`progress ${locale}`}>
-            <div className={`progress-fill ${locale}`} style={{ width: `${fillAmount}%` }} />
-          </div>
+          {/* <img className="box" src={box} alt="box" /> */}
+          <img className="branding-logo" src={logo} alt="logo" />
           <div className="transport-container" onClick={() => goBack()}>
             <div className="icon" />
           </div>

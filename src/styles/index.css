@@ -87,11 +87,11 @@ img {
 
 .skillsville .captions {
   background-color: white;
-  border-radius: 30px;
+  border-radius: 20px;
   position: absolute;
-  top: 920px;
-  left: 560px;
-  width: 964px;
+  top: 940px;
+  left: 530px;
+  width: 1000px;
   height: 96px;
   z-index: 560;
 }
@@ -220,23 +220,14 @@ img {
   width: 1920px;
 }
 
-/* .skillsville .branding-box {
-  position: absolute;
-  border-radius: 0 30px;
-  width: 520px;
-  height: 170px;
-  bottom: 0;
-  background: #001b8ae5;
-  border-top: 5px solid #fff;
-  border-right: 5px solid #fff;
-  z-index: 500;
-  overflow: hidden;
-  opacity: 0.7;
-} */
-
 .skillsville .box {
   position: absolute;
-  overflow: hidden;
+  width: 80%;
+  bottom: 0;
+}
+
+.skillsville .box-border {
+  position: absolute;
   width: 80%;
   bottom: 0;
 }
@@ -267,7 +258,7 @@ img {
 .skillsville .transport-container {
   left: 70px;
   position: absolute;
-  top: 950px;
+  top: 960px;
   z-index: 550;
 }
 

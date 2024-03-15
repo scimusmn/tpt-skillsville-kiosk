@@ -7,7 +7,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import useCaptions from '../../useCaptions';
 import logo from '../../styles/img/logo.png';
-// import box from '../../styles/img/box2.svg';
+import box from '../../styles/img/box.svg';
+import boxBorder from '../../styles/img/box-border.svg';
 
 function VideoPlayer(props) {
   const {
@@ -66,6 +67,7 @@ function VideoPlayer(props) {
     <div id="player-wrapper" className={`wrapper ${videoShow ? 'show-player-wrapper' : 'hide-player-wrapper'}`}>
       <div id="player-container">
         <video
+          loop
           id="video"
           ref={videoRef}
           onLoadedData={() => onVideoLoad()}
@@ -95,7 +97,8 @@ function VideoPlayer(props) {
           <div key={locale} className={`captions captions${index} ${locale}`}>
             <p>{captions[index]}</p>
           </div>
-          {/* <img className="box" src={box} alt="box" /> */}
+          <img className="box" src={box} alt="box" />
+          <img className="box-border" src={boxBorder} alt="box" />
           <img className="branding-logo" src={logo} alt="logo" />
           <div className="transport-container" onClick={() => goBack()}>
             <div className="icon" />

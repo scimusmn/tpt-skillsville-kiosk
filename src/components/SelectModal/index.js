@@ -26,7 +26,6 @@ function SelectModal(props) {
   }, [modalShow]);
 
   useEffect(() => {
-    console.log('button animation');
   }, [startCloseAnimation, startContinueAnimation]);
 
   function choose(choice) {

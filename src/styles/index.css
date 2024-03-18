@@ -1,6 +1,7 @@
 /* stylelint-disable order/properties-alphabetical-order */
 /* stylelint-disable comment-empty-line-before */
 /* stylelint-disable selector-class-pattern */
+/* stylelint-disable color-function-notation */
 /* stylelint-disable no-missing-end-of-source-newline */
 
 html,
@@ -70,19 +71,68 @@ img {
 }
 
 .skillsville .language-switcher .language {
-  background-color: #ff6f00;
+  background-color: transparent;
   border: 5px solid white;
-  border-radius: 50px;
+  border-radius: 35px;
   color: white;
   font-size: 40px;
   font-weight: 700;
-  margin: 0 30px;
+  padding: 5px 40px;
+}
+
+.skillsville .language-switcher .language:active {
+  background-color: white;
+  color: #ff6f00;
+  scale: 0.8;
+}
+
+.skillsville .language-switcher .selected {
+  background-color: white;
+  border: 5px solid white;
+  border-radius: 35px;
+  color: #ff6f00;
+  font-size: 40px;
+  font-weight: 700;
   padding: 5px 40px;
 }
 
 .skillsville .language-switcher a {
   color: white;
   text-decoration: none;
+}
+
+.skillsville .lang-border1,
+.lang-border2,
+.lang-border3 {
+  padding: 8px;
+}
+
+.skillsville .lang-border1 {
+  border: 5px solid rgba(255, 255, 255, 60%);
+  border-radius: 45px;
+}
+
+.skillsville .lang-border2 {
+  border: 5px solid rgba(255, 255, 255, 30%);
+  border-radius: 55px;
+}
+
+.skillsville .lang-border3 {
+  border: 5px solid rgba(255, 255, 255, 15%);
+  border-radius: 65px;
+  margin: 0 25px;
+  position: relative;
+  top: -40px;
+}
+
+.skillsville .lang-border3-blank {
+  margin: 0 25px;
+}
+
+.skillsville .lang-selected {
+  background-color: white;
+  color: #ff6f00;
+  animation: pulse-animation 1s;
 }
 
 .skillsville .captions {

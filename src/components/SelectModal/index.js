@@ -2,7 +2,7 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import border from '../../styles/img/border-svg.svg';
 
@@ -12,6 +12,8 @@ function SelectModal(props) {
   } = props;
 
   const soundRef = useRef(null);
+  const [startCloseAnimation, setStartCloseAnimation] = useState(false);
+  const [startContinueAnimation, setStartContinueAnimation] = useState(false);
 
   // Play sound effect when modal shows
   useEffect(() => {
@@ -23,6 +25,10 @@ function SelectModal(props) {
     }
   }, [modalShow]);
 
+  useEffect(() => {
+    console.log('button animation');
+  }, [startCloseAnimation, startContinueAnimation]);
+
   function choose(choice) {
     setModalShow(false);
     if (choice === 'yes') {
@@ -30,6 +36,12 @@ function SelectModal(props) {
       setVideoShow(true);
       setMenuShow(false);
     }
+  }
+
+  function closeModal(choice) {
+    if (choice === 'no') setStartCloseAnimation(false);
+    if (choice === 'yes') setStartContinueAnimation(false);
+    choose(choice);
   }
 
   return (
@@ -49,8 +61,16 @@ function SelectModal(props) {
         </div>
       </div>
       <div className="yes-no-container">
-        <div className="no" onTouchEnd={() => choose('no')} />
-        <div className="yes" onTouchEnd={() => choose('yes')} />
+        <div
+          onClick={() => setStartCloseAnimation(true)}
+          onAnimationEnd={() => closeModal('no')}
+          className={`no ${startCloseAnimation ? 'no-selected' : ''}`}
+        />
+        <div
+          onClick={() => setStartContinueAnimation(true)}
+          onAnimationEnd={() => closeModal('yes')}
+          className={`yes ${startContinueAnimation ? 'yes-selected' : ''}`}
+        />
       </div>
     </div>
   );

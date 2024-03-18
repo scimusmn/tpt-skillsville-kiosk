@@ -308,8 +308,15 @@ img {
   background-image: url("img/yes.svg");
 }
 
-.skillsville .yes:active {
+.skillsville .yes-selected {
   background-image: url("img/yes-select.svg");
+  animation: pulse-animation 1s;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
 
 @keyframes rotate-animation {
@@ -317,8 +324,8 @@ img {
   to { transform: rotate(-90deg); }
 }
 
-.skillsville .no:active {
-  animation: rotate-animation 0.3s;
+.skillsville .no-selected {
+  animation: rotate-animation 1s;
 }
 
 .skillsville .modal-hide {

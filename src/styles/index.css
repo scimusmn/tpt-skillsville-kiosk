@@ -58,8 +58,11 @@ img {
 }
 
 .skillsville .show-selection {
-  /* transform: scale(0.5); */
   z-index: 500;
+}
+
+.skillsville .show-selection:active {
+  transform: scale(0.9) translateX(20px);
 }
 
 .skillsville .language-switcher {

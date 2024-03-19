@@ -67,7 +67,6 @@ function VideoPlayer(props) {
     <div id="player-wrapper" className={`wrapper ${videoShow ? 'show-player-wrapper' : 'hide-player-wrapper'}`}>
       <div id="player-container">
         <video
-          loop
           id="video"
           ref={videoRef}
           onLoadedData={() => onVideoLoad()}

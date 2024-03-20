@@ -44,7 +44,7 @@ function AttractScreen({
 
   const goToMenu = () => {
     videoRef.current.pause();
-    videoRef.current.src = ''; // Clear current video
+    // videoRef.current.src = ''; // Clear current video
     setMenuShow(true);
     reset(); // Resume idle timer
   };
@@ -53,10 +53,10 @@ function AttractScreen({
 
   return (
     <div
-      className={wrapperClass}
+      className={`attract-wrapper ${wrapperClass}`}
       onClick={goToMenu}
     >
-      <div id="attract-container">
+      <div id="attract-container" className="attract-container">
         <video
           autoPlay
           muted

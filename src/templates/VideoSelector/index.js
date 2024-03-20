@@ -100,7 +100,7 @@ function VideoSelector(all) {
   if (!defaultSelector) {
     [defaultSelector] = selectors; // Default to first selector if default locale is not available
   }
-  // console.log(data.allContentfulLocale.edges);
+
   const { attractPlaylist } = defaultSelector;
 
   // Create a pool of videos for random selection
@@ -163,9 +163,12 @@ function VideoSelector(all) {
   const [modalSel, setModalSel] = useState('');
 
   let skipAttract = false;
+  let carouselIndex = 0;
   if (typeof window !== 'undefined') {
     const urlParams = new URLSearchParams(window.location.search);
     const state = urlParams.get('state');
+    carouselIndex = urlParams.get('carouselIndex');
+    console.log('carouselIndex for urlParams:', carouselIndex);
 
     if (state === 'selection') {
       skipAttract = true;
@@ -189,6 +192,16 @@ function VideoSelector(all) {
       setMenuShow(false);
     }
   }
+
+  const onSlideChange = (swiper) => {
+    if (typeof window !== 'undefined') {
+      const { realIndex } = swiper;
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.set('carouselIndex', realIndex);
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      window.history.replaceState(null, null, newUrl);
+    }
+  };
 
   useEffect(() => {
     if (modalSel === 'yes') {
@@ -216,7 +229,13 @@ function VideoSelector(all) {
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      {menuShow && <Menu selectionItems={selectionItems} initialSlide={initialSlide} />}
+      {menuShow && (
+      <Menu
+        selectionItems={selectionItems}
+        initialSlide={initialSlide}
+        onSlideChange={onSlideChange}
+      />
+      )}
       <SelectModal
         setModalSel={setModalSel}
         setModalShow={setModalShow}

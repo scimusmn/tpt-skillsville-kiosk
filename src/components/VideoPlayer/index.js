@@ -6,6 +6,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import useCaptions from '../../useCaptions';
+import logger from '../../utils/Logger';
 import logo from '../../styles/img/logo.png';
 import box from '../../styles/img/box.svg';
 import boxBorder from '../../styles/img/box-border.svg';
@@ -47,10 +48,18 @@ function VideoPlayer(props) {
     pause();
   }
 
-  function goBack() {
+  function goBack(videoFinished) {
     videoRef.current.currentTime = 0;
     videoRef.current.pause();
     videoRef.src = '';
+
+    const eventData = { videoTitle: currentSelection.titleDisplay };
+    if (videoFinished === true) {
+      logger.log('video-completed', eventData);
+    } else {
+      logger.log('video-exited', eventData);
+    }
+
     setModalSel('');
     setVideoShow(false);
     setMenuShow(true);
@@ -60,7 +69,7 @@ function VideoPlayer(props) {
   }
 
   function onVideoEnd() {
-    goBack();
+    goBack(true);
   }
 
   return (
@@ -99,7 +108,7 @@ function VideoPlayer(props) {
           <img className="box" src={box} alt="box" />
           <img className="box-border" src={boxBorder} alt="box" />
           <img className="branding-logo" src={logo} alt="logo" />
-          <div className="transport-container" onClick={() => goBack()}>
+          <div className="transport-container" onClick={() => goBack(false)}>
             <div className="icon" />
           </div>
         </div>

@@ -8,7 +8,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import logo from '../../styles/img/logo.png';
 
 function Menu(props) {
-  const { selectionItems, initialSlide } = props;
+  const { selectionItems, initialSlide, onSlideChange } = props;
 
   return (
     <>
@@ -27,6 +27,7 @@ function Menu(props) {
         navigation
         modules={[Pagination, Navigation]}
         className="mySwiper"
+        onSlideChange={onSlideChange}
       >
         {selectionItems}
       </Swiper>
@@ -37,6 +38,7 @@ function Menu(props) {
 Menu.propTypes = {
   selectionItems: PropTypes.array.isRequired,
   initialSlide: PropTypes.number.isRequired,
+  onSlideChange: PropTypes.func.isRequired,
 };
 
 export default Menu;

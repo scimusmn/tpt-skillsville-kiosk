@@ -9,12 +9,12 @@ class Logger {
     this.ipcRenderer = null;
     this.ipcAvailable = false;
 
-    if (typeof window !== 'undefined' && window && window.ipcRef) {
+    if (typeof window !== 'undefined' && window && window.ipcRenderer) {
       this.ipcAvailable = true;
-      this.ipcRenderer = window.ipcRef;
+      this.ipcRenderer = window.ipcRenderer;
       console.log('Logger initialized with IPC connection');
     } else {
-      console.warn('ipcRef is not available. Logging events will not be sent to the Electron main process.');
+      console.warn('ipcRenderer is not available. Logging events will not be sent to the Electron main process.');
     }
   }
 

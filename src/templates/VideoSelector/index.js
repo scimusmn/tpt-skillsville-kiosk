@@ -208,7 +208,7 @@ function VideoSelector(all) {
       logger.log('video-selection', currentSelection.titleDisplay);
       setSelection(currentSelection);
     }
-  }, [currentSelection, modalSel, videoShow]);
+  }, [currentSelection, modalSel, videoShow, menuShow]);
 
   const selectionItems = selections.map((i, index) => (
     <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>

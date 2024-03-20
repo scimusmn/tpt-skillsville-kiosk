@@ -1,6 +1,7 @@
 /* stylelint-disable order/properties-alphabetical-order */
 /* stylelint-disable comment-empty-line-before */
 /* stylelint-disable selector-class-pattern */
+/* stylelint-disable color-function-notation */
 /* stylelint-disable no-missing-end-of-source-newline */
 
 html,
@@ -17,7 +18,7 @@ img {
 
 @font-face {
   font-family: bomb-sound;
-  src: url("font/the-bomb-sound.regular.ttf");
+  src: url("font/SkillsvilleTheBombSound.ttf");
 }
 
 /* *****SELECTOR STYLES**** */
@@ -45,6 +46,7 @@ img {
 */
 
 .skillsville.video-selector {
+  background-image: url("./img/hexbg.png");
   background-color: #ff6f00;
   height: 1080px;
   position: absolute;
@@ -70,13 +72,28 @@ img {
 }
 
 .skillsville .language-switcher .language {
-  background-color: #ff6f00;
+  background-color: transparent;
   border: 5px solid white;
-  border-radius: 50px;
+  border-radius: 35px;
   color: white;
   font-size: 40px;
   font-weight: 700;
-  margin: 0 30px;
+  padding: 5px 40px;
+}
+
+.skillsville .language-switcher .language:active {
+  background-color: white;
+  color: #ff6f00;
+  scale: 0.8;
+}
+
+.skillsville .language-switcher .selected {
+  background-color: white;
+  border: 5px solid white;
+  border-radius: 35px;
+  color: #ff6f00;
+  font-size: 40px;
+  font-weight: 700;
   padding: 5px 40px;
 }
 
@@ -85,13 +102,47 @@ img {
   text-decoration: none;
 }
 
+.skillsville .lang-border1,
+.lang-border2,
+.lang-border3 {
+  padding: 8px;
+}
+
+.skillsville .lang-border1 {
+  border: 5px solid rgba(255, 255, 255, 60%);
+  border-radius: 45px;
+}
+
+.skillsville .lang-border2 {
+  border: 5px solid rgba(255, 255, 255, 30%);
+  border-radius: 55px;
+}
+
+.skillsville .lang-border3 {
+  border: 5px solid rgba(255, 255, 255, 15%);
+  border-radius: 65px;
+  margin: 0 25px;
+  position: relative;
+  top: -40px;
+}
+
+.skillsville .lang-border3-blank {
+  margin: 0 25px;
+}
+
+.skillsville .lang-selected {
+  background-color: white;
+  color: #ff6f00;
+  animation: pulse-animation 1s;
+}
+
 .skillsville .captions {
   background-color: white;
-  border-radius: 30px;
+  border-radius: 20px;
   position: absolute;
-  top: 920px;
-  left: 560px;
-  width: 964px;
+  top: 940px;
+  left: 530px;
+  width: 1000px;
   height: 96px;
   z-index: 560;
 }
@@ -260,23 +311,14 @@ img {
   width: 1920px;
 }
 
-/* .skillsville .branding-box {
-  position: absolute;
-  border-radius: 0 30px;
-  width: 520px;
-  height: 170px;
-  bottom: 0;
-  background: #001b8ae5;
-  border-top: 5px solid #fff;
-  border-right: 5px solid #fff;
-  z-index: 500;
-  overflow: hidden;
-  opacity: 0.7;
-} */
-
 .skillsville .box {
   position: absolute;
-  overflow: hidden;
+  width: 80%;
+  bottom: 0;
+}
+
+.skillsville .box-border {
+  position: absolute;
   width: 80%;
   bottom: 0;
 }
@@ -304,11 +346,17 @@ img {
   width: 105px;
 }
 
+.skillsville .icon:active {
+  scale: 0.8;
+}
+
 .skillsville .transport-container {
   left: 70px;
   position: absolute;
-  top: 950px;
+  top: 960px;
   z-index: 550;
+  animation: pulse-side-animation 2.5s;
+  animation-iteration-count: infinite;
 }
 
 .skillsville .modal-container {
@@ -355,6 +403,32 @@ img {
 
 .skillsville .yes {
   background-image: url("img/yes.svg");
+}
+
+.skillsville .yes-selected {
+  background-image: url("img/yes-select.svg");
+  animation: pulse-animation 1s;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse-side-animation {
+  0% { left: 40px; }
+  50% { left: 55px; }
+  100% { left: 40px; }
+}
+
+@keyframes rotate-animation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-90deg); }
+}
+
+.skillsville .no-selected {
+  animation: rotate-animation 1s;
 }
 
 .skillsville .modal-hide {
@@ -417,6 +491,7 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  /* box-shadow: 0 0 9.6px white; */
   height: 150px !important;
   top: 720px !important;
   width: 150px !important;
@@ -431,10 +506,10 @@ img {
   transform: rotate(180deg);
 }
 
-/* .swiper-button-next:active,
+.swiper-button-next:active,
 .swiper-button-prev:active {
-  background-image: url(../images/nav-arrow-active.svg);
-} */
+  scale: 0.8;
+}
 
 .skillsville .logo {
   display: flex;
@@ -444,13 +519,3 @@ img {
 .skillsville .logo img {
   height: 150px;
 }
-
-/* .skillsville .lang-btn-container {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 750px;
-  width: 100%;
-  z-index: 500;
-} */

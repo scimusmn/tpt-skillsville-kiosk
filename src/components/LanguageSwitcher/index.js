@@ -3,17 +3,31 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 function LanguageSwitcher({ slug, allLocales }) {
+  // to apply styles to language selection buttons
+  let currentLang = '';
+  for (let i = 0; i < allLocales.length; i += 1) {
+    if (window.location.pathname.includes(allLocales[i].node.code)) {
+      currentLang = allLocales[i].node.code;
+    }
+  }
+
   return (
     <div className="language-switcher">
-      <div style={{ zIndex: 300 }}>
-        {allLocales.map(({ node }) => (
+      {allLocales.map(({ node }) => (
+        <div style={{ zIndex: 300 }}>
           <Link to={`/${node.code}/${slug}/?state=selection`} key={`language-${node.code}`}>
-            <span className={`language ${node.code}`}>
-              {node.name}
-            </span>
+            <div className={`${currentLang === node.code ? 'lang-border3' : 'lang-border3-blank'}`}>
+              <div className={`${currentLang === node.code ? 'lang-border2' : ''}`}>
+                <div className={`${currentLang === node.code ? 'lang-border1' : ''}`}>
+                  <div className={`language ${currentLang === node.code ? 'selected' : ''}`}>
+                    {node.name}
+                  </div>
+                </div>
+              </div>
+            </div>
           </Link>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -180,11 +180,6 @@ img {
   z-index: 600;
 }
 
-.skillsville .attract-wrapper.hide-attract-wrapper {
-  left: -100vw;
-  transition: left 0.5s cubic-bezier(0.5, 0, 1, 1) 1s;
-}
-
 .skillsville .attract-wrapper .attract-container {
   left: 0;
   position: absolute;
@@ -196,6 +191,15 @@ img {
   left: 1403px;
 }
 
+.skillsville .attract-wrapper.hide-attract-wrapper {
+  z-index: -5;
+}
+
+/* .skillsville .attract-wrapper.hide-attract-wrapper {
+  left: -100vw;
+  transition: left 0.5s cubic-bezier(0.5, 0, 1, 1) 1s;
+}
+
 .skillsville .attract-wrapper.hide-attract-wrapper .attract-container {
   left: -100vw;
   transition: left 0.75s cubic-bezier(0.665, -0.11, 0.735, 0.045);
@@ -204,7 +208,7 @@ img {
 .skillsville .attract-wrapper.hide-attract-wrapper .attract-cta {
   left: -100vw;
   transition: left 0.95s cubic-bezier(0.665, -0.11, 0.735, 0.045) 0.2s;
-}
+} */
 
 .attract-cta .attract-cta-text-ring {
   background: url("img/cta-ring.svg") no-repeat;

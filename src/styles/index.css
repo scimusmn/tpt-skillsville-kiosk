@@ -53,18 +53,6 @@ img {
   width: 1920px;
 }
 
-.skillsville .hide-selection {
-  z-index: -1;
-}
-
-.skillsville .show-selection {
-  z-index: 500;
-}
-
-.skillsville .show-selection:active {
-  transform: scale(0.9) translateX(20px);
-}
-
 .skillsville .language-switcher {
   background-color: transparent;
   display: flex;
@@ -453,13 +441,35 @@ img {
   top: -20px;
 }
 
-.skillsville .bottom-slide {
-  right: 280px;
-  top: 185px;
+.skillsville .hide-selection,
+.show-selection {
+  position: absolute;
+  height: 250px;
+  width: 250px;
 }
 
-.skillsville .top-slide {
-  right: 280px;
+.skillsville .hide-selection {
+  z-index: -1;
+}
+
+.skillsville .show-selection {
+  position: absolute;
+  top: 0;
+  z-index: 500;
+  filter: drop-shadow(-20px 30px 30px rgba(50, 50, 0, 50%));
+}
+
+.skillsville .show-selection:active {
+  transform: scale(0.9);
+}
+
+.skillsville .slide {
+  top: 80px;
+  right: 140px;
+}
+
+.skillsville .bottom-slide {
+  top: 260px;
 }
 
 .skillsville .swiper-pagination {
@@ -469,20 +479,27 @@ img {
 .skillsville .thumb-container {
   background-size: cover;
   clip-path: url("#myClip");
-  height: 500px;
   position: absolute;
-  top: 0;
+  height: 500px;
   width: 500px;
+  top: -80px;
+  left: -140px;
 }
 
 .skillsville .border {
+  clip-path: url("#myClip");
   position: absolute;
-  top: 0;
+  top: -80px;
+  left: -140px;
+}
+
+.skillsville .border:active {
+  filter: drop-shadow(0 0 5px white);
 }
 
 .skillsville .thumb-modal,
 .border-modal {
-  left: 710px;
+  left: 710px !important;
   top: 100px !important;
   scale: 1.1;
 }

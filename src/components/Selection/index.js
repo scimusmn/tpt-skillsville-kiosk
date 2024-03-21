@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/forbid-prop-types */
@@ -18,15 +19,25 @@ function Selection(props) {
   }
 
   return (
-    <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
-      <div
-        className="thumb-container"
-        style={{
-          backgroundImage:
+    <>
+      <div style={{
+        position: 'absolute',
+        top: '-80px',
+        left: '60px',
+      }}
+      >
+        {item.titleDisplay}
+      </div>
+      <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
+        <div
+          className="thumb-container"
+          style={{
+            backgroundImage:
         `url(${item.thumbnail.localFile.publicURL})`,
-        }}
-      />
-      <img className="border" src={border} alt="border" />
+          }}
+        />
+        <img className="border" src={border} alt="border" />
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 469">
         <defs>
           <clipPath id="myClip">
@@ -34,7 +45,7 @@ function Selection(props) {
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </>
   );
 }
 

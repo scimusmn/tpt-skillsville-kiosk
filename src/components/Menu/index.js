@@ -17,9 +17,9 @@ function Menu(props) {
       </div>
       <Swiper
         initialSlide={initialSlide}
-        slidesPerView={6.5}
+        slidesPerView={6}
         slidesPerGroup={4}
-        spaceBetween={225}
+        spaceBetween={80}
         loop
         pagination={{
           clickable: true,

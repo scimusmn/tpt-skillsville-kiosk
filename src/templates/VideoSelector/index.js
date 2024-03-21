@@ -227,7 +227,7 @@ function VideoSelector(all) {
   }, [currentSelection, modalSel, videoShow, menuShow]);
 
   const selectionItems = selections.map((i, index) => (
-    <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'bottom-slide' : 'top-slide'}>
+    <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'slide bottom-slide' : 'slide'}>
       <Selection
         key={i.titleDisplay}
         item={i}

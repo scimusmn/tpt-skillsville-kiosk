@@ -456,12 +456,11 @@ img {
   position: absolute;
   top: 0;
   z-index: 500;
-  filter: drop-shadow(20px 20px 3px rgba(50, 50, 0, 50%));
+  filter: drop-shadow(-20px 30px 30px rgba(50, 50, 0, 50%));
 }
 
 .skillsville .show-selection:active {
   transform: scale(0.9);
-  /* TODO: add blurred border */
 }
 
 .skillsville .slide {
@@ -492,6 +491,10 @@ img {
   position: absolute;
   top: -80px;
   left: -140px;
+}
+
+.skillsville .border:active {
+  filter: drop-shadow(0 0 5px white);
 }
 
 .skillsville .thumb-modal,

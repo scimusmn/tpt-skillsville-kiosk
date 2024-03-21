@@ -43,11 +43,6 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       randomizeSelections: globalSettings.randomizeSelections,
       attractPlaylist: attractPlaylist || [],
       titleDisplay: data.titleDisplay || defaultData.titleDisplay,
-      backgroundAsset: {
-        localFile: {
-          publicURL: data.backgroundAsset || defaultData.backgroundAsset,
-        },
-      },
       selections: data.videoSelections.map((selection, index) => ({
         titleDisplay: selection.titleDisplay
         || defaultData.videoSelections[index].titleDisplay,

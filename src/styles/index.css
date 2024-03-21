@@ -514,8 +514,8 @@ img {
   background-image: url("img/arrow.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  /* box-shadow: 0 0 9.6px white; */
+  background-size: cover;
+  filter: drop-shadow(20px 20px 20px rgba(50, 50, 0, 90%));
   height: 150px !important;
   top: 720px !important;
   width: 150px !important;
@@ -528,6 +528,7 @@ img {
 .swiper-button-next {
   margin-right: 100px;
   transform: rotate(180deg);
+  filter: drop-shadow(20px -20px 20px rgba(50, 50, 0, 90%));
 }
 
 .swiper-button-next:active,

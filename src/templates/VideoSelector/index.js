@@ -205,7 +205,11 @@ function VideoSelector(all) {
 
   useEffect(() => {
     if (modalSel === 'yes') {
-      logger.log('video-selection', currentSelection.titleDisplay);
+      const logData = {
+        videoTitle: currentSelection.titleDisplay,
+        locale: defaultSelector.node_locale,
+      };
+      logger.log('video-start', logData);
       setSelection(currentSelection);
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);

@@ -400,9 +400,18 @@ img {
   background-image: url("img/yes.svg");
 }
 
-.skillsville .yes-selected {
+.skillsville .yes:active {
   background-image: url("img/yes-select.svg");
-  animation: pulse-animation 1s;
+}
+
+.skillsville .yes-selected {
+  background-image: url("img/yes.svg");
+  animation: pulse-animation 0.5s;
+}
+
+.skillsville .no:active {
+  scale: 0.7;
+  animation: rotate-animation 0.5s;
 }
 
 @keyframes pulse-animation {
@@ -419,11 +428,16 @@ img {
 
 @keyframes rotate-animation {
   from { transform: rotate(0deg); }
-  to { transform: rotate(-90deg); }
+  to { transform: rotate(-45deg); }
+}
+
+@keyframes rotate-animation2 {
+  from { scale: 0.7; }
+  to { scale: 1; }
 }
 
 .skillsville .no-selected {
-  animation: rotate-animation 1s;
+  animation: rotate-animation2 0.5s;
 }
 
 .skillsville .modal-hide {

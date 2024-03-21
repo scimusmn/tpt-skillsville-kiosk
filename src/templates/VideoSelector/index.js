@@ -24,11 +24,6 @@ export const pageQuery = graphql`
     inactivityDelay
     randomizeSelections
     attractPlaylist
-    backgroundAsset {
-      localFile {
-        publicURL
-      }
-    }
     selections {
       titleDisplay,
       captionAsset {
@@ -173,6 +168,13 @@ function VideoSelector(all) {
     if (state === 'selection') {
       skipAttract = true;
       reset(); // Pause idle timer if state is set to selection
+
+      // If we're here, it means the language switcher was used
+      // Log event
+      const eventData = {
+        locale: defaultSelector.node_locale,
+      };
+      logger.log('language-selected', eventData);
     }
   }
 
@@ -198,6 +200,7 @@ function VideoSelector(all) {
       const { realIndex } = swiper;
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.set('carouselIndex', realIndex);
+      console.log('onSlideChange', realIndex);
       const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
       window.history.replaceState(null, null, newUrl);
     }
@@ -205,12 +208,21 @@ function VideoSelector(all) {
 
   useEffect(() => {
     if (modalSel === 'yes') {
-      const logData = {
+      const eventData = {
         videoTitle: currentSelection.titleDisplay,
         locale: defaultSelector.node_locale,
       };
-      logger.log('video-start', logData);
+      logger.log('video-start', eventData);
       setSelection(currentSelection);
+    }
+    if (menuShow) {
+      console.log('menu show now');
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('state', 'selection');
+        const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+        window.history.replaceState(null, null, newUrl);
+      }
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);
 
@@ -226,10 +238,15 @@ function VideoSelector(all) {
     </SwiperSlide>
   ));
 
-  let initialSlide = 0;
-  if (defaultSelector.randomizeSelections) {
-    initialSlide = Math.floor(Math.random() * selections.length);
-  }
+  // const initialSlide = 0;
+  console.log(carouselIndex, 'carouselIndex');
+  const initialSlide = parseInt(carouselIndex, 10) || 0;
+  console.log(initialSlide, 'initialSlide');
+
+  // let initialSlide = 0;
+  // if (defaultSelector.randomizeSelections) {
+  //   initialSlide = Math.floor(Math.random() * selections.length);
+  // }
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>

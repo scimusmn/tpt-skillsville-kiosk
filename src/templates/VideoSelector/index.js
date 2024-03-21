@@ -163,7 +163,7 @@ function VideoSelector(all) {
     const urlParams = new URLSearchParams(window.location.search);
     const state = urlParams.get('state');
     carouselIndex = urlParams.get('carouselIndex');
-    console.log('carouselIndex for urlParams:', carouselIndex);
+    console.log('carouselIndex on load:', carouselIndex);
 
     if (state === 'selection') {
       skipAttract = true;
@@ -200,7 +200,6 @@ function VideoSelector(all) {
       const { realIndex } = swiper;
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.set('carouselIndex', realIndex);
-      console.log('onSlideChange', realIndex);
       const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
       window.history.replaceState(null, null, newUrl);
     }
@@ -216,7 +215,6 @@ function VideoSelector(all) {
       setSelection(currentSelection);
     }
     if (menuShow) {
-      console.log('menu show now');
       if (typeof window !== 'undefined') {
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('state', 'selection');
@@ -238,15 +236,11 @@ function VideoSelector(all) {
     </SwiperSlide>
   ));
 
-  // const initialSlide = 0;
-  console.log(carouselIndex, 'carouselIndex');
-  const initialSlide = parseInt(carouselIndex, 10) || 0;
-  console.log(initialSlide, 'initialSlide');
-
-  // let initialSlide = 0;
-  // if (defaultSelector.randomizeSelections) {
-  //   initialSlide = Math.floor(Math.random() * selections.length);
-  // }
+  let initialSlide = 0;
+  // initialSlide = parseInt(carouselIndex, 10) || 0;
+  if (defaultSelector.randomizeSelections) {
+    initialSlide = Math.floor(Math.random() * selections.length);
+  }
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>

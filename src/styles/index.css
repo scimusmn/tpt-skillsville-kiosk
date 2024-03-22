@@ -500,11 +500,17 @@ img {
   left: -140px;
 }
 
-.skillsville .border {
+.skillsville .border,
+.border-blank {
   clip-path: url("#myClip");
   position: absolute;
   top: -80px;
   left: -140px;
+}
+
+.skillsville .blank {
+  background-color: white;
+  opacity: 0.5;
 }
 
 .skillsville .border:active {

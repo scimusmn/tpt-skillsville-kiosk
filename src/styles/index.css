@@ -408,8 +408,12 @@ img {
 }
 
 .skillsville .no:active {
-  scale: 0.7;
-  animation: rotate-animation 0.5s;
+  scale: 0.8;
+  transform: rotate(-45deg);
+}
+
+.skillsville .no-selected {
+  animation: rotate-animation 1s;
 }
 
 @keyframes pulse-animation {
@@ -425,17 +429,8 @@ img {
 }
 
 @keyframes rotate-animation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-45deg); }
-}
-
-@keyframes rotate-animation2 {
-  from { scale: 0.7; }
-  to { scale: 1; }
-}
-
-.skillsville .no-selected {
-  animation: rotate-animation2 0.5s;
+  from { transform: rotate(-45deg) scale(0.8); }
+  to { transform: rotate(0deg) scale(1); }
 }
 
 .skillsville .modal-hide {

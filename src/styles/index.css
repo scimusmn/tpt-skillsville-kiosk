@@ -58,7 +58,7 @@ img {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 900px;
+  top: 845px;
   width: 100%;
 }
 
@@ -95,7 +95,8 @@ img {
 
 .skillsville .lang-border1,
 .lang-border2,
-.lang-border3 {
+.lang-border3,
+.lang-border-blank {
   padding: 8px;
 }
 
@@ -112,13 +113,10 @@ img {
 .skillsville .lang-border3 {
   border: 5px solid rgba(255, 255, 255, 15%);
   border-radius: 65px;
-  margin: 0 25px;
-  position: relative;
-  top: -40px;
 }
 
-.skillsville .lang-border3-blank {
-  margin: 0 25px;
+.skillsville .lang-border-blank {
+  border: 5px solid rgba(255, 255, 255, 0%);
 }
 
 .skillsville .lang-selected {

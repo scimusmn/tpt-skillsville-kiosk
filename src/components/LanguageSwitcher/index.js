@@ -16,9 +16,9 @@ function LanguageSwitcher({ slug, allLocales }) {
       {allLocales.map(({ node }) => (
         <div style={{ zIndex: 300 }}>
           <Link to={`/${node.code}/${slug}/?state=selection`} key={`language-${node.code}`}>
-            <div className={`${currentLang === node.code ? 'lang-border3' : 'lang-border3-blank'}`}>
-              <div className={`${currentLang === node.code ? 'lang-border2' : ''}`}>
-                <div className={`${currentLang === node.code ? 'lang-border1' : ''}`}>
+            <div className={`${currentLang === node.code ? 'lang-border3' : 'lang-border-blank'}`}>
+              <div className={`${currentLang === node.code ? 'lang-border2' : 'lang-border-blank'}`}>
+                <div className={`${currentLang === node.code ? 'lang-border1' : 'lang-border-blank'}`}>
                   <div className={`language ${currentLang === node.code ? 'selected' : ''}`}>
                     {node.name}
                   </div>

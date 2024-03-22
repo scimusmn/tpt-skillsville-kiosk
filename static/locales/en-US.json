@@ -94,24 +94,10 @@
     },
     {
       "titleDisplay": "Selection 14",
-      "captionAsset": "/assets/captions/captions-2-en-US.vtt",
-      "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
-      "thumbnail": "/assets/images/tpt2.png"
-    },
-    {
-      "titleDisplay": "Selection 15",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
       "videoAsset": "/assets/videos/video-1.mp4",
-      "thumbnail": "/assets/images/tpt3.png"
-    },
-    {
-      "titleDisplay": "Selection 16",
-      "captionAsset": "/assets/captions/captions-2-en-US.vtt",
-      "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
-      "thumbnail": "/assets/images/tpt4.png"
+      "thumbnail": "/assets/images/tpt1.png"
     }
   ]
 }

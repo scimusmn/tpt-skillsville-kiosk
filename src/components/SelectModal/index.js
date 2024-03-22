@@ -61,12 +61,12 @@ function SelectModal(props) {
       </div>
       <div className="yes-no-container">
         <div
-          onClick={() => setStartCloseAnimation(true)}
+          onTouchEnd={() => setStartCloseAnimation(true)}
           onAnimationEnd={() => closeModal('no')}
           className={`no ${startCloseAnimation ? 'no-selected' : ''}`}
         />
         <div
-          onClick={() => setStartContinueAnimation(true)}
+          onTouchEnd={() => setStartContinueAnimation(true)}
           onAnimationEnd={() => closeModal('yes')}
           className={`yes ${startContinueAnimation ? 'yes-selected' : ''}`}
         />

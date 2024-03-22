@@ -225,6 +225,26 @@ function VideoSelector(all) {
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);
 
+  const blankEntry = {
+    titleDisplay: '',
+    captionAsset: '',
+    narrationAsset: '',
+    videoAsset: '',
+    thumbnail: '',
+  };
+
+  // Add empty hexes if page is not full
+  function addBlankEntries(num) {
+    const entriesNeeded = Math.ceil(num / 4) * 4;
+    const entriesToAdd = entriesNeeded - num;
+    for (let i = 0; i < entriesToAdd; i += 1) {
+      selections.push(blankEntry);
+    }
+    return selections;
+  }
+
+  addBlankEntries(selections.length);
+
   const selectionItems = selections.map((i, index) => (
     <SwiperSlide key={uuidv4()} className={index % 2 === 0 ? 'slide bottom-slide' : 'slide'}>
       <Selection

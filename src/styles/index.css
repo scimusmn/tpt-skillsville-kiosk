@@ -58,7 +58,7 @@ img {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 900px;
+  top: 845px;
   width: 100%;
 }
 
@@ -95,7 +95,8 @@ img {
 
 .skillsville .lang-border1,
 .lang-border2,
-.lang-border3 {
+.lang-border3,
+.lang-border-blank {
   padding: 8px;
 }
 
@@ -112,13 +113,10 @@ img {
 .skillsville .lang-border3 {
   border: 5px solid rgba(255, 255, 255, 15%);
   border-radius: 65px;
-  margin: 0 25px;
-  position: relative;
-  top: -40px;
 }
 
-.skillsville .lang-border3-blank {
-  margin: 0 25px;
+.skillsville .lang-border-blank {
+  border: 5px solid rgba(255, 255, 255, 0%);
 }
 
 .skillsville .lang-selected {
@@ -400,9 +398,18 @@ img {
   background-image: url("img/yes.svg");
 }
 
-.skillsville .yes-selected {
+.skillsville .yes:active {
   background-image: url("img/yes-select.svg");
-  animation: pulse-animation 1s;
+}
+
+.skillsville .yes-selected {
+  background-image: url("img/yes.svg");
+  animation: pulse-animation 0.5s;
+}
+
+.skillsville .no:active {
+  scale: 0.7;
+  animation: rotate-animation 0.5s;
 }
 
 @keyframes pulse-animation {
@@ -419,11 +426,16 @@ img {
 
 @keyframes rotate-animation {
   from { transform: rotate(0deg); }
-  to { transform: rotate(-90deg); }
+  to { transform: rotate(-45deg); }
+}
+
+@keyframes rotate-animation2 {
+  from { scale: 0.7; }
+  to { scale: 1; }
 }
 
 .skillsville .no-selected {
-  animation: rotate-animation 1s;
+  animation: rotate-animation2 0.5s;
 }
 
 .skillsville .modal-hide {
@@ -486,11 +498,17 @@ img {
   left: -140px;
 }
 
-.skillsville .border {
+.skillsville .border,
+.border-blank {
   clip-path: url("#myClip");
   position: absolute;
   top: -80px;
   left: -140px;
+}
+
+.skillsville .blank {
+  background-color: white;
+  opacity: 0.5;
 }
 
 .skillsville .border:active {

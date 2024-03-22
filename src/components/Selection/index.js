@@ -20,14 +20,15 @@ function Selection(props) {
 
   return (
     <>
-      <div style={{
+      {/* <div style={{
         position: 'absolute',
         top: '-80px',
         left: '60px',
       }}
       >
         {item.titleDisplay}
-      </div>
+      </div> */}
+      {item.thumbnail !== '' && (
       <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
         <div
           className="thumb-container"
@@ -38,6 +39,13 @@ function Selection(props) {
         />
         <img className="border" src={border} alt="border" />
       </div>
+      )}
+      {item.thumbnail === '' && (
+      <div>
+        <div className="thumb-container blank" />
+        <img className="border-blank" src={border} alt="border" />
+      </div>
+      )}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 469">
         <defs>
           <clipPath id="myClip">

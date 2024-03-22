@@ -170,7 +170,6 @@ function VideoSelector(all) {
       reset(); // Pause idle timer if state is set to selection
 
       // If we're here, it means the language switcher was used
-      // Log event
       const eventData = {
         locale: defaultSelector.node_locale,
       };
@@ -195,13 +194,20 @@ function VideoSelector(all) {
     }
   }
 
+  const setUrlParam = (key, value) => {
+    // console.log('setUrlParam:', key, value);
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.set(key, value);
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      window.history.replaceState(null, null, newUrl);
+    }
+  };
+
   const onSlideChange = (swiper) => {
     if (typeof window !== 'undefined') {
       const { realIndex } = swiper;
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.set('carouselIndex', realIndex);
-      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
-      window.history.replaceState(null, null, newUrl);
+      setUrlParam('carouselIndex', realIndex);
     }
   };
 
@@ -215,12 +221,7 @@ function VideoSelector(all) {
       setSelection(currentSelection);
     }
     if (menuShow) {
-      if (typeof window !== 'undefined') {
-        const urlParams = new URLSearchParams(window.location.search);
-        urlParams.set('state', 'selection');
-        const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
-        window.history.replaceState(null, null, newUrl);
-      }
+      setUrlParam('state', 'selection');
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);
 

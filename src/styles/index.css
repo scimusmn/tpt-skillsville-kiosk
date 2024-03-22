@@ -46,7 +46,7 @@ img {
 */
 
 .skillsville.video-selector {
-  background-image: url("./img/hexbg.png");
+  background-image: url("./img/hexbg2.png");
   background-color: #ff6f00;
   height: 1080px;
   position: absolute;
@@ -449,6 +449,7 @@ img {
 }
 
 .skillsville .swiper-wrapper {
+  filter: drop-shadow(0 20px 30px rgba(50, 50, 0, 30%));
   height: 900px;
   top: -20px;
 }
@@ -468,7 +469,6 @@ img {
   position: absolute;
   top: 0;
   z-index: 500;
-  filter: drop-shadow(-20px 30px 30px rgba(50, 50, 0, 50%));
 }
 
 .skillsville .show-selection:active {
@@ -533,7 +533,7 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: drop-shadow(20px 20px 20px rgba(50, 50, 0, 90%));
+  filter: drop-shadow(20px 20px 20px rgba(50, 50, 0, 55%));
   height: 150px !important;
   top: 720px !important;
   width: 150px !important;
@@ -546,7 +546,7 @@ img {
 .swiper-button-next {
   margin-right: 100px;
   transform: rotate(180deg);
-  filter: drop-shadow(20px -20px 20px rgba(50, 50, 0, 90%));
+  filter: drop-shadow(20px -20px 20px rgba(50, 50, 0, 55%));
 }
 
 .swiper-button-next:active,

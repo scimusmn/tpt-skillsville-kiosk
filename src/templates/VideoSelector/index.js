@@ -75,7 +75,7 @@ export const pageQuery = graphql`
 `;
 
 function VideoSelector(all) {
-  const { data, pageContext } = all;
+  const { data, pageContext, location } = all;
 
   // If only one locale is passed, create array with all other locales
   // This is used to create a language switcher
@@ -157,30 +157,35 @@ function VideoSelector(all) {
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
   const [modalSel, setModalSel] = useState('');
 
+  const [videoShow, setVideoShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+
   let skipAttract = false;
-  let carouselIndex = 0;
   if (typeof window !== 'undefined') {
     const urlParams = new URLSearchParams(window.location.search);
     const state = urlParams.get('state');
-    carouselIndex = urlParams.get('carouselIndex');
-    console.log('carouselIndex on load:', carouselIndex);
 
-    if (state === 'selection') {
-      skipAttract = true;
-      reset(); // Pause idle timer if state is set to selection
-
-      // If we're here, it means the language switcher was used
+    const incomingState = location.state;
+    if (incomingState
+      && incomingState.prevLocale !== defaultSelector.node_locale
+      && modalSel === ''
+      && !modalShow
+      && !videoShow) {
+      // If we're here, it means the language has changed
       const eventData = {
         locale: defaultSelector.node_locale,
       };
-      logger.log('language-selected', eventData);
+      logger.log('language-changed', eventData);
+    }
+
+    if (state === 'selection') {
+      skipAttract = true;
+      reset(); // Reset idle timer
     }
   }
 
   // Display states
   const [menuShow, setMenuShow] = useState(skipAttract);
-  const [videoShow, setVideoShow] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
 
   function setSelection(selection) {
     setCurrentSelection(selection);
@@ -258,7 +263,6 @@ function VideoSelector(all) {
   ));
 
   let initialSlide = 0;
-  // initialSlide = parseInt(carouselIndex, 10) || 0;
   if (defaultSelector.randomizeSelections) {
     initialSlide = Math.floor(Math.random() * selections.length);
   }

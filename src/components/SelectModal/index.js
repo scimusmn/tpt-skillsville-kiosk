@@ -35,6 +35,9 @@ function SelectModal(props) {
       setVideoShow(true);
       setMenuShow(false);
     }
+    if (choice === 'no') {
+      setModalSel('no');
+    }
   }
 
   function closeModal(choice) {

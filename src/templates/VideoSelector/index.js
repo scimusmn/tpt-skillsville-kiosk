@@ -175,7 +175,7 @@ function VideoSelector(all) {
       const eventData = {
         locale: defaultSelector.node_locale,
       };
-      logger.log('language-changed', eventData);
+      logger.log(logger.EVENTS.LANGUAGE_CHANGE, eventData);
     }
 
     if (state === 'selection') {
@@ -222,7 +222,7 @@ function VideoSelector(all) {
         videoTitle: currentSelection.titleDisplay,
         locale: defaultSelector.node_locale,
       };
-      logger.log('video-start', eventData);
+      logger.log(logger.EVENTS.VIDEO_START, eventData);
       setSelection(currentSelection);
     }
     if (menuShow) {

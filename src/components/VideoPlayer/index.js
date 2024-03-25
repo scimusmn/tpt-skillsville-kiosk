@@ -52,9 +52,9 @@ function VideoPlayer(props) {
 
     const eventData = { videoTitle: currentSelection.titleDisplay };
     if (videoFinished === true) {
-      logger.log('video-completed', eventData);
+      logger.log(logger.EVENTS.VIDEO_COMPLETED, eventData);
     } else {
-      logger.log('video-exited', eventData);
+      logger.log(logger.EVENTS.VIDEO_EXIT, eventData);
     }
 
     setModalSel('go-back');

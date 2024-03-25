@@ -26,7 +26,12 @@ function AttractScreen({
   const selectRandomVideo = () => videoPool[Math.floor(Math.random() * videoPool.length)];
 
   const onVideoLoad = () => {
-    pause(); // Pause idle timer during video playback
+    if (menuShow || videoShow) {
+      videoRef.current.src = '';
+      reset(); // Pause idle timer during video playback
+    } else {
+      pause();
+    }
   };
 
   const onVideoEnd = () => {

@@ -43,9 +43,6 @@ function VideoPlayer(props) {
       }
       setIsLoading(false);
     });
-
-    // pause idle timer during video playback
-    pause();
   }
 
   function goBack(videoFinished) {
@@ -60,12 +57,17 @@ function VideoPlayer(props) {
       logger.log('video-exited', eventData);
     }
 
-    setModalSel('');
+    setModalSel('go-back');
     setVideoShow(false);
     setMenuShow(true);
 
     // resume idle timer
+    console.log('Video Player resuming idle timer');
     reset();
+  }
+
+  function onPlay() {
+    pause(); // pause inactivity timer
   }
 
   function onVideoEnd() {
@@ -81,6 +83,7 @@ function VideoPlayer(props) {
           onLoadedData={() => onVideoLoad()}
           onEnded={() => onVideoEnd()}
           onLoadStart={() => setIsLoading(true)}
+          onPlay={onPlay}
         >
           <source src={currentSelection.videoAsset} />
           {Object.keys(currentSelection.captionAssets).map((locale) => {

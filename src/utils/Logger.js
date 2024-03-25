@@ -1,31 +1,24 @@
-/**
- * Singleton sends logging events to the Electron main process via IPC.
- */
+const IpcRenderer = require('./IpcRenderer');
 
-// This is the event name that the main process listens for
-const RENDERER_LOG_EVENT = 'renderer-log-event';
+// This is the channel name that the main process listens for
+const RENDERER_LOG_CHANNEL = 'renderer-log-channel';
 class Logger {
   constructor() {
-    this.ipcRenderer = null;
     this.ipcAvailable = false;
-
-    if (typeof window !== 'undefined' && window && window.ipcRenderer) {
+    console.log('Logger initializing', IpcRenderer);
+    if (IpcRenderer) {
       this.ipcAvailable = true;
-      this.ipcRenderer = window.ipcRenderer;
       console.log('Logger initialized with IPC connection');
     } else {
-      console.warn('ipcRenderer is not available. Logging events will not be sent to the Electron main process.');
+      console.warn('ipcRenderer not available. Logging events will not reach Electron.');
     }
   }
 
   log(type, value) {
     console.log('logger.log:', type, value);
     if (this.ipcAvailable) {
-      const event = {
-        type,
-        value,
-      };
-      this.ipcRenderer.send(RENDERER_LOG_EVENT, event);
+      const event = { [type]: value };
+      IpcRenderer.default.sendMessageToMainProcess(RENDERER_LOG_CHANNEL, event);
     }
   }
 }

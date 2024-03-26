@@ -10,6 +10,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  touch-action: none;
+  user-select: none;
 }
 
 img {

@@ -1,32 +1,32 @@
 {
-  "titleDisplay": "Bugs",
+  "titleDisplay": "Skillsville",
   "videoSelections": [
     {
       "titleDisplay": "Selection 1",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
       "thumbnail": "/assets/images/tpt1.png"
     },
     {
       "titleDisplay": "Selection 2",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo2-skillsville.mp4",
       "thumbnail": "/assets/images/tpt2.png"
     },
     {
       "titleDisplay": "Selection 3",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo3-skillsville.mp4",
       "thumbnail": "/assets/images/tpt3.png"
     },
     {
       "titleDisplay": "Selection 4",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo4-skillsville.mp4",
       "thumbnail": "/assets/images/tpt4.png"
     },
     {
@@ -40,77 +40,77 @@
       "titleDisplay": "Selection 6",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo2-skillsville.mp4",
       "thumbnail": "/assets/images/tpt2.png"
     },
     {
       "titleDisplay": "Selection 7",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo3-skillsville.mp4",
       "thumbnail": "/assets/images/tpt3.png"
     },
     {
       "titleDisplay": "Selection 8",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
+      "videoAsset": "/assets/videos/fpo4-skillsville.mp4",
       "thumbnail": "/assets/images/tpt4.png"
     },
     {
       "titleDisplay": "Selection 9",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
       "thumbnail": "/assets/images/tpt1.png"
     },
     {
       "titleDisplay": "Selection 10",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo2-skillsville.mp4",
       "thumbnail": "/assets/images/tpt2.png"
     },
     {
       "titleDisplay": "Selection 11",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
+      "videoAsset": "/assets/videos/fpo3-skillsville.mp4",
       "thumbnail": "/assets/images/tpt3.png"
     },
     {
       "titleDisplay": "Selection 12",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo4-skillsville.mp4",
       "thumbnail": "/assets/images/tpt4.png"
     },
     {
       "titleDisplay": "Selection 13",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
       "thumbnail": "/assets/images/tpt1.png"
     },
     {
       "titleDisplay": "Selection 14",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/fpo-skillsville.mp4",
+      "videoAsset": "/assets/videos/fpo2-skillsville.mp4",
       "thumbnail": "/assets/images/tpt2.png"
     },
     {
       "titleDisplay": "Selection 15",
       "captionAsset": "/assets/captions/captions-1-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-1-en-US.ogg",
-      "videoAsset": "/assets/videos/video-1.mp4",
+      "videoAsset": "/assets/videos/fpo3-skillsville.mp4",
       "thumbnail": "/assets/images/tpt3.png"
     },
     {
       "titleDisplay": "Selection 16",
       "captionAsset": "/assets/captions/captions-2-en-US.vtt",
       "narrationAsset": "/assets/audio/narration-2-en-US.ogg",
-      "videoAsset": "/assets/videos/space2.mp4",
+      "videoAsset": "/assets/videos/fpo4-skillsville.mp4",
       "thumbnail": "/assets/images/tpt4.png"
     }
   ]

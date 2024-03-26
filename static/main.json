@@ -5,13 +5,13 @@
         "randomizeSelections": true
     },
     "attractPlaylist": [
-        "/assets/videos/space1.mp4",
+        "/assets/videos/fpo-skillsville.mp4",
         "RANDOM",
-        "/assets/videos/video-2.mp4",
+        "/assets/videos/fpo2-skillsville.mp4",
         "RANDOM",
-        "/assets/videos/video-1.mp4",
+        "/assets/videos/fpo3-skillsville.mp4",
         "RANDOM",
-        "/assets/videos/video-2.mp4"
+        "/assets/videos/fpo4-skillsville.mp4"
     ],
     "locales": [
         {

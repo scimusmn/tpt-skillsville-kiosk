@@ -2,7 +2,8 @@
     "globalSettings": {
         "id": "skillsville",
         "inactivityDelay": 45,
-        "randomizeSelections": true
+        "randomizeSelections": true,
+        "attractLogo": "/assets/images/attract-logo.png"
     },
     "attractPlaylist": [
         "/assets/videos/fpo-skillsville.mp4",

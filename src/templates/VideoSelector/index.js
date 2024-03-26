@@ -23,6 +23,7 @@ export const pageQuery = graphql`
     titleDisplay
     inactivityDelay
     randomizeSelections
+    attractLogo
     attractPlaylist
     selections {
       titleDisplay,
@@ -302,6 +303,7 @@ function VideoSelector(all) {
         videoShow={videoShow}
         playlist={attractPlaylist}
         videoPool={attractVideoPool}
+        attractLogo={defaultSelector.attractLogo}
       />
       {otherLocales.length > 0 && menuShow && (
         <LanguageSwitcher

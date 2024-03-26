@@ -3,7 +3,7 @@
         "id": "skillsville",
         "inactivityDelay": 45,
         "randomizeSelections": true,
-        "attractLogo": "/assets/images/attract-cta-graphic.png"
+        "attractLogo": "/assets/images/attract-logo.png"
     },
     "attractPlaylist": [
         "/assets/videos/space1.mp4",

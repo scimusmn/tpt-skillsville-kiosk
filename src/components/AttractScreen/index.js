@@ -12,7 +12,7 @@ const VideoSelectionKeys = {
 };
 
 function AttractScreen({
-  pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool,
+  pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool, attractLogo,
 }) {
   const videoRef = useRef(null);
   const [playbackIndex, setPlaybackIndex] = useState(0);
@@ -76,9 +76,7 @@ function AttractScreen({
         <div className="attract-cta-text-ring" />
         <div className="attract-cta-bg-ring" />
         <div className="cta-button">
-          <div className="background" />
-          <div className="button" />
-          <div className="foreground" />
+          <img src={attractLogo} alt="" />
         </div>
       </div>
     </div>
@@ -93,6 +91,7 @@ AttractScreen.propTypes = {
   videoShow: PropTypes.bool.isRequired,
   playlist: PropTypes.array.isRequired,
   videoPool: PropTypes.array.isRequired,
+  attractLogo: PropTypes.string.isRequired,
 };
 
 export default AttractScreen;

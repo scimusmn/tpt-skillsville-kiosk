@@ -16,7 +16,6 @@ function IndexPage() {
       allContentfulVideoSelector {
         nodes {
           slug
-          titleDisplay
         }
       }
     }
@@ -38,7 +37,6 @@ function IndexPage() {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {uniqueVideoSelectors.map((node) => (
           <div key={node.slug} className="card">
-            <h2>{node.titleDisplay}</h2>
             <Link to={node.slug}>
               <button type="button">Default</button>
             </Link>

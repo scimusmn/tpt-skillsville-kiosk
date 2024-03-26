@@ -20,14 +20,6 @@ function Selection(props) {
 
   return (
     <>
-      {/* <div style={{
-        position: 'absolute',
-        top: '-80px',
-        left: '60px',
-      }}
-      >
-        {item.titleDisplay}
-      </div> */}
       {item.thumbnail !== '' && (
       <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
         <div

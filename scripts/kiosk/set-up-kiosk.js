@@ -12,5 +12,6 @@ shell.cp('-R', path.join(staticPath, '*'), contentPath);
 
 console.log(chalk.green('Copying kiosk scripts to parent folder...'));
 shell.cp(path.join(__dirname, '../../win-kiosk/rebuild-kiosk.bat'), path.join(__dirname, '../../../'));
+shell.cp(path.join(__dirname, '../../win-kiosk/launch-kiosk.bat'), path.join(__dirname, '../../../'));
 
 process.exit(0);

@@ -2,4 +2,4 @@
 # Double-click this file after making content edits to rebuild the application with new content
 
 cd ./tpt-skillsville-kiosk
-yarn rebuild-kiosk | more
+npm run rebuild-kiosk

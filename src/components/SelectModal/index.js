@@ -56,7 +56,7 @@ function SelectModal(props) {
         `url(${currentSelection.thumbnail.localFile.publicURL})`,
         }}
       />
-      <img className="border border-modal" src={border} alt="border" />
+      <img className="border border-modal" src={border} alt="border" draggable={false} />
       <div className="header">
         <div className="title-container">
           {currentSelection.titleDisplay}

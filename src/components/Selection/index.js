@@ -29,13 +29,13 @@ function Selection(props) {
         `url(${item.thumbnail.localFile.publicURL})`,
           }}
         />
-        <img className="border" src={border} alt="border" />
+        <img className="border" src={border} alt="border" draggable={false} />
       </div>
       )}
       {item.thumbnail === '' && (
       <div>
         <div className="thumb-container blank" />
-        <img className="border-blank" src={border} alt="border" />
+        <img className="border-blank" src={border} alt="border" draggable={false} />
       </div>
       )}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 469">

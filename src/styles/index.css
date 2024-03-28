@@ -49,7 +49,6 @@ img {
 */
 
 .skillsville.video-selector {
-  background-image: url("./img/hexbg2.png");
   background-color: #ff6f00;
   height: 1080px;
   position: absolute;
@@ -514,4 +513,112 @@ img {
 
 .skillsville .logo img {
   height: 150px;
+}
+
+/* Index going up */
+@keyframes orange-to-red {
+  from { background-color: #ff6f00; }
+  to { background-color: #e9233e; }
+}
+
+@keyframes red-to-pink {
+  from { background-color: #e9233e; }
+  to { background-color: #ff2abf; }
+}
+
+@keyframes pink-to-blue {
+  from { background-color: #ff2abf; }
+  to { background-color: #00d2ff; }
+}
+
+@keyframes blue-to-orange {
+  from { background-color: #00d2ff; }
+  to { background-color: #ff6f00; }
+}
+
+/* Index going down */
+@keyframes orange-to-blue {
+  from { background-color: #ff6f00; }
+  to { background-color: #00d2ff; }
+}
+
+@keyframes blue-to-pink {
+  from { background-color: #00d2ff; }
+  to { background-color: #ff2abf; }
+}
+
+@keyframes pink-to-red {
+  from { background-color: #ff2abf; }
+  to { background-color: #e9233e; }
+}
+
+@keyframes red-to-orange {
+  from { background-color: #e9233e; }
+  to { background-color: #ff6f00; }
+}
+
+.skillsville .bg {
+  background-image: url("./img/hexbg2.png");
+  position: absolute;
+  top: 0;
+  height: 1080px;
+  width: 1920px;
+}
+/* For bg color on load */
+.skillsville .bg-orange {
+  background-color: #ff6f00;
+}
+
+.skillsville .bg-pink {
+  background-color: #ff2abf;
+}
+
+.skillsville .bg-red {
+  background-color: #e9233e;
+}
+
+.skillsville .bg-blue {
+  background-color: #00d2ff;
+}
+
+/* Going up */
+.skillsville .bg-orange-to-red {
+  animation: orange-to-red 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-red-to-pink {
+  animation: red-to-pink 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-pink-to-blue {
+  animation: pink-to-blue 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-blue-to-orange {
+  animation: blue-to-orange 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+/* Going down */
+.skillsville .bg-orange-to-blue {
+  animation: orange-to-blue 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-blue-to-pink {
+  animation: blue-to-pink 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-pink-to-red {
+  animation: pink-to-red 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-red-to-orange {
+  animation: red-to-orange 1s ease 1;
+  animation-fill-mode: forwards;
 }

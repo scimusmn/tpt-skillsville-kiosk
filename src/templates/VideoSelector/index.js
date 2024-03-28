@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import { useIdleTimer } from 'react-idle-timer';
 import VideoPlayer from '@components/VideoPlayer';
@@ -77,7 +77,6 @@ export const pageQuery = graphql`
 
 function VideoSelector(all) {
   const { data, pageContext, location } = all;
-
   // If only one locale is passed, create array with all other locales
   // This is used to create a language switcher
   let otherLocales = [];
@@ -185,6 +184,22 @@ function VideoSelector(all) {
     }
   }
 
+  function getColorForSelection(selectionNumber) {
+    const colors = ['orange', 'red', 'pink', 'blue'];
+    const colorIndex = Math.floor(selectionNumber / 4) % colors.length;
+    return colors[colorIndex];
+  }
+
+  const bgRef = useRef(null);
+  useEffect(() => {
+    // load page background color
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = urlParams.get('carouselIndex');
+    if (bgRef.current !== null) {
+      bgRef.current.classList = `bg bg-${getColorForSelection(currentPage)}`;
+    }
+  }, []);
+
   // Display states
   const [menuShow, setMenuShow] = useState(skipAttract);
 
@@ -211,9 +226,16 @@ function VideoSelector(all) {
   };
 
   const onSlideChange = (swiper) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const prevIndex = urlParams.get('carouselIndex');
     if (typeof window !== 'undefined') {
       const { realIndex } = swiper;
       setUrlParam('carouselIndex', realIndex);
+
+      // set background color on swipe
+      if (bgRef.current !== null) {
+        bgRef.current.classList = `bg bg-${getColorForSelection(prevIndex)}-to-${getColorForSelection(realIndex)}`;
+      }
     }
   };
 
@@ -270,48 +292,50 @@ function VideoSelector(all) {
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      {menuShow && (
-      <Menu
-        selectionItems={selectionItems}
-        initialSlide={initialSlide}
-        onSlideChange={onSlideChange}
-      />
-      )}
-      <SelectModal
-        setModalSel={setModalSel}
-        setModalShow={setModalShow}
-        modalShow={modalShow}
-        setVideoShow={setVideoShow}
-        setMenuShow={setMenuShow}
-        currentSelection={currentSelection}
-      />
-      <VideoPlayer
-        currentSelection={currentSelection}
-        pause={pause}
-        reset={reset}
-        setModalSel={setModalSel}
-        modalShow={modalShow}
-        videoShow={videoShow}
-        setVideoShow={setVideoShow}
-        setMenuShow={setMenuShow}
-      />
-      <AttractScreen
-        pause={pause}
-        reset={reset}
-        menuShow={menuShow}
-        setMenuShow={setMenuShow}
-        videoShow={videoShow}
-        playlist={attractPlaylist}
-        videoPool={attractVideoPool}
-        attractLogo={defaultSelector.attractLogo}
-      />
-      {otherLocales.length > 0 && menuShow && (
-        <LanguageSwitcher
-          allLocales={allLocales}
-          otherLocales={otherLocales}
-          slug={defaultSelector.slug}
+      <div ref={bgRef} className="bg">
+        {menuShow && (
+          <Menu
+            selectionItems={selectionItems}
+            initialSlide={initialSlide}
+            onSlideChange={onSlideChange}
+          />
+        )}
+        <SelectModal
+          setModalSel={setModalSel}
+          setModalShow={setModalShow}
+          modalShow={modalShow}
+          setVideoShow={setVideoShow}
+          setMenuShow={setMenuShow}
+          currentSelection={currentSelection}
         />
-      )}
+        <VideoPlayer
+          currentSelection={currentSelection}
+          pause={pause}
+          reset={reset}
+          setModalSel={setModalSel}
+          modalShow={modalShow}
+          videoShow={videoShow}
+          setVideoShow={setVideoShow}
+          setMenuShow={setMenuShow}
+        />
+        <AttractScreen
+          pause={pause}
+          reset={reset}
+          menuShow={menuShow}
+          setMenuShow={setMenuShow}
+          videoShow={videoShow}
+          playlist={attractPlaylist}
+          videoPool={attractVideoPool}
+          attractLogo={defaultSelector.attractLogo}
+        />
+        {otherLocales.length > 0 && menuShow && (
+          <LanguageSwitcher
+            allLocales={allLocales}
+            otherLocales={otherLocales}
+            slug={defaultSelector.slug}
+          />
+        )}
+      </div>
     </div>
   );
 }

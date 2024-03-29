@@ -6,6 +6,7 @@ import VideoPlayer from '@components/VideoPlayer';
 import Menu from '@components/Menu';
 import { SwiperSlide } from 'swiper/react';
 import { v4 as uuidv4 } from 'uuid';
+// import { get } from 'lodash';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
@@ -189,16 +190,25 @@ function VideoSelector(all) {
     const colorIndex = Math.floor(selectionNumber / 4) % colors.length;
     return colors[colorIndex];
   }
-
   const bgRef = useRef(null);
-  useEffect(() => {
-    // load page background color
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentPage = urlParams.get('carouselIndex');
-    if (bgRef.current !== null) {
-      bgRef.current.classList = `bg bg-${getColorForSelection(currentPage)}`;
+
+  function loadTextColor(prevPage, nextPage) {
+    if (prevPage === null) {
+      for (let i = 0; i < allLocales.length; i += 1) {
+        if (document.getElementById(`${allLocales[i].node.code}-text`) !== null
+        && document.getElementById(`${allLocales[i].node.code}-text`).className.includes('selected')) {
+          document.getElementById(`${allLocales[i].node.code}-text`).className = `language selected text-${getColorForSelection(nextPage)}`;
+        }
+      }
     }
-  }, []);
+    if (prevPage !== null) {
+      for (let i = 0; i < allLocales.length; i += 1) {
+        if (document.getElementById(`${allLocales[i].node.code}-text`).className.includes('selected')) {
+          document.getElementById(`${allLocales[i].node.code}-text`).className = `language selected text-${getColorForSelection(prevPage)}-to-${getColorForSelection(nextPage)}`;
+        }
+      }
+    }
+  }
 
   // Display states
   const [menuShow, setMenuShow] = useState(skipAttract);
@@ -236,6 +246,8 @@ function VideoSelector(all) {
       if (bgRef.current !== null) {
         bgRef.current.classList = `bg bg-${getColorForSelection(prevIndex)}-to-${getColorForSelection(realIndex)}`;
       }
+      // Change language text color
+      loadTextColor(prevIndex, realIndex);
     }
   };
 
@@ -250,6 +262,13 @@ function VideoSelector(all) {
     }
     if (menuShow) {
       setUrlParam('state', 'selection');
+      // load page background color and selected language text color
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentPage = urlParams.get('carouselIndex');
+      if (bgRef.current !== null) {
+        bgRef.current.classList = `bg bg-${getColorForSelection(currentPage)}`;
+      }
+      loadTextColor(null, currentPage);
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);
 
@@ -329,11 +348,11 @@ function VideoSelector(all) {
           attractLogo={defaultSelector.attractLogo}
         />
         {otherLocales.length > 0 && menuShow && (
-          <LanguageSwitcher
-            allLocales={allLocales}
-            otherLocales={otherLocales}
-            slug={defaultSelector.slug}
-          />
+        <LanguageSwitcher
+          allLocales={allLocales}
+          otherLocales={otherLocales}
+          slug={defaultSelector.slug}
+        />
         )}
       </div>
     </div>

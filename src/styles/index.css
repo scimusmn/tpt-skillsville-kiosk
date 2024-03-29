@@ -56,7 +56,6 @@ img {
 }
 
 .skillsville .language-switcher {
-  background-color: transparent;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -65,10 +64,8 @@ img {
 }
 
 .skillsville .language-switcher .language {
-  background-color: transparent;
   border: 5px solid white;
   border-radius: 35px;
-  color: white;
   font-size: 40px;
   font-weight: 700;
   padding: 5px 40px;
@@ -76,7 +73,6 @@ img {
 
 .skillsville .language-switcher .language:active {
   background-color: white;
-  color: #ff6f00;
   scale: 0.8;
 }
 
@@ -84,7 +80,6 @@ img {
   background-color: white;
   border: 5px solid white;
   border-radius: 35px;
-  color: #ff6f00;
   font-size: 40px;
   font-weight: 700;
   padding: 5px 40px;
@@ -515,7 +510,7 @@ img {
   height: 150px;
 }
 
-/* Index going up */
+/* Index going up bg */
 @keyframes orange-to-red {
   from { background-color: #ff6f00; }
   to { background-color: #e9233e; }
@@ -536,7 +531,28 @@ img {
   to { background-color: #ff6f00; }
 }
 
-/* Index going down */
+/* Index going up text */
+@keyframes orange-to-red-text {
+  from { color: #ff6f00; }
+  to { color: #e9233e; }
+}
+
+@keyframes red-to-pink-text {
+  from { color: #e9233e; }
+  to { color: #ff2abf; }
+}
+
+@keyframes pink-to-blue-text {
+  from { color: #ff2abf; }
+  to { color: #00d2ff; }
+}
+
+@keyframes blue-to-orange-text {
+  from { color: #00d2ff; }
+  to { color: #ff6f00; }
+}
+
+/* Index going down bg */
 @keyframes orange-to-blue {
   from { background-color: #ff6f00; }
   to { background-color: #00d2ff; }
@@ -555,6 +571,27 @@ img {
 @keyframes red-to-orange {
   from { background-color: #e9233e; }
   to { background-color: #ff6f00; }
+}
+
+/* Index going down text */
+@keyframes orange-to-blue-text {
+  from { color: #ff6f00; }
+  to { color: #00d2ff; }
+}
+
+@keyframes blue-to-pink-text {
+  from { color: #00d2ff; }
+  to { color: #ff2abf; }
+}
+
+@keyframes pink-to-red-text {
+  from { color: #ff2abf; }
+  to { color: #e9233e; }
+}
+
+@keyframes red-to-orange-text {
+  from { color: #e9233e; }
+  to { color: #ff6f00; }
 }
 
 .skillsville .bg {
@@ -581,7 +618,24 @@ img {
   background-color: #00d2ff;
 }
 
-/* Going up */
+/* For text color on load */
+.skillsville .text-orange {
+  color: #ff6f00;
+}
+
+.skillsville .text-pink {
+  color: #ff2abf;
+}
+
+.skillsville .text-red {
+  color: #e9233e;
+}
+
+.skillsville .text-blue {
+  color: #00d2ff;
+}
+
+/* Going up bg */
 .skillsville .bg-orange-to-red {
   animation: orange-to-red 1s ease 1;
   animation-fill-mode: forwards;
@@ -602,7 +656,28 @@ img {
   animation-fill-mode: forwards;
 }
 
-/* Going down */
+/* Going up text */
+.skillsville .text-orange-to-red {
+  animation: orange-to-red-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-red-to-pink {
+  animation: red-to-pink-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-pink-to-blue {
+  animation: pink-to-blue-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-blue-to-orange {
+  animation: blue-to-orange-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+/* Going down bg */
 .skillsville .bg-orange-to-blue {
   animation: orange-to-blue 1s ease 1;
   animation-fill-mode: forwards;
@@ -618,7 +693,23 @@ img {
   animation-fill-mode: forwards;
 }
 
-.skillsville .bg-red-to-orange {
-  animation: red-to-orange 1s ease 1;
+/* Going down text */
+.skillsville .text-orange-to-blue {
+  animation: orange-to-blue-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-blue-to-pink {
+  animation: blue-to-pink-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-pink-to-red {
+  animation: pink-to-red-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-red-to-orange {
+  animation: red-to-orange-text 1s ease 1;
   animation-fill-mode: forwards;
 }

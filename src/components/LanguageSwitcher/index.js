@@ -19,7 +19,7 @@ function LanguageSwitcher({ slug, allLocales }) {
             <div className={`${currentLang === node.code ? 'lang-border3' : 'lang-border-blank'}`}>
               <div className={`${currentLang === node.code ? 'lang-border2' : 'lang-border-blank'}`}>
                 <div className={`${currentLang === node.code ? 'lang-border1' : 'lang-border-blank'}`}>
-                  <div className={`language ${currentLang === node.code ? 'selected' : ''}`}>
+                  <div className={`language ${currentLang === node.code ? 'selected' : ''}`} id={`${node.code}-text`}>
                     {node.name}
                   </div>
                 </div>

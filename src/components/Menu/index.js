@@ -28,6 +28,7 @@ function Menu(props) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
         onSlideChange={onSlideChange}
+        allowTouchMove={false}
       >
         {selectionItems}
       </Swiper>

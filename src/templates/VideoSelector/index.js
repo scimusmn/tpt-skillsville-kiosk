@@ -6,7 +6,6 @@ import VideoPlayer from '@components/VideoPlayer';
 import Menu from '@components/Menu';
 import { SwiperSlide } from 'swiper/react';
 import { v4 as uuidv4 } from 'uuid';
-// import { get } from 'lodash';
 import AttractScreen from '../../components/AttractScreen';
 import Selection from '../../components/Selection';
 import SelectModal from '../../components/SelectModal';
@@ -185,14 +184,17 @@ function VideoSelector(all) {
     }
   }
 
+  // To apply background and text selection color transitions
   function getColorForSelection(selectionNumber) {
     const colors = ['orange', 'red', 'pink', 'blue'];
     const colorIndex = Math.floor(selectionNumber / 4) % colors.length;
     return colors[colorIndex];
   }
+
   const bgRef = useRef(null);
 
   function loadTextColor(prevPage, nextPage) {
+    // select color on load
     if (prevPage === null) {
       for (let i = 0; i < allLocales.length; i += 1) {
         if (document.getElementById(`${allLocales[i].node.code}-text`) !== null
@@ -201,6 +203,7 @@ function VideoSelector(all) {
         }
       }
     }
+    // select color on swipe
     if (prevPage !== null) {
       for (let i = 0; i < allLocales.length; i += 1) {
         if (document.getElementById(`${allLocales[i].node.code}-text`).className.includes('selected')) {
@@ -226,7 +229,6 @@ function VideoSelector(all) {
   }
 
   const setUrlParam = (key, value) => {
-    // console.log('setUrlParam:', key, value);
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.set(key, value);
@@ -246,7 +248,7 @@ function VideoSelector(all) {
       if (bgRef.current !== null) {
         bgRef.current.classList = `bg bg-${getColorForSelection(prevIndex)}-to-${getColorForSelection(realIndex)}`;
       }
-      // Change language text color
+      // Change selected language text color
       loadTextColor(prevIndex, realIndex);
     }
   };

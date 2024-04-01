@@ -5,6 +5,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import border from '../../styles/img/border-svg.svg';
+import noSound from '../../styles/wrong.wav';
+import yesSound from '../../styles/notification.mp3';
 
 function SelectModal(props) {
   const {
@@ -12,6 +14,9 @@ function SelectModal(props) {
   } = props;
 
   const soundRef = useRef(null);
+  const yesSoundRef = useRef(null);
+  const noSoundRef = useRef(null);
+
   const [startCloseAnimation, setStartCloseAnimation] = useState(false);
   const [startContinueAnimation, setStartContinueAnimation] = useState(false);
 
@@ -26,6 +31,18 @@ function SelectModal(props) {
   }, [modalShow]);
 
   useEffect(() => {
+    if (startCloseAnimation) {
+      noSoundRef.current.currentTime = 0;
+      noSoundRef.current.play().catch((error) => console.log('Could not play sound:', error));
+    } else {
+      noSoundRef.current.pause();
+    }
+    if (startContinueAnimation) {
+      yesSoundRef.current.currentTime = 0;
+      yesSoundRef.current.play().catch((error) => console.log('Could not play sound:', error));
+    } else {
+      yesSoundRef.current.pause();
+    }
   }, [startCloseAnimation, startContinueAnimation]);
 
   function choose(choice) {
@@ -49,6 +66,8 @@ function SelectModal(props) {
   return (
     <div id="modal" className={`modal-container ${modalShow ? 'modal-show' : 'modal-hide'}`}>
       <audio id="modalSound" src={currentSelection.narrationAsset} preload="auto" ref={soundRef} />
+      <audio id="noSound" src={noSound} preload="auto" ref={noSoundRef} />
+      <audio id="yesSound" src={yesSound} preload="auto" ref={yesSoundRef} />
       <div
         className="thumb-container thumb-modal"
         style={{

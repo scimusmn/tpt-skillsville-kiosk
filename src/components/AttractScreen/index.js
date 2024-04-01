@@ -5,6 +5,7 @@
 
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import clickSound from '../../styles/click.mp3';
 
 const VideoSelectionKeys = {
   RANDOM: 'RANDOM', // Select a random video from all selections in video selector
@@ -15,6 +16,7 @@ function AttractScreen({
   pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool, attractLogo,
 }) {
   const videoRef = useRef(null);
+  const soundRef = useRef(null);
   const [playbackIndex, setPlaybackIndex] = useState(0);
 
   const getNextVideo = () => {
@@ -50,7 +52,15 @@ function AttractScreen({
   const goToMenu = () => {
     videoRef.current.pause();
     // videoRef.current.src = ''; // Clear current video
-    setMenuShow(true);
+    soundRef.current.currentTime = 0;
+    soundRef.current.play().then(() => {
+      console.log('audio!');
+      setMenuShow(true);
+    }).catch((error) => {
+      console.log('Could not play sound:', error);
+      setMenuShow(true);
+    });
+    // setMenuShow(true);
     reset(); // Resume idle timer
   };
 
@@ -79,6 +89,7 @@ function AttractScreen({
           <img src={attractLogo} alt="" />
         </div>
       </div>
+      <audio id="clickSound" src={clickSound} preload="auto" ref={soundRef} />
     </div>
   );
 }

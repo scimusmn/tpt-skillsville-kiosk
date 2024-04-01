@@ -21,9 +21,9 @@ function Menu(props) {
         slidesPerGroup={4}
         spaceBetween={80}
         loop
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         navigation
         modules={[Pagination, Navigation]}
         className="mySwiper"

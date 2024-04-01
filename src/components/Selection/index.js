@@ -1,26 +1,40 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/forbid-prop-types */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import border from '../../styles/img/border-svg.svg';
+import select from '../../styles/select.wav';
 
 function Selection(props) {
   const {
     item, setCurrentSelection, setModalShow, menuShow,
   } = props;
 
+  const soundRef = useRef(null);
+
   function popModal() {
     setModalShow(true);
     setCurrentSelection(item);
   }
 
+  function playSelect() {
+    soundRef.current.currentTime = 0;
+    soundRef.current.play().then(() => {
+      console.log('audio!');
+    }).catch((error) => {
+      console.log('Could not play sound:', error);
+      popModal();
+    });
+  }
+
   return (
     <>
       {item.thumbnail !== '' && (
-      <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => popModal()}>
+      <div className={`${menuShow ? 'show-selection' : 'hide-selection'}`} onClick={() => playSelect()}>
         <div
           className="thumb-container"
           style={{
@@ -44,6 +58,7 @@ function Selection(props) {
           </clipPath>
         </defs>
       </svg>
+      <audio id="select" src={select} preload="auto" ref={soundRef} onEnded={() => popModal()} />
     </>
   );
 }

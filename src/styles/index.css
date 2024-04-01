@@ -49,7 +49,6 @@ img {
 */
 
 .skillsville.video-selector {
-  background-color: #ff6f00;
   height: 1080px;
   position: absolute;
   width: 1920px;
@@ -173,11 +172,11 @@ img {
   left: 1403px;
 }
 
-.skillsville .attract-wrapper.hide-attract-wrapper {
-  z-index: -5;
-}
-
 /* .skillsville .attract-wrapper.hide-attract-wrapper {
+  z-index: -5;
+} */
+
+.skillsville .attract-wrapper.hide-attract-wrapper {
   left: -100vw;
   transition: left 0.5s cubic-bezier(0.5, 0, 1, 1) 0.8s;
 }
@@ -190,7 +189,7 @@ img {
 .skillsville .attract-wrapper.hide-attract-wrapper .attract-cta {
   left: -100vw;
   transition: left 0.95s cubic-bezier(0.665, -0.11, 0.735, 0.045) 0.2s;
-} */
+}
 
 .attract-cta .attract-cta-text-ring {
   background: url("img/cta-ring.svg") no-repeat;
@@ -617,6 +616,22 @@ img {
   background-color: #00d2ff;
 }
 
+.skillsville .bg-orange-to-orange {
+  background-color: #ff6f00;
+}
+
+.skillsville .bg-red-to-red {
+  background-color: #e9233e;
+}
+
+.skillsville .bg-pink-to-pink {
+  background-color: #ff2abf;
+}
+
+.skillsville .bg-blue-to-blue {
+  background-color: #00d2ff;
+}
+
 /* For text color on load */
 .skillsville .text-orange {
   color: #ff6f00;
@@ -631,6 +646,22 @@ img {
 }
 
 .skillsville .text-blue {
+  color: #00d2ff;
+}
+
+.skillsville .text-orange-to-orange {
+  color: #ff6f00;
+}
+
+.skillsville .text-red-to-red {
+  color: #e9233e;
+}
+
+.skillsville .text-pink-to-pink {
+  color: #ff2abf;
+}
+
+.skillsville .text-blue-to-blue {
   color: #00d2ff;
 }
 
@@ -689,6 +720,11 @@ img {
 
 .skillsville .bg-pink-to-red {
   animation: pink-to-red 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .bg-red-to-orange {
+  animation: red-to-orange 1s ease 1;
   animation-fill-mode: forwards;
 }
 

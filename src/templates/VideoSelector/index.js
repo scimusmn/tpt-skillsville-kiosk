@@ -240,7 +240,6 @@ function VideoSelector(all) {
       if (typeof value === 'number') {
         document.getElementById('bgRef').className = `bg bg-${getColorForSelection(currentPage)}-to-${getColorForSelection(value)}`;
         loadTextColor(currentPage, value);
-        console.log(document.getElementById('bgRef').className);
       }
 
       urlParams.set(key, value);
@@ -250,19 +249,9 @@ function VideoSelector(all) {
   };
 
   const onSlideChange = (swiper) => {
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const prevIndex = parseInt(urlParams.get('carouselIndex'), 10);
     if (typeof window !== 'undefined') {
       const { realIndex } = swiper;
       setUrlParam('carouselIndex', realIndex);
-
-      // set background color on swipe
-      // if (bgRef.current !== null) {
-      //   bgRef.current.className = `bg bg-${getColorForSelection(prevIndex)}-
-      // to-${getColorForSelection(realIndex)}`;
-      // }
-      // Change selected language text color
-      // loadTextColor(prevIndex, realIndex);
     }
   };
 
@@ -277,14 +266,6 @@ function VideoSelector(all) {
     }
     if (menuShow) {
       setUrlParam('state', 'selection');
-      // load page background color and selected language text color
-      // const urlParams = new URLSearchParams(window.location.search);
-      // const currentPage = urlParams.get('carouselIndex');
-      // if (bgRef.current !== null) {
-      //   bgRef.current.classList = `bg bg-${getColorForSelection(currentPage)}`;
-      // }
-      // console.log(currentPage, 'currentPage', loadTextColor(null, currentPage));
-      // loadTextColor(null, currentPage);
     }
   }, [currentSelection, modalSel, videoShow, menuShow]);
 

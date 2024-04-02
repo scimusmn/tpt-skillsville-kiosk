@@ -190,7 +190,7 @@ function VideoSelector(all) {
 
   // To apply background and text selection color transitions
   function getColorForSelection(selectionNumber) {
-    const colors = ['orange', 'red', 'pink', 'blue'];
+    const colors = ['orange', 'red', 'pink', 'purple'];
     const colorIndex = Math.floor(selectionNumber / 4) % colors.length;
     return colors[colorIndex];
   }

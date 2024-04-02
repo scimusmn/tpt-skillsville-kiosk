@@ -519,13 +519,13 @@ img {
   to { background-color: #ff2abf; }
 }
 
-@keyframes pink-to-blue {
+@keyframes pink-to-purple {
   from { background-color: #ff2abf; }
-  to { background-color: #00d2ff; }
+  to { background-color: #b365fe; }
 }
 
-@keyframes blue-to-orange {
-  from { background-color: #00d2ff; }
+@keyframes purple-to-orange {
+  from { background-color: #b365fe; }
   to { background-color: #ff6f00; }
 }
 
@@ -540,24 +540,24 @@ img {
   to { color: #ff2abf; }
 }
 
-@keyframes pink-to-blue-text {
+@keyframes pink-to-purple-text {
   from { color: #ff2abf; }
-  to { color: #00d2ff; }
+  to { color: #b365fe; }
 }
 
-@keyframes blue-to-orange-text {
-  from { color: #00d2ff; }
+@keyframes purple-to-orange-text {
+  from { color: #b365fe; }
   to { color: #ff6f00; }
 }
 
 /* Index going down bg */
-@keyframes orange-to-blue {
+@keyframes orange-to-purple {
   from { background-color: #ff6f00; }
-  to { background-color: #00d2ff; }
+  to { background-color: #b365fe; }
 }
 
-@keyframes blue-to-pink {
-  from { background-color: #00d2ff; }
+@keyframes purple-to-pink {
+  from { background-color: #b365fe; }
   to { background-color: #ff2abf; }
 }
 
@@ -572,13 +572,13 @@ img {
 }
 
 /* Index going down text */
-@keyframes orange-to-blue-text {
+@keyframes orange-to-purple-text {
   from { color: #ff6f00; }
-  to { color: #00d2ff; }
+  to { color: #b365fe; }
 }
 
-@keyframes blue-to-pink-text {
-  from { color: #00d2ff; }
+@keyframes purple-to-pink-text {
+  from { color: #b365fe; }
   to { color: #ff2abf; }
 }
 
@@ -612,8 +612,8 @@ img {
   background-color: #e9233e;
 }
 
-.skillsville .bg-blue {
-  background-color: #00d2ff;
+.skillsville .bg-purple {
+  background-color: #b365fe;
 }
 
 .skillsville .bg-orange-to-orange {
@@ -628,8 +628,8 @@ img {
   background-color: #ff2abf;
 }
 
-.skillsville .bg-blue-to-blue {
-  background-color: #00d2ff;
+.skillsville .bg-purple-to-purple {
+  background-color: #b365fe;
 }
 
 /* For text color on load */
@@ -645,8 +645,8 @@ img {
   color: #e9233e;
 }
 
-.skillsville .text-blue {
-  color: #00d2ff;
+.skillsville .text-purple {
+  color: #b365fe;
 }
 
 .skillsville .text-orange-to-orange {
@@ -661,8 +661,8 @@ img {
   color: #ff2abf;
 }
 
-.skillsville .text-blue-to-blue {
-  color: #00d2ff;
+.skillsville .text-purple-to-purple {
+  color: #b365fe;
 }
 
 /* Going up bg */
@@ -676,13 +676,13 @@ img {
   animation-fill-mode: forwards;
 }
 
-.skillsville .bg-pink-to-blue {
-  animation: pink-to-blue 1s ease 1;
+.skillsville .bg-pink-to-purple {
+  animation: pink-to-purple 1s ease 1;
   animation-fill-mode: forwards;
 }
 
-.skillsville .bg-blue-to-orange {
-  animation: blue-to-orange 1s ease 1;
+.skillsville .bg-purple-to-orange {
+  animation: purple-to-orange 1s ease 1;
   animation-fill-mode: forwards;
 }
 
@@ -697,24 +697,24 @@ img {
   animation-fill-mode: forwards;
 }
 
-.skillsville .text-pink-to-blue {
-  animation: pink-to-blue-text 1s ease 1;
+.skillsville .text-pink-to-purple {
+  animation: pink-to-purple-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 
-.skillsville .text-blue-to-orange {
-  animation: blue-to-orange-text 1s ease 1;
+.skillsville .text-purple-to-orange {
+  animation: purple-to-orange-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 
 /* Going down bg */
-.skillsville .bg-orange-to-blue {
-  animation: orange-to-blue 1s ease 1;
+.skillsville .bg-orange-to-purple {
+  animation: orange-to-purple 1s ease 1;
   animation-fill-mode: forwards;
 }
 
-.skillsville .bg-blue-to-pink {
-  animation: blue-to-pink 1s ease 1;
+.skillsville .bg-purple-to-pink {
+  animation: purple-to-pink 1s ease 1;
   animation-fill-mode: forwards;
 }
 
@@ -729,13 +729,13 @@ img {
 }
 
 /* Going down text */
-.skillsville .text-orange-to-blue {
-  animation: orange-to-blue-text 1s ease 1;
+.skillsville .text-orange-to-purple {
+  animation: orange-to-purple-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 
-.skillsville .text-blue-to-pink {
-  animation: blue-to-pink-text 1s ease 1;
+.skillsville .text-purple-to-pink {
+  animation: purple-to-pink-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 

@@ -209,7 +209,8 @@ function VideoSelector(all) {
     // select color on swipe
     if (prevPage !== null) {
       for (let i = 0; i < allLocales.length; i += 1) {
-        if (document.getElementById(`${allLocales[i].node.code}-text`).className.includes('selected')) {
+        if (document.getElementById(`${allLocales[i].node.code}-text`) !== null
+          && document.getElementById(`${allLocales[i].node.code}-text`).className.includes('selected')) {
           document.getElementById(`${allLocales[i].node.code}-text`).className = `language selected text-${getColorForSelection(prevPage)}-to-${getColorForSelection(nextPage)}`;
         }
       }

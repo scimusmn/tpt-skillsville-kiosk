@@ -748,3 +748,70 @@ img {
   animation: red-to-orange-text 1s ease 1;
   animation-fill-mode: forwards;
 }
+
+/* make active language button styles match background color */
+.skillsville .bg-orange .language-switcher a:active {
+  color: #ff6f00 !important;
+}
+
+.skillsville .bg-red .language-switcher a:active {
+  color: #e9233e !important;
+}
+
+.skillsville .bg-pink .language-switcher a:active {
+  color: #ff2abf !important;
+}
+
+.skillsville .bg-purple .language-switcher a:active {
+  color: #b365fe !important;
+}
+
+.skillsville .bg-orange-to-orange .language-switcher a:active {
+  color: #ff6f00 !important;
+}
+
+.skillsville .bg-red-to-red .language-switcher a:active {
+  color: #e9233e !important;
+}
+
+.skillsville .bg-pink-to-pink .language-switcher a:active {
+  color: #ff2abf !important;
+}
+
+.skillsville .bg-purple-to-purple .language-switcher a:active {
+  color: #b365fe !important;
+}
+
+/* for active language buttons index going up */
+.skillsville .bg-orange-to-red .language-switcher a:active {
+  color: #e9233e !important;
+}
+
+.skillsville .bg-red-to-pink .language-switcher a:active {
+  color: #ff2abf !important;
+}
+
+.skillsville .bg-pink-to-purple .language-switcher a:active {
+  color: #b365fe !important;
+}
+
+.skillsville .bg-purple-to-orange .language-switcher a:active {
+  color: #ff6f00 !important;
+}
+
+/* for active language buttons index going up */
+.skillsville .bg-orange-to-purple .language-switcher a:active {
+  color: #b365fe !important;
+}
+
+.skillsville .bg-red-to-orange .language-switcher a:active {
+  color: #ff6f00 !important;
+}
+
+.skillsville .bg-pink-to-red .language-switcher a:active {
+  color: #e9233e !important;
+}
+
+.skillsville .bg-purple-to-pink .language-switcher a:active {
+  color: #ff2abf !important;
+}

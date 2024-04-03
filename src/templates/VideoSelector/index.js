@@ -358,6 +358,7 @@ function VideoSelector(all) {
           allLocales={allLocales}
           otherLocales={otherLocales}
           slug={defaultSelector.slug}
+          getColorForSelection={getColorForSelection}
         />
         )}
       </div>

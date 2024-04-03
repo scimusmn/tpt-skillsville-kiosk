@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-no-bind */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import { useIdleTimer } from 'react-idle-timer';
 import VideoPlayer from '@components/VideoPlayer';
@@ -16,6 +16,7 @@ import logger from '../../utils/Logger';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import clickSound from '../../styles/click.mp3';
 
 export const pageQuery = graphql`
 
@@ -162,7 +163,7 @@ function VideoSelector(all) {
   const [videoShow, setVideoShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
 
-  // const soundRef = useRef(null);
+  const soundRef = useRef(null);
 
   let skipAttract = false;
   if (typeof window !== 'undefined') {
@@ -256,12 +257,15 @@ function VideoSelector(all) {
       const { realIndex } = swiper;
       setUrlParam('carouselIndex', realIndex);
     }
-    // if (soundRef.current) {
-    //   soundRef.current.currentTime = 0;
-    //   soundRef.current.play().catch((error) => {
-    //     console.log('Could not play sound:', error);
-    //   });
-    // }
+  };
+
+  const onRealIndexChange = () => {
+    if (soundRef.current) {
+      soundRef.current.currentTime = 0;
+      soundRef.current.play().catch((error) => {
+        console.log('Could not play sound:', error);
+      });
+    }
   };
 
   useEffect(() => {
@@ -317,12 +321,14 @@ function VideoSelector(all) {
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
+      <audio id="clickSound" src={clickSound} preload="auto" ref={soundRef} />
       <div id="bgRef" className="bg">
         {menuShow && (
           <Menu
             selectionItems={selectionItems}
             initialSlide={initialSlide}
             onSlideChange={onSlideChange}
+            onRealIndexChange={onRealIndexChange}
           />
         )}
         <SelectModal

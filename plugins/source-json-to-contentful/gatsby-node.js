@@ -42,6 +42,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       inactivityDelay: globalSettings.inactivityDelay,
       randomizeSelections: globalSettings.randomizeSelections,
       attractLogo: globalSettings.attractLogo,
+      soundAssets: globalSettings.soundAssets,
       attractPlaylist: attractPlaylist || [],
       titleDisplay: data.titleDisplay || defaultData.titleDisplay || 'Video Selector',
       selections: data.videoSelections.map((selection, index) => ({

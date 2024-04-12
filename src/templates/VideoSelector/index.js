@@ -31,6 +31,7 @@ export const pageQuery = graphql`
       modalYes
       pageSelection
       attractExit
+      languageChange
       videoSelection
     }
     attractLogo

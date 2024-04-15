@@ -26,6 +26,14 @@ export const pageQuery = graphql`
     titleDisplay
     inactivityDelay
     randomizeSelections
+    soundAssets {
+      modalNo
+      modalYes
+      pageSelection
+      attractExit
+      languageChange
+      videoSelection
+    }
     attractLogo
     attractPlaylist
     selections {
@@ -99,7 +107,9 @@ function VideoSelector(all) {
     [defaultSelector] = selectors; // Default to first selector if default locale is not available
   }
 
-  const { attractPlaylist } = defaultSelector;
+  const { attractPlaylist, soundAssets } = defaultSelector;
+
+  console.log('soundAssets', soundAssets);
 
   // Create a pool of videos for random selection
   const attractVideoPool = defaultSelector.selections.map(
@@ -181,6 +191,11 @@ function VideoSelector(all) {
         locale: defaultSelector.node_locale,
       };
       logger.log(logger.EVENTS.LANGUAGE_CHANGE, eventData);
+      // Load and play a sound effect
+      const languageSound = new Audio(soundAssets.languageChange);
+      languageSound.play().catch((error) => {
+        console.log('Could not play sound:', error);
+      });
     }
 
     if (state === 'selection') {

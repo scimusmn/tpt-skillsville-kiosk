@@ -3,7 +3,15 @@
         "id": "skillsville",
         "inactivityDelay": 45,
         "randomizeSelections": true,
-        "attractLogo": "/assets/images/attract-logo.png"
+        "attractLogo": "/assets/images/attract-logo.png",
+        "soundAssets": {
+            "attractExit": "/assets/audio/click.mp3",
+            "pageSelection": "/assets/audio/click.mp3",
+            "languageChange": "/assets/audio/click.mp3",
+            "videoSelection": "/assets/audio/click.mp3",
+            "modalYes": "/assets/audio/click.mp3",
+            "modalNo": "/assets/audio/click.mp3"
+        }
     },
     "attractPlaylist": [
         "/assets/videos/fpo-skillsville.mp4",

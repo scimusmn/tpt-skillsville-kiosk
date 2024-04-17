@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/forbid-prop-types */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Swiper } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
@@ -9,8 +9,20 @@ import logo from '../../styles/img/logo.png';
 
 function Menu(props) {
   const {
-    selectionItems, initialSlide, onSlideChange, onRealIndexChange,
+    selectionItems, initialSlide, onSlideChange, sound,
   } = props;
+
+  const playAudio = () => {
+    const pageSound = new Audio(sound);
+    pageSound.play().catch((error) => {
+      console.log('Could not play sound:', error);
+    });
+  };
+
+  useEffect(() => {
+    document.getElementsByClassName('swiper-button-next')[0].addEventListener('click', playAudio);
+    document.getElementsByClassName('swiper-button-prev')[0].addEventListener('click', playAudio);
+  }, []);
 
   const localSlideChange = (swiper) => {
     const { realIndex, slides } = swiper;
@@ -42,7 +54,6 @@ function Menu(props) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
         onSlideChange={localSlideChange}
-        onRealIndexChange={onRealIndexChange}
       >
         {selectionItems}
       </Swiper>
@@ -54,7 +65,7 @@ Menu.propTypes = {
   selectionItems: PropTypes.array.isRequired,
   initialSlide: PropTypes.number.isRequired,
   onSlideChange: PropTypes.func.isRequired,
-  onRealIndexChange: PropTypes.func.isRequired,
+  sound: PropTypes.string.isRequired,
 };
 
 export default Menu;

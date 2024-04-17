@@ -5,12 +5,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import border from '../../styles/img/border-svg.svg';
-import noSound from '../../styles/wrong.wav';
-import yesSound from '../../styles/notification.mp3';
 
 function SelectModal(props) {
   const {
-    setModalSel, modalShow, setModalShow, setVideoShow, setMenuShow, currentSelection,
+    setModalSel,
+    modalShow,
+    setModalShow,
+    setVideoShow,
+    setMenuShow,
+    currentSelection,
+    noSound,
+    yesSound,
   } = props;
 
   const soundRef = useRef(null);
@@ -104,6 +109,8 @@ SelectModal.propTypes = {
   modalShow: PropTypes.bool.isRequired,
   setMenuShow: PropTypes.func.isRequired,
   currentSelection: PropTypes.object.isRequired,
+  noSound: PropTypes.string.isRequired,
+  yesSound: PropTypes.string.isRequired,
 };
 
 export default SelectModal;

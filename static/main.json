@@ -8,9 +8,9 @@
             "attractExit": "/assets/audio/click.mp3",
             "pageSelection": "/assets/audio/click.mp3",
             "languageChange": "/assets/audio/click.mp3",
-            "videoSelection": "/assets/audio/click.mp3",
-            "modalYes": "/assets/audio/click.mp3",
-            "modalNo": "/assets/audio/click.mp3"
+            "videoSelection": "/assets/audio/select.wav",
+            "modalYes": "/assets/audio/modal-yes.mp3",
+            "modalNo": "/assets/audio/modal-no.wav"
         }
     },
     "attractPlaylist": [

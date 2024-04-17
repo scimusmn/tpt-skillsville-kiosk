@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-/* eslint-disable max-len */
 /* eslint-disable react/jsx-no-bind */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { useIdleTimer } from 'react-idle-timer';
 import VideoPlayer from '@components/VideoPlayer';
@@ -16,7 +15,6 @@ import logger from '../../utils/Logger';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import clickSound from '../../styles/click.mp3';
 
 export const pageQuery = graphql`
 
@@ -149,6 +147,7 @@ function VideoSelector(all) {
       thumbnails: getLocales('thumbnail', index),
       videoAsset: selection.videoAsset?.localFile.publicURL,
       videoAssets: getLocales('videoAsset', index),
+      sound: soundAssets.videoSelection,
     };
     return selectionObject;
   });
@@ -163,6 +162,7 @@ function VideoSelector(all) {
     thumbnails: getLocales('thumbnail', 0),
     videoAsset: '',
     videoAssets: getLocales('videoAsset', 0),
+    sound: '',
   };
 
   const [currentSelection, setCurrentSelection] = useState(blankSelection);
@@ -170,8 +170,6 @@ function VideoSelector(all) {
 
   const [videoShow, setVideoShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
-
-  const soundRef = useRef(null);
 
   let skipAttract = false;
   if (typeof window !== 'undefined') {
@@ -273,15 +271,6 @@ function VideoSelector(all) {
     }
   };
 
-  const onRealIndexChange = () => {
-    if (soundRef.current) {
-      soundRef.current.currentTime = 0;
-      soundRef.current.play().catch((error) => {
-        console.log('Could not play sound:', error);
-      });
-    }
-  };
-
   useEffect(() => {
     if (modalSel === 'yes') {
       const eventData = {
@@ -324,6 +313,7 @@ function VideoSelector(all) {
         setCurrentSelection={setCurrentSelection}
         setModalShow={setModalShow}
         menuShow={menuShow}
+        sound={i.sound}
       />
     </SwiperSlide>
   ));
@@ -335,14 +325,13 @@ function VideoSelector(all) {
 
   return (
     <div className={`video-selector ${defaultSelector.slug}`}>
-      <audio id="clickSound" src={clickSound} preload="auto" ref={soundRef} />
       <div id="bgRef" className="bg">
         {menuShow && (
           <Menu
             selectionItems={selectionItems}
             initialSlide={initialSlide}
             onSlideChange={onSlideChange}
-            onRealIndexChange={onRealIndexChange}
+            sound={soundAssets.pageSelection}
           />
         )}
         <SelectModal
@@ -352,6 +341,8 @@ function VideoSelector(all) {
           setVideoShow={setVideoShow}
           setMenuShow={setMenuShow}
           currentSelection={currentSelection}
+          noSound={soundAssets.modalNo}
+          yesSound={soundAssets.modalYes}
         />
         <VideoPlayer
           currentSelection={currentSelection}
@@ -372,6 +363,7 @@ function VideoSelector(all) {
           playlist={attractPlaylist}
           videoPool={attractVideoPool}
           attractLogo={defaultSelector.attractLogo}
+          sound={soundAssets.attractExit}
         />
         {otherLocales.length > 0 && menuShow && (
         <LanguageSwitcher

@@ -172,6 +172,7 @@ function VideoSelector(all) {
   const [modalShow, setModalShow] = useState(false);
 
   const soundRef = useRef(null);
+  const soundLockTimestamp = useRef(Date.now());
 
   let skipAttract = false;
   if (typeof window !== 'undefined') {
@@ -273,12 +274,25 @@ function VideoSelector(all) {
     }
   };
 
-  const onRealIndexChange = () => {
-    if (soundRef.current) {
-      soundRef.current.currentTime = 0;
-      soundRef.current.play().catch((error) => {
-        console.log('Could not play sound:', error);
-      });
+  const onRealIndexChange = (swiper) => {
+    // Exit if sound reference is not available
+    if (!soundRef.current) return;
+
+    const lastIndex = swiper.slides.length - 6; // '6' is an assumption representing 'slidesPerView'
+
+    // Check if swiper is on the problematic final page to potentially skip sound
+    if (swiper.realIndex === lastIndex && swiper.activeIndex === lastIndex) {
+      soundLockTimestamp.current = Date.now();
+    } else {
+      const timeSinceLastSoundLock = Date.now() - soundLockTimestamp.current;
+
+      // Play sound only if more than 100ms have passed since last sound lock
+      if (timeSinceLastSoundLock > 100) {
+        soundRef.current.currentTime = 0;
+        soundRef.current.play().catch((error) => {
+          console.error('Error playing sound:', error);
+        });
+      }
     }
   };
 

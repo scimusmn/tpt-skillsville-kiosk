@@ -109,8 +109,6 @@ function VideoSelector(all) {
 
   const { attractPlaylist, soundAssets } = defaultSelector;
 
-  console.log('soundAssets', soundAssets);
-
   // Create a pool of videos for random selection
   const attractVideoPool = defaultSelector.selections.map(
     (selection) => selection.videoAsset.localFile.publicURL,

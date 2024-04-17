@@ -12,6 +12,21 @@ function Menu(props) {
     selectionItems, initialSlide, onSlideChange, onRealIndexChange,
   } = props;
 
+  const localSlideChange = (swiper) => {
+    const { realIndex, slides } = swiper;
+    // The spooky index we can catch is always 6 (slidesPerView)
+    // less than the total number of slides.
+    const errSlideIndex = slides.length - 6;
+    // This hack ensures that when a video is selected while on the last page,
+    // the swiper will retain the same page instead of reverting.
+    if (realIndex === errSlideIndex) {
+      setTimeout(() => {
+        swiper.slideToLoop(errSlideIndex + 2, 0);
+      }, 5);
+    }
+    onSlideChange(swiper);
+  };
+
   return (
     <>
       <div className="logo">
@@ -23,15 +38,11 @@ function Menu(props) {
         slidesPerGroup={4}
         spaceBetween={80}
         loop
-        // pagination={{
-        //   clickable: true,
-        // }}
         navigation
         modules={[Pagination, Navigation]}
         className="mySwiper"
-        onSlideChange={onSlideChange}
+        onSlideChange={localSlideChange}
         onRealIndexChange={onRealIndexChange}
-        // allowTouchMove={false}
       >
         {selectionItems}
       </Swiper>

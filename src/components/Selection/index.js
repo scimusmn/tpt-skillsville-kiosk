@@ -7,13 +7,11 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import border from '../../styles/img/border-svg.svg';
-import select from '../../styles/select.wav';
 
 function Selection(props) {
   const {
-    item, setCurrentSelection, setModalShow, menuShow,
+    item, setCurrentSelection, setModalShow, menuShow, sound,
   } = props;
-
   const soundRef = useRef(null);
 
   function popModal() {
@@ -24,7 +22,6 @@ function Selection(props) {
   function playSelect() {
     soundRef.current.currentTime = 0;
     soundRef.current.play().then(() => {
-      console.log('audio!');
     }).catch((error) => {
       console.log('Could not play sound:', error);
       popModal();
@@ -58,7 +55,7 @@ function Selection(props) {
           </clipPath>
         </defs>
       </svg>
-      <audio id="select" src={select} preload="auto" ref={soundRef} onEnded={() => popModal()} />
+      <audio id="select" src={sound} preload="auto" ref={soundRef} onEnded={() => popModal()} />
     </>
   );
 }
@@ -68,6 +65,7 @@ Selection.propTypes = {
   setCurrentSelection: PropTypes.func.isRequired,
   setModalShow: PropTypes.func.isRequired,
   menuShow: PropTypes.bool.isRequired,
+  sound: PropTypes.string.isRequired,
 };
 
 export default Selection;

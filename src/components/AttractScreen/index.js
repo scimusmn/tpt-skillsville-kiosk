@@ -5,7 +5,6 @@
 
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import clickSound from '../../styles/click.mp3';
 
 const VideoSelectionKeys = {
   RANDOM: 'RANDOM', // Select a random video from all selections in video selector
@@ -13,7 +12,7 @@ const VideoSelectionKeys = {
 };
 
 function AttractScreen({
-  pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool, attractLogo,
+  pause, reset, menuShow, setMenuShow, videoShow, playlist, videoPool, attractLogo, sound,
 }) {
   const videoRef = useRef(null);
   const soundRef = useRef(null);
@@ -51,16 +50,13 @@ function AttractScreen({
 
   const goToMenu = () => {
     videoRef.current.pause();
-    // videoRef.current.src = ''; // Clear current video
     soundRef.current.currentTime = 0;
     soundRef.current.play().then(() => {
-      console.log('audio!');
       setMenuShow(true);
     }).catch((error) => {
       console.log('Could not play sound:', error);
       setMenuShow(true);
     });
-    // setMenuShow(true);
     reset(); // Resume idle timer
   };
 
@@ -89,7 +85,7 @@ function AttractScreen({
           <img src={attractLogo} alt="" />
         </div>
       </div>
-      <audio id="clickSound" src={clickSound} preload="auto" ref={soundRef} />
+      <audio id="exitSound" src={sound} preload="auto" ref={soundRef} />
     </div>
   );
 }
@@ -103,6 +99,7 @@ AttractScreen.propTypes = {
   playlist: PropTypes.array.isRequired,
   videoPool: PropTypes.array.isRequired,
   attractLogo: PropTypes.string.isRequired,
+  sound: PropTypes.string.isRequired,
 };
 
 export default AttractScreen;

@@ -529,6 +529,11 @@ img {
   to { background-color: #ff6f00; }
 }
 
+@keyframes pink-to-orange {
+  from { background-color: #ff2abf; }
+  to { background-color: #ff6f00; }
+}
+
 /* Index going up text */
 @keyframes orange-to-red-text {
   from { color: #ff6f00; }
@@ -548,6 +553,11 @@ img {
 @keyframes purple-to-orange-text {
   from { color: #b365fe; }
   to { color: #ff6f00; }
+}
+
+@keyframes orange-to-pink-text {
+  from { background-color: #ff6f00; }
+  to { background-color: #ff2abf; }
 }
 
 /* Index going down bg */
@@ -571,6 +581,11 @@ img {
   to { background-color: #ff6f00; }
 }
 
+@keyframes orange-to-pink {
+  from { background-color: #ff6f00; }
+  to { background-color: #ff2abf; }
+}
+
 /* Index going down text */
 @keyframes orange-to-purple-text {
   from { color: #ff6f00; }
@@ -589,6 +604,11 @@ img {
 
 @keyframes red-to-orange-text {
   from { color: #e9233e; }
+  to { color: #ff6f00; }
+}
+
+@keyframes pink-to-orange-text {
+  from { color: #ff2abf; }
   to { color: #ff6f00; }
 }
 
@@ -686,6 +706,11 @@ img {
   animation-fill-mode: forwards;
 }
 
+.skillsville .bg-pink-to-orange {
+  animation: pink-to-orange 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
 /* Going up text */
 .skillsville .text-orange-to-red {
   animation: orange-to-red-text 1s ease 1;
@@ -704,6 +729,11 @@ img {
 
 .skillsville .text-purple-to-orange {
   animation: purple-to-orange-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-pink-to-orange {
+  animation: pink-to-orange-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 
@@ -728,6 +758,11 @@ img {
   animation-fill-mode: forwards;
 }
 
+.skillsville .bg-orange-to-pink {
+  animation: orange-to-pink 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
 /* Going down text */
 .skillsville .text-orange-to-purple {
   animation: orange-to-purple-text 1s ease 1;
@@ -746,6 +781,11 @@ img {
 
 .skillsville .text-red-to-orange {
   animation: red-to-orange-text 1s ease 1;
+  animation-fill-mode: forwards;
+}
+
+.skillsville .text-orange-to-pink {
+  animation: orange-to-pink-text 1s ease 1;
   animation-fill-mode: forwards;
 }
 
